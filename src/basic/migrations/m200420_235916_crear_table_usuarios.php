@@ -15,8 +15,10 @@ class m200420_235916_crear_table_usuarios extends Migration
         $this->createTable('usuario', [
             'id' => $this->primaryKey(),
             'username' => $this->text()->notNull(),
-            'email' => $this->text()->notNull(),
-            'password' => $this->string(255)->notNull(),
+            'email' => $this->text()->Null(),
+            'password' => $this->string(255)->Null(),
+            'authKey' => $this->string(255),
+            'accessToken' => $this->string(255)
         ]);
     }
 
