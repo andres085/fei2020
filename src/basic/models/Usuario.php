@@ -59,20 +59,20 @@ class Usuario extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery|UsuarioPersonajeQuery
      */
-    /*public function getUsuarioPersonajes()
+    public function getUsuarioPersonajes()
     {
         return $this->hasMany(UsuarioPersonaje::className(), ['usuario_id' => 'id']);
-    }*/
+    }
 
     /**
      * Gets query for [[Personajes]].
      *
      * @return \yii\db\ActiveQuery|PersonajeQuery
      */
-    /*public function getPersonajes()
+    public function getPersonajes()
     {
         return $this->hasMany(Personaje::className(), ['id' => 'personaje_id'])->viaTable('usuario_personaje', ['usuario_id' => 'id']);
-    }*/
+    }
 
     /**
      * {@inheritdoc}
