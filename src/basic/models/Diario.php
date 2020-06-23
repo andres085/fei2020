@@ -63,10 +63,10 @@ class Diario extends \yii\db\ActiveRecord
 
     /**
      * {@inheritdoc}
-     * @return PersonajeQuery the active query used by this AR class.
+     * @return DiarioQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new PersonajeQuery(get_called_class());
+        return new DiarioQuery(get_called_class());
     }
 }

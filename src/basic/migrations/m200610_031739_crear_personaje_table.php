@@ -15,6 +15,7 @@ class m200610_031739_crear_personaje_table extends Migration
     {
         $this->createTable('personaje', [
             'id' => $this->primaryKey(),
+            'nombre' => $this->text()->notNull(),
             'raza' => $this->text()->notNull(),
             'clase' => $this->text()->notNull(),
             'trasfondo' => $this->text()->Null(),
