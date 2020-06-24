@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "personaje".
  *
  * @property int $id
+ * @property string $nombre
  * @property string $raza
  * @property string $clase
  * @property string|null $trasfondo
@@ -34,8 +35,8 @@ class Personaje extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['raza', 'clase'], 'required'],
-            [['raza', 'clase', 'trasfondo', 'dote'], 'string'],
+            [['nombre', 'raza', 'clase'], 'required'],
+            [['nombre', 'raza', 'clase', 'trasfondo', 'dote'], 'string'],
         ];
     }
 
@@ -46,6 +47,7 @@ class Personaje extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'nombre' => 'Nombre',
             'raza' => 'Raza',
             'clase' => 'Clase',
             'trasfondo' => 'Trasfondo',
@@ -76,7 +78,7 @@ class Personaje extends \yii\db\ActiveRecord
     /**
      * Gets query for [[UsuarioPersonajes]].
      *
-     * @return \yii\db\ActiveQuery|UsuarioPersonajeQuery
+     * @return \yii\db\ActiveQuery|PersonajeQuery
      */
     public function getUsuarioPersonajes()
     {
