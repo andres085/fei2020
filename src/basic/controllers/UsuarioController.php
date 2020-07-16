@@ -9,8 +9,9 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Usuario;
 
-class SiteController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -131,4 +132,24 @@ class SiteController extends Controller
      *
      * @return string
      */
+    public function actionRegistro()
+    {
+        $model = new Usuario();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                $model->username = $_POST['Usuario']['username'];
+                $model->password = password_hash($_POST['Usuario']['password'], PASSWORD_BCRYPT);
+                $model->authKey = md5(random_bytes(5));
+                $model->accessToken = password_hash(random_bytes(10), PASSWORD_DEFAULT);
+
+                if ($model->save()) {
+                    return $this->redirect(['index', 'id' => $model->id]);
+                }
+            }
+        }
+        return $this->render('registro', [
+            'model' => $model,
+        ]);
+    }
 }

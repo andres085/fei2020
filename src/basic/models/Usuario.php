@@ -17,7 +17,7 @@ use Yii;
  * @property UsuarioPersonaje[] $usuarioPersonajes
  * @property Personaje[] $personajes
  */
-class Usuario extends \yii\db\ActiveRecord
+class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -59,6 +59,42 @@ class Usuario extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery|UsuarioPersonajeQuery
      */
+
+    public static function findIdentity($id)
+    {
+        return self::findOne($id);
+    }
+
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        return self::findOne(['accessToken' => $token]);
+    }
+
+    public static function findByUsername($username)
+    {
+        return self::findOne(['username' => $username]);
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getAuthKey(): string
+    {
+        return $this->authKey;
+    }
+
+    public function validateAuthKey($authKey): bool
+    {
+        return $this->authKey === $authKey;
+    }
+
+    public function validatePassword($password)
+    {
+        return password_verify($password, $this->password);
+    }
+
     public function getUsuarioPersonajes()
     {
         return $this->hasMany(UsuarioPersonaje::className(), ['usuario_id' => 'id']);
