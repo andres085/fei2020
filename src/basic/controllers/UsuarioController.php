@@ -9,8 +9,9 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Usuario;
 
-class SiteController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -55,16 +56,6 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
-
-    /**
      * Login action.
      *
      * @return Response|string
@@ -99,36 +90,30 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays contact page.
+     * Displays create usuario page.
      *
-     * @return Response|string
+     * @return string
      */
-    public function actionContact()
+    public function actionCreate()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
+        $model = new Usuario();
 
-            return $this->refresh();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                $model->username = $_POST['Usuario']['username'];
+                $model->email = $_POST['Usuario']['email'];
+                $model->password = password_hash($_POST['Usuario']['password'], PASSWORD_BCRYPT);
+                $model->authKey = md5(random_bytes(5));
+                $model->accessToken = password_hash(random_bytes(10), PASSWORD_DEFAULT);
+
+                if ($model->save()) {
+                    return $this->redirect(['site/login', 'id' => $model->id]);
+                }
+            }
         }
-        return $this->render('contact', [
+
+        return $this->render('create', [
             'model' => $model,
         ]);
     }
-
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
-
-    /**
-     * Displays Vue page.
-     *
-     * @return string
-     */
 }
