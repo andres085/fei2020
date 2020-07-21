@@ -13,6 +13,19 @@
         
         <!--FONT AWESOME 5-->
         <script src="https://kit.fontawesome.com/b458f559f0.js" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <!--STEP WIZARD-->
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+
+    
+    
 
         <style>
             /* Chrome, Safari, Edge, Opera */
@@ -38,7 +51,36 @@
 
     <body>
 
-        <div class="container-fluid">
+        <div>
+            <template>
+                <form-wizard @on-complete="onComplete">
+                    <tab-content title="Personal details"
+                                icon="ti-user">
+                    My first tab content
+                    </tab-content>
+                    <tab-content title="Additional Info"
+                                icon="ti-settings">
+                    My second tab content
+                    </tab-content>
+                    <tab-content title="Last step"
+                                icon="ti-check">
+                    Yuhuuu! This seems pretty damn simple
+                    </tab-content>
+                </form-wizard>
+
+            </template>
+        </div>
+        <script>
+        Vue.use(VueFormWizard)
+        export default {
+            methods: {
+            onComplete: function(){
+                alert('Yay. Done!');
+            }
+            }
+        }
+        </script>
+         <!--<div class="container-fluid">
 
             <div class="row">
 
@@ -55,7 +97,7 @@
 
                 <div class="col-md-8">
 
-                    <!--NOMBRE-->
+                    <!--NOMBRE-
                     
                     <div class="container-fluid d-flex justify-content-center">
                         <div class="d-inline-block" style="text-align: center;">
@@ -66,7 +108,7 @@
                     
                     <hr>
 
-                    <!--RAZA-->
+                    <!--RAZA--
                     <div class="container-fluid">
                         <div style="text-align: center;">
                             <h1>Elige tu Raza</h1>
@@ -175,7 +217,7 @@
 
                     <hr>
 
-                    <!--CLASE-->
+                    <!--CLASE--
                     <div class="container-fluid">
                         <div style="text-align: center;">
                             <h1>Elige tu Clase</h1>
@@ -314,7 +356,7 @@
 
                     <hr>
 
-                    <!--STATS-->
+                    <!--STATS--
                     <div class="container-fluid">
 
                         <div style="text-align: center;">
@@ -478,7 +520,7 @@
                     
                     <hr>
 
-                    <!---->
+                    <!----
                     
                     
 
@@ -489,7 +531,7 @@
 
             </div>
 
-        </div>
+        </div> -->
 
         
 

@@ -1,53 +1,87 @@
 <?php
 
-/* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
+$this->title="Herramienta D&D";
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Herramienta D&D</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+        <!--FONT AWESOME 5-->
+        <script src="https://kit.fontawesome.com/b458f559f0.js" crossorigin="anonymous"></script>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <style>
+            .botones {
+                height: 15vh;
+                font-size: larger;
+            }
+        </style>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
+    </head>
+    
+    
+    
+    <body>
+       
+        <div class="container-fluid">
+            
+            <div class="row" style="height: 40vh;">
+                
+                <div class="col-md-12" style="text-align: center;">
+                    
+                    <br><br>
+                    <p>
+                        <h1>Bienvenido</h1>
+                        <h3>Hoy voy a ser:</h3>
+                    </p>
+                    
+                </div>
 
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+            <div class="row">
+
+                <div class="col-md-2">
+                    
+                </div>
+
+                <div class="col-md-8">
+                    <div class="container">
+                        <button type="button" class="btn btn-outline-dark btn-block botones" onclick="window.location.href='mod_player.html'">
+                            JUGADOR
+                        </button>
+                        <br>
+                        <h2 style="text-align: center; margin: 10px;">- O -</h2> 
+                        <br>
+                        <a><button type="button" class="btn btn-outline-dark btn-block botones">
+                            DUNGEON MASTER
+                        </button></a>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                </div>
+
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            
+            <div class="row h-20" >
+                
+                <div class="col-md-12">
+                </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
             </div>
         </div>
-
-    </div>
-</div>
+        
+    </body>
+</html>
