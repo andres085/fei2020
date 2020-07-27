@@ -21,7 +21,7 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
     <div class="col-md-12">
                     
-        <button class="btn btn-block btn-outline-dark" onclick="window.location.href='creador_pj.html'"><h2><i class="fas fa-plus"></i><br> Agregar Personaje</h2></button>
+        <button class="btn btn-block btn-outline-dark" onclick="window.location.href='creadorpj'"><h2><i class="fas fa-plus"></i><br> Agregar Personaje</h2></button>
         
         <div style="text-align: center;">
             <hr>

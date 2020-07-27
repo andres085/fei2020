@@ -58,7 +58,7 @@ $this->title="Herramienta D&D";
 
                 <div class="col-md-8">
                     <div class="container">
-                        <button type="button" class="btn btn-outline-dark btn-block botones" onclick="window.location.href='mod_player.html'">
+                        <button type="button" class="btn btn-outline-dark btn-block botones" onclick="window.location.href='moduloplayer'">
                             JUGADOR
                         </button>
                         <br>
