@@ -38,58 +38,24 @@ use app\assets\AppAsset;
 
 
     <link rel="stylesheet" href="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.min.css">
-<script src="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js"></script>
+    <script src="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js"></script>
 
     <style>
-     .btn-pjs {
-        width: 90%;
-        margin: 25px;
-        padding: 40px;
-    }
+        .btn-pjs {
+            width: 90%;
+            margin: 25px;
+            padding: 40px;
+        }
 
-    .radio-raza input[type="radio"] {
-        display:none;
-    }
-    
+        .radio-raza input[type="radio"] {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <?php $this->beginBody() ?>
 
-<<<<<<< HEAD
-<div class="wrap">
-    <?php
-    /*NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();*/
-    ?>
-=======
     <div class="wrap">
         <?php
         NavBar::begin([
@@ -117,7 +83,6 @@ use app\assets\AppAsset;
         ]);
         NavBar::end();
         ?>
->>>>>>> e45355a38b8899dc864c48d00fd27329730ebf9e
 
         <div class="container">
             <?= Breadcrumbs::widget([
