@@ -15,7 +15,7 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
         <div class="col-md-8 border">
 
-            <div class="row">
+            <div class="row my-3">
 
                 <div class="col-md-9">
                     <h1>Nombre</h1>
@@ -49,10 +49,12 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                 </div>
             </div>
 
-            <h1>Raza</h1>
+<hr>
+            
             <form>
-                <div class="radio-raza">
+                <div class="radio-custom my-3">
 
+                    <h1>Raza</h1>
 
                     <input type="radio" class="btn btn-outlin-dark" id="draco" value="Dracónido" v-model="raza">
                     <label for="draco">Dracónido</label>
@@ -83,9 +85,11 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
                 </div>
 
-                <h1>Clase</h1>
+                
 
-                <div class="radio-raza">
+                <div class="radio-custom my-3">
+
+                    <h1>Clase</h1>
 
                     <input type="radio" id="barbaro" value="Barbaro" v-model="clase">
                     <label for="barbaro">Barbaro</label>
@@ -126,26 +130,26 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                 </div>
 
                 <h1>Atributos</h1>
-
-
                 <div class="row my-3">
+
+                    
 
                     <div class="col-md-4 d-block" style="text-align:center">
                         <h4>Fuerza</h4>
-                        <input v-model="fuerza" ref="fue" type="number" min="3" max="18" class="form-control" placeholder="Fuerza" style="text-align:center; font-size:larger;">
+                        <input v-model="fuerza" ref="fue" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                         <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                     </div>
 
                     <div class="col-md-4 d-block" style="text-align:center">
                         <h4>Destreza</h4>
-                        <input v-model="destreza" ref="des" type="number" min="3" max="18" class="form-control" placeholder="Destreza" style="text-align:center; font-size:larger;">
+                        <input v-model="destreza" ref="des" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                         <button type="button" @click="destrezaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                     </div>
 
 
                     <div class="col-md-4 d-block" style="text-align:center">
                         <h4>Constitución</h4>
-                        <input v-model="constitucion" type="number" id="con" min="3" max="18" class="form-control" placeholder="Constitución" style="text-align:center; font-size:larger;">
+                        <input v-model="constitucion" type="number" id="con" min="3" max="18" class="form-control"  style="text-align:center; font-size:larger;">
                         <button type="button" @click="constitucionRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                     </div>
 
@@ -155,25 +159,137 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
                     <div class="col-md-4 d-block" style="text-align:center">
                         <h4>Inteligencia</h4>
-                        <input v-model="inteligencia" type="number" id="int" min="3" max="18" class="form-control" placeholder="Inteligencia" style="text-align:center; font-size:larger;">
+                        <input v-model="inteligencia" type="number" id="int" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                         <button type="button" @click="inteligenciaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                     </div>
 
                     <div class="col-md-4 d-block" style="text-align:center">
                         <h4>Sabiduria</h4>
-                        <input v-model="sabiduria" type="number" id="sab" min="3" max="18" class="form-control" placeholder="Sabiduria" style="text-align:center; font-size:larger;">
+                        <input v-model="sabiduria" type="number" id="sab" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                         <button type="button" @click="sabiduriaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                     </div>
 
 
                     <div class="col-md-4 d-block" style="text-align:center">
                         <h4>Carisma</h4>
-                        <input v-model="carisma" type="number" id="car" min="3" max="18" class="form-control" placeholder="Carisma" style="text-align:center; font-size:larger;">
+                        <input v-model="carisma" type="number" id="car" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                         <button type="button" @click="carismaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                     </div>
 
 
                 </div>
+
+
+
+                <div class="my-3">
+                    <h1>Trasfondo</h1>
+
+                    <select v-model="trasfondo">
+                        <option disabled value="">Seleccione un elemento</option>
+                        <option>Acólito</option>
+                        <option>Artesano</option>
+                        <option>Artista</option>
+                        <option>Charlatán</option>
+                        <option>Criminal</option>
+                        <option>Ermitaño</option>
+                        <option>Erudito</option>
+                        <option>Héroe del Pueblo</option>
+                        <option>Huérfano</option>
+                        <option>Marinero</option>
+                        <option>Noble</option>
+                        <option>Salvaje</option>
+                        <option>Soldado</option>
+                    </select>
+
+                </div>
+
+<hr>
+
+                <!-- <div class="my-3">
+                
+                    <h1>Información</h1>
+
+                    <div>
+                    
+                        <h3>Alineamiento</h3>
+
+                        <div class="w-75">
+
+                            <div class="row border radio-custom">
+
+                                <div class="col-md-3">    
+
+                                    <label>
+                                        <input id="lb" value="Legal Bueno" v-model="align" type="radio">Legal Bueno
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="nb" value="Neutral Bueno" v-model="align" type="radio">Neutral Bueno
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="cb" value="Caótico Bueno" v-model="align" type="radio">Caótico Bueno
+                                    </label>
+
+                                </div>
+                            </div>
+
+                            <div class="row border radio-custom">
+
+                                <div class="col-md-3">    
+
+                                    <label>
+                                        <input id="ln" value="Legal Neutral" v-model="align" type="radio">Legal Neutral
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="n" value="Neutral" v-model="align" type="radio"> Neutral
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="cn" value="Caótico Neutral" v-model="align" type="radio">Caótico Neutral
+                                    </label>
+
+                                </div>
+                            </div>
+
+                            <div class="row border radio-custom">
+
+                                <div class="col-md-3">    
+
+                                    <label>
+                                        <input id="lm" value="Legal Maligno" v-model="align" type="radio">Legal Maligno
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="nm" value="Neutral Maligno" v-model="align" type="radio">Neutral Maligno
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="cm" value="Caótico Maligno" v-model="align" type="radio">Caótico Maligno
+                                    </label>
+
+                                </div>
+                            </div>
+                                        
+
+                        </div>
+
+                    </div>
+
+                </div> -->
 
             </form>
 
@@ -186,12 +302,18 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                 <div class="card-body">
                     <h5 class="card-title">{{ nombre }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ raza }} {{ clase }} {{ nivel }}</h6>
-                    <p>Fuerza: {{ fuerza }}</p>
+                    <p>Fuerza: {{ fuerza }}</p> 
                     <p>Destreza: {{ destreza }}</p>
                     <p>Constitución: {{ constitucion }}</p>
                     <p>Inteligencia: {{ inteligencia }}</p>
                     <p>Sabiduria: {{ sabiduria }}</p>
                     <p>Carisma: {{ carisma }}</p>
+
+                    <hr>
+
+                    <p>Trasfondo:</p>
+                    {{ trasfondo }}
+
 
                 </div>
 
@@ -203,6 +325,8 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
 
 <script>
+
+
     var app = new Vue({
         el: '#app',
         data: {
@@ -213,13 +337,18 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
             raza: "",
             min: 3,
             max: 18,
-            fuerza: 3,
-            destreza: 3,
-            constitucion: 3,
-            inteligencia: 3,
-            sabiduria: 3,
-            carisma: 3,
+            fuerza: "", 
+            destreza: "",
+            constitucion: "",
+            inteligencia: "",
+            sabiduria: "",
+            carisma: "",
+            trasfondo: "",
+            
+           
         },
+
+        
         methods: {
             fuerzaRandom: function() {
                 this.fuerza = this.valorRandom();
@@ -243,38 +372,18 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                 return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
             }
         },
+
+        // computed: {
+        //     modificador_fue: function() {
+        //         if (this.fuerza = 3){
+        //             return this.fue_mod = "-4";
+        //         }
+        //         else if ((this.fuerza >=4) && (this.fuerza <=5) ) {
+        //              return this.fue_mod = "-3";
+        //         }
+        //     }
+        // },
     })
 </script>
 
 
-<!--<div id="app">
-<form-wizard next-button-text="Siguiente" title="Crea tu Personaje">
-    <tab-content title="Datos del Personaje">
-
-        <div class="container-fluid d-flex justify-content-center">
-            <div class="d-inline-block" style="text-align: center;">
-                <h1>Nombre</h1>
-                <input type="text" style="text-align:center; font-size: 24px; height: 4rem; width: 50rem;">
-            </div>
-        </div>
-                    
-        
-    </tab-content>
-    <tab-content title="Información adicional">
-        Segundo paso
-    </tab-content>
-    <tab-content title="Verificación">
-        Tercer paso
-    </tab-content>
-</form-wizard>
-</div>
-
-
-<script>
-    Vue.use(VueFormWizard)
-
-    new Vue({
-    el: '#app',
-    
-})    
-</script>-->

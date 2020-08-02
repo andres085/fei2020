@@ -41,14 +41,40 @@ use app\assets\AppAsset;
     <script src="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js"></script>
 
     <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+        -moz-appearance: textfield;
+        }
+
         .btn-pjs {
             width: 90%;
             margin: 25px;
             padding: 40px;
         }
 
-        .radio-raza input[type="radio"] {
+        .radio-custom input[type="radio"] {
             display: none;
+        }
+
+        .radio-custom label {
+            display: inline-block;
+            text-align: center;
+            background-color: #ddd;
+            padding: 4px 11px;
+            font-family: Arial;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .radio-custom input[type="radio"]:checked+label {
+            background-color: #bbb;
         }
     </style>
 </head>
