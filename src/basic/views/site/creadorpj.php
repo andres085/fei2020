@@ -184,16 +184,16 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
 <script>
     var app = new Vue({
-        el: '#app',
-        data: {
-            message: "",
-            nombre: "",
+            el: '#app',
+            data: {
+                message: "",
+                nombre: "",
 
-            clase: "",
-            nivel: "Nivel 1",
-            raza: ""
-        }
-    })
+                clase: "",
+                nivel: "Nivel 1",
+                raza: ""
+            }
+        }),
 </script>
 
 
