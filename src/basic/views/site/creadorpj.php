@@ -375,18 +375,6 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                 return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
             }
         },
-
-        // computed: {
-        //     modificador_fue: function() {
-        //         if (this.fuerza = 3){
-        //             return this.fue_mod = "-4";
-        //         }
-        //         else if ((this.fuerza >=4) && (this.fuerza <=5) ) {
-        //              return this.fue_mod = "-3";
-        //         }
-        //     }
-        // },
     })
 </script>
-
 

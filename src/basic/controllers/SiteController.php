@@ -137,16 +137,16 @@ class SiteController extends Controller
     }
 
     /**
-    * @return string
-    */
+     * @return string
+     */
     public function actionModuloplayer()
     {
         return $this->render('moduloplayer');
     }
 
-     /**
-    * @return string
-    */
+    /**
+     * @return string
+     */
     public function actionCreadorpj()
     {
         return $this->render('creadorpj');

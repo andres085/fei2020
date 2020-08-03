@@ -10,6 +10,7 @@ use yii\bootstrap4\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
+$this->title = "Herramienta D&D";
 //AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -69,6 +70,11 @@ use app\assets\AppAsset;
             display: none;
         }
 
+
+        .botones {
+            height: 15vh;
+            font-size: larger;
+
         .radio-custom label {
             display: inline-block;
             text-align: center;
@@ -81,6 +87,7 @@ use app\assets\AppAsset;
 
         .radio-custom input[type="radio"]:checked+label {
             background-color: #bbb;
+
         }
     </style>
 </head>
@@ -91,7 +98,7 @@ use app\assets\AppAsset;
     <div class="wrap">
         <?php
         NavBar::begin([
-            'brandLabel' => Yii::$app->name,
+            'brandLabel' => 'Herramienta D&D',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => '',
@@ -100,8 +107,8 @@ use app\assets\AppAsset;
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav'],
             'items' => [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
+                ['label' => 'Inicio', 'url' => ['/site/index']],
+                !Yii::$app->user->isGuest ? (['label' => 'Selector', 'url' => ['/selector/index']]) : '',
                 Yii::$app->user->isGuest ? (['label' => 'Registro', 'url' => ['/usuario/create']]) : '',
                 Yii::$app->user->isGuest ? (['label' => 'Login', 'url' => ['/site/login']]) : ('<li>'
                     . Html::beginForm(['/site/logout'], 'post')
