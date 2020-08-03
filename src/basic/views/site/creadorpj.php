@@ -15,10 +15,11 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
         <div class="col-md-8 border">
 
-            <div class="row">
+            <div class="row my-3">
+
                 <div class="col-md-9">
                     <h1>Nombre</h1>
-                    <input type="text" v-model="nombre" style="text-align:center; font-size: 24px; height: 4rem; width: 50rem;">
+                    <input type="text" v-model="nombre">
                 </div>
 
                 <div class="col-md-3">
@@ -48,133 +49,277 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                 </div>
             </div>
 
-            <h1>Raza</h1>
+<hr>
+            
+            <form>
+                <div class="radio-custom my-3">
 
-            <div class="radio-raza">
+                    <h1>Raza</h1>
+
+                    <input type="radio" class="btn btn-outlin-dark" id="draco" value="Dracónido" v-model="raza">
+                    <label for="draco">Dracónido</label>
+
+                    <input type="radio" id="elfo" value="Elfo" v-model="raza">
+                    <label for="elfo">Elfo</label>
+
+                    <input type="radio" id="enano" value="Enano" v-model="raza">
+                    <label for="enano">Enano</label>
+
+                    <input type="radio" id="gnomo" value="Gnomo" v-model="raza">
+                    <label for="gnomo">Gnomo</label>
+
+                    <input type="radio" id="humano" value="Humano" v-model="raza">
+                    <label for="humano">Humano</label>
+
+                    <input type="radio" id="mediano" value="Mediano" v-model="raza">
+                    <label for="mediano">Mediano</label>
+
+                    <input type="radio" id="semielfo" value="Semielfo" v-model="raza">
+                    <label for="semielfo">Semielfo</label>
+
+                    <input type="radio" id="semiorco" value="Semiorco" v-model="raza">
+                    <label for="semiorco">Semiorco</label>
+
+                    <input type="radio" id="tiefling" value="Tiefling" v-model="raza">
+                    <label for="tiefling">Tiefling</label>
+
+                </div>
+
+                
+
+                <div class="radio-custom my-3">
+
+                    <h1>Clase</h1>
+
+                    <input type="radio" id="barbaro" value="Barbaro" v-model="clase">
+                    <label for="barbaro">Barbaro</label>
+
+                    <input type="radio" id="bardo" value="Bardo" v-model="clase">
+                    <label for="bardo">Bardo</label>
+
+                    <input type="radio" id="brujo" value="Brujo" v-model="clase">
+                    <label for="brujo">Brujo</label>
+
+                    <input type="radio" id="clerigo" value="Clerigo" v-model="clase">
+                    <label for="clerigo">Clerigo</label>
+
+                    <input type="radio" id="druida" value="Druida" v-model="clase">
+                    <label for="druida">Druida</label>
+
+                    <input type="radio" id="explorador" value="Explorador" v-model="clase">
+                    <label for="explorador">Explorador</label>
+
+                    <input type="radio" id="guerrero" value="Guerrero" v-model="clase">
+                    <label for="guerrero">Guerrero</label>
+
+                    <input type="radio" id="hechicero" value="Hechicero" v-model="clase">
+                    <label for="hechicero">Hechicero</label>
+
+                    <input type="radio" id="mago" value="Mago" v-model="clase">
+                    <label for="mago">Mago</label>
+
+                    <input type="radio" id="monje" value="Monje" v-model="clase">
+                    <label for="monje">Monje</label>
+
+                    <input type="radio" id="paladin" value="Paladín" v-model="clase">
+                    <label for="paladin">Paladín</label>
+
+                    <input type="radio" id="picaro" value="Pícaro" v-model="clase">
+                    <label for="picaro">Pícaro</label>
 
                 <button class="btn btn-outline-dark">
                     <input type="radio" id="draco" value="Dracónido" v-model="raza">
                     <label for="draco">Dracónido</label>
                 </button>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="elfo" value="Elfo" v-model="raza">
-                    <label for="elfo">Elfo</label>
-                </button>
+                <h1>Atributos</h1>
+                <div class="row my-3">
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="enano" value="Enano" v-model="raza">
-                    <label for="enano">Enano</label>
-                </button>
+                    
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="gnomo" value="Gnomo" v-model="raza">
-                    <label for="gnomo">Gnomo</label>
-                </button>
+                    <div class="col-md-4 d-block" style="text-align:center">
+                        <h4>Fuerza</h4>
+                        <input v-model="fuerza" ref="fue" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                        <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                    </div>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="humano" value="Humano" v-model="raza">
-                    <label for="humano">Humano</label>
-                </button>
+                    <div class="col-md-4 d-block" style="text-align:center">
+                        <h4>Destreza</h4>
+                        <input v-model="destreza" ref="des" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                        <button type="button" @click="destrezaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                    </div>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="mediano" value="Mediano" v-model="raza">
-                    <label for="mediano">Mediano</label>
-                </button>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="semielfo" value="Semielfo" v-model="raza">
-                    <label for="semielfo">Semielfo</label>
-                </button>
+                    <div class="col-md-4 d-block" style="text-align:center">
+                        <h4>Constitución</h4>
+                        <input v-model="constitucion" type="number" id="con" min="3" max="18" class="form-control"  style="text-align:center; font-size:larger;">
+                        <button type="button" @click="constitucionRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                    </div>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="semiorco" value="Semiorco" v-model="raza">
-                    <label for="semiorco">Semiorco</label>
-                </button>
+                </div>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="tiefling" value="Tiefling" v-model="raza">
-                    <label for="tiefling">Tiefling</label>
-                </button>
+                <div class="row my-3">
 
-            </div>
+                    <div class="col-md-4 d-block" style="text-align:center">
+                        <h4>Inteligencia</h4>
+                        <input v-model="inteligencia" type="number" id="int" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                        <button type="button" @click="inteligenciaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                    </div>
 
-            <h1>Clase</h1>
+                    <div class="col-md-4 d-block" style="text-align:center">
+                        <h4>Sabiduria</h4>
+                        <input v-model="sabiduria" type="number" id="sab" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                        <button type="button" @click="sabiduriaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                    </div>
 
-            <div class="radio-raza">
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="barbaro" value="Barbaro" v-model="clase">
-                    <label for="barbaro">Barbaro</label>
-                </button>
+                    <div class="col-md-4 d-block" style="text-align:center">
+                        <h4>Carisma</h4>
+                        <input v-model="carisma" type="number" id="car" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                        <button type="button" @click="carismaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                    </div>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="bardo" value="Bardo" v-model="clase">
-                    <label for="bardo">Bardo</label>
-                </button>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="brujo" value="Brujo" v-model="clase">
-                    <label for="brujo">Brujo</label>
-                </button>
+                </div>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="clerigo" value="Clerigo" v-model="clase">
-                    <label for="clerigo">Clerigo</label>
-                </button>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="druida" value="Druida" v-model="clase">
-                    <label for="druida">Druida</label>
-                </button>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="explorador" value="Explorador" v-model="clase">
-                    <label for="explorador">Explorador</label>
-                </button>
+                <div class="my-3">
+                    <h1>Trasfondo</h1>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="guerrero" value="Guerrero" v-model="clase">
-                    <label for="guerrero">Guerrero</label>
-                </button>
+                    <select v-model="trasfondo">
+                        <option disabled value="">Seleccione un elemento</option>
+                        <option>Acólito</option>
+                        <option>Artesano</option>
+                        <option>Artista</option>
+                        <option>Charlatán</option>
+                        <option>Criminal</option>
+                        <option>Ermitaño</option>
+                        <option>Erudito</option>
+                        <option>Héroe del Pueblo</option>
+                        <option>Huérfano</option>
+                        <option>Marinero</option>
+                        <option>Noble</option>
+                        <option>Salvaje</option>
+                        <option>Soldado</option>
+                    </select>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="hechicero" value="Hechicero" v-model="clase">
-                    <label for="hechicero">Hechicero</label>
-                </button>
+                </div>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="mago" value="Mago" v-model="clase">
-                    <label for="mago">Mago</label>
-                </button>
+<hr>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="monje" value="Monje" v-model="clase">
-                    <label for="monje">Monje</label>
-                </button>
+                <!-- <div class="my-3">
+                
+                    <h1>Información</h1>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="paladin" value="Paladín" v-model="clase">
-                    <label for="paladin">Paladín</label>
-                </button>
+                    <div>
+                    
+                        <h3>Alineamiento</h3>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="picaro" value="Pícaro" v-model="clase">
-                    <label for="picaro">Pícaro</label>
-                </button>
+                        <div class="w-75">
 
-            </div>
+                            <div class="row border radio-custom">
+
+                                <div class="col-md-3">    
+
+                                    <label>
+                                        <input id="lb" value="Legal Bueno" v-model="align" type="radio">Legal Bueno
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="nb" value="Neutral Bueno" v-model="align" type="radio">Neutral Bueno
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="cb" value="Caótico Bueno" v-model="align" type="radio">Caótico Bueno
+                                    </label>
+
+                                </div>
+                            </div>
+
+                            <div class="row border radio-custom">
+
+                                <div class="col-md-3">    
+
+                                    <label>
+                                        <input id="ln" value="Legal Neutral" v-model="align" type="radio">Legal Neutral
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="n" value="Neutral" v-model="align" type="radio"> Neutral
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="cn" value="Caótico Neutral" v-model="align" type="radio">Caótico Neutral
+                                    </label>
+
+                                </div>
+                            </div>
+
+                            <div class="row border radio-custom">
+
+                                <div class="col-md-3">    
+
+                                    <label>
+                                        <input id="lm" value="Legal Maligno" v-model="align" type="radio">Legal Maligno
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="nm" value="Neutral Maligno" v-model="align" type="radio">Neutral Maligno
+                                    </label>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>
+                                        <input id="cm" value="Caótico Maligno" v-model="align" type="radio">Caótico Maligno
+                                    </label>
+
+                                </div>
+                            </div>
+                                        
+
+                        </div>
+
+                    </div>
+
+                </div> -->
+
+            </form>
+
 
 
         </div>
+        </form>
         <div class="col-md-4 border">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{ nombre }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ raza }} {{ clase }} {{ nivel }}</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p>Fuerza: {{ fuerza }}</p> 
+                    <p>Destreza: {{ destreza }}</p>
+                    <p>Constitución: {{ constitucion }}</p>
+                    <p>Inteligencia: {{ inteligencia }}</p>
+                    <p>Sabiduria: {{ sabiduria }}</p>
+                    <p>Carisma: {{ carisma }}</p>
+
+                    <hr>
+
+                    <p>Trasfondo:</p>
+                    {{ trasfondo }}
+
 
                 </div>
+
             </div>
         </div>
     </div>
@@ -183,48 +328,53 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
 
 <script>
-    var app = new Vue({
-            el: '#app',
-            data: {
-                message: "",
-                nombre: "",
 
-                clase: "",
-                nivel: "Nivel 1",
-                raza: ""
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            nombre: "Nombre",
+
+            clase: "",
+            nivel: "Nivel 1",
+            raza: "",
+            min: 3,
+            max: 18,
+            fuerza: "", 
+            destreza: "",
+            constitucion: "",
+            inteligencia: "",
+            sabiduria: "",
+            carisma: "",
+            trasfondo: "",
+            
+           
+        },
+
+        
+        methods: {
+            fuerzaRandom: function() {
+                this.fuerza = this.valorRandom();
+            },
+            destrezaRandom: function() {
+                this.destreza = this.valorRandom();
+            },
+            constitucionRandom: function() {
+                this.constitucion = this.valorRandom();
+            },
+            inteligenciaRandom: function() {
+                this.inteligencia = this.valorRandom();
+            },
+            sabiduriaRandom: function() {
+                this.sabiduria = this.valorRandom();
+            },
+            carismaRandom: function() {
+                this.carisma = this.valorRandom();
+            },
+            valorRandom: function() {
+                return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
             }
-        }),
+        },
+    })
 </script>
 
-
-<!--<div id="app">
-<form-wizard next-button-text="Siguiente" title="Crea tu Personaje">
-    <tab-content title="Datos del Personaje">
-
-        <div class="container-fluid d-flex justify-content-center">
-            <div class="d-inline-block" style="text-align: center;">
-                <h1>Nombre</h1>
-                <input type="text" style="text-align:center; font-size: 24px; height: 4rem; width: 50rem;">
-            </div>
-        </div>
-                    
-        
-    </tab-content>
-    <tab-content title="Información adicional">
-        Segundo paso
-    </tab-content>
-    <tab-content title="Verificación">
-        Tercer paso
-    </tab-content>
-</form-wizard>
-</div>
-
-
-<script>
-    Vue.use(VueFormWizard)
-
-    new Vue({
-    el: '#app',
-    
-})    
-</script>-->
