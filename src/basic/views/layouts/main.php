@@ -27,9 +27,9 @@ $this->title = "Herramienta D&D";
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
 
-    
 
-    
+
+
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -51,13 +51,13 @@ $this->title = "Herramienta D&D";
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+            -webkit-appearance: none;
+            margin: 0;
         }
 
         /* Firefox */
         input[type=number] {
-        -moz-appearance: textfield;
+            -moz-appearance: textfield;
         }
 
         .btn-pjs {
@@ -70,24 +70,9 @@ $this->title = "Herramienta D&D";
             display: none;
         }
 
-
         .botones {
             height: 15vh;
             font-size: larger;
-
-        .radio-custom label {
-            display: inline-block;
-            text-align: center;
-            background-color: #ddd;
-            padding: 4px 11px;
-            font-family: Arial;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .radio-custom input[type="radio"]:checked+label {
-            background-color: #bbb;
-
         }
     </style>
 </head>

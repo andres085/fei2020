@@ -49,8 +49,8 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                 </div>
             </div>
 
-<hr>
-            
+            <hr>
+
             <form>
                 <div class="radio-custom my-3">
 
@@ -85,7 +85,7 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
                 </div>
 
-                
+
 
                 <div class="radio-custom my-3">
 
@@ -127,88 +127,88 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                     <input type="radio" id="picaro" value="Pícaro" v-model="clase">
                     <label for="picaro">Pícaro</label>
 
-                <button class="btn btn-outline-dark">
-                    <input type="radio" id="draco" value="Dracónido" v-model="raza">
-                    <label for="draco">Dracónido</label>
-                </button>
+                    <button class="btn btn-outline-dark">
+                        <input type="radio" id="draco" value="Dracónido" v-model="raza">
+                        <label for="draco">Dracónido</label>
+                    </button>
 
-                <h1>Atributos</h1>
-                <div class="row my-3">
+                    <h1>Atributos</h1>
+                    <div class="row my-3">
 
-                    
 
-                    <div class="col-md-4 d-block" style="text-align:center">
-                        <h4>Fuerza</h4>
-                        <input v-model="fuerza" ref="fue" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                        <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Fuerza</h4>
+                            <input v-model="fuerza" ref="fue" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
+
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Destreza</h4>
+                            <input v-model="destreza" ref="des" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="destrezaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
+
+
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Constitución</h4>
+                            <input v-model="constitucion" type="number" id="con" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="constitucionRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
+
                     </div>
 
-                    <div class="col-md-4 d-block" style="text-align:center">
-                        <h4>Destreza</h4>
-                        <input v-model="destreza" ref="des" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                        <button type="button" @click="destrezaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                    <div class="row my-3">
+
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Inteligencia</h4>
+                            <input v-model="inteligencia" type="number" id="int" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="inteligenciaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
+
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Sabiduria</h4>
+                            <input v-model="sabiduria" type="number" id="sab" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="sabiduriaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
+
+
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Carisma</h4>
+                            <input v-model="carisma" type="number" id="car" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="carismaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
+
+
                     </div>
 
 
-                    <div class="col-md-4 d-block" style="text-align:center">
-                        <h4>Constitución</h4>
-                        <input v-model="constitucion" type="number" id="con" min="3" max="18" class="form-control"  style="text-align:center; font-size:larger;">
-                        <button type="button" @click="constitucionRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+
+                    <div class="my-3">
+                        <h1>Trasfondo</h1>
+
+                        <select v-model="trasfondo">
+                            <option disabled value="">Seleccione un elemento</option>
+                            <option>Acólito</option>
+                            <option>Artesano</option>
+                            <option>Artista</option>
+                            <option>Charlatán</option>
+                            <option>Criminal</option>
+                            <option>Ermitaño</option>
+                            <option>Erudito</option>
+                            <option>Héroe del Pueblo</option>
+                            <option>Huérfano</option>
+                            <option>Marinero</option>
+                            <option>Noble</option>
+                            <option>Salvaje</option>
+                            <option>Soldado</option>
+                        </select>
+
                     </div>
 
-                </div>
+                    <hr>
 
-                <div class="row my-3">
-
-                    <div class="col-md-4 d-block" style="text-align:center">
-                        <h4>Inteligencia</h4>
-                        <input v-model="inteligencia" type="number" id="int" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                        <button type="button" @click="inteligenciaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
-                    </div>
-
-                    <div class="col-md-4 d-block" style="text-align:center">
-                        <h4>Sabiduria</h4>
-                        <input v-model="sabiduria" type="number" id="sab" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                        <button type="button" @click="sabiduriaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
-                    </div>
-
-
-                    <div class="col-md-4 d-block" style="text-align:center">
-                        <h4>Carisma</h4>
-                        <input v-model="carisma" type="number" id="car" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                        <button type="button" @click="carismaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="my-3">
-                    <h1>Trasfondo</h1>
-
-                    <select v-model="trasfondo">
-                        <option disabled value="">Seleccione un elemento</option>
-                        <option>Acólito</option>
-                        <option>Artesano</option>
-                        <option>Artista</option>
-                        <option>Charlatán</option>
-                        <option>Criminal</option>
-                        <option>Ermitaño</option>
-                        <option>Erudito</option>
-                        <option>Héroe del Pueblo</option>
-                        <option>Huérfano</option>
-                        <option>Marinero</option>
-                        <option>Noble</option>
-                        <option>Salvaje</option>
-                        <option>Soldado</option>
-                    </select>
-
-                </div>
-
-<hr>
-
-                <!-- <div class="my-3">
+                    <!-- <div class="my-3">
                 
                     <h1>Información</h1>
 
@@ -305,7 +305,7 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                 <div class="card-body">
                     <h5 class="card-title">{{ nombre }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ raza }} {{ clase }} {{ nivel }}</h6>
-                    <p>Fuerza: {{ fuerza }}</p> 
+                    <p>Fuerza: {{ fuerza }}</p>
                     <p>Destreza: {{ destreza }}</p>
                     <p>Constitución: {{ constitucion }}</p>
                     <p>Inteligencia: {{ inteligencia }}</p>
@@ -328,8 +328,6 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
 
 <script>
-
-
     var app = new Vue({
         el: '#app',
         data: {
@@ -340,18 +338,18 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
             raza: "",
             min: 3,
             max: 18,
-            fuerza: "", 
+            fuerza: "",
             destreza: "",
             constitucion: "",
             inteligencia: "",
             sabiduria: "",
             carisma: "",
             trasfondo: "",
-            
-           
+
+
         },
 
-        
+
         methods: {
             fuerzaRandom: function() {
                 this.fuerza = this.valorRandom();
@@ -377,4 +375,3 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
         },
     })
 </script>
-
