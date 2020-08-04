@@ -13,45 +13,50 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
     <div class="row">
 
-        <div class="col-md-8 border">
+        <div class="col-md-8 ">
 
-            <div class="row my-3">
 
-                <div class="col-md-9">
-                    <h1>Nombre</h1>
-                    <input type="text" v-model="nombre">
-                </div>
-
-                <div class="col-md-3">
-                    <h1>Nivel</h1>
-                    <select name="nivel" id="nivel" v-model="nivel">
-                        <option value="Nivel 1">Nivel 1</option>
-                        <option value="Nivel 2">Nivel 2</option>
-                        <option value="Nivel 3">Nivel 3</option>
-                        <option value="Nivel 4">Nivel 4</option>
-                        <option value="Nivel 5">Nivel 5</option>
-                        <option value="Nivel 6">Nivel 6</option>
-                        <option value="Nivel 7">Nivel 7</option>
-                        <option value="Nivel 8">Nivel 8</option>
-                        <option value="Nivel 9">Nivel 9</option>
-                        <option value="Nivel 10">Nivel 10</option>
-                        <option value="Nivel 11">Nivel 11</option>
-                        <option value="Nivel 12">Nivel 12</option>
-                        <option value="Nivel 13">Nivel 13</option>
-                        <option value="Nivel 14">Nivel 14</option>
-                        <option value="Nivel 15">Nivel 15</option>
-                        <option value="Nivel 16">Nivel 16</option>
-                        <option value="Nivel 17">Nivel 17</option>
-                        <option value="Nivel 18">Nivel 18</option>
-                        <option value="Nivel 19">Nivel 19</option>
-                        <option value="Nivel 20">Nivel 20</option>
-                    </select>
-                </div>
-            </div>
-
-            <hr>
-
+            <!-- NOMBRE Y NIVEL -->
             <form>
+                <div class="row my-3">
+
+                    <div class="col-md-9">
+                        <h1>Nombre</h1>
+                        <input type="text" v-model="nombre">
+                    </div>
+
+                    <div class="col-md-3">
+                        <h1>Nivel</h1>
+                        <select name="nivel" id="nivel" v-model="nivel">
+                            <option value="Nivel 1">Nivel 1</option>
+                            <option value="Nivel 2">Nivel 2</option>
+                            <option value="Nivel 3">Nivel 3</option>
+                            <option value="Nivel 4">Nivel 4</option>
+                            <option value="Nivel 5">Nivel 5</option>
+                            <option value="Nivel 6">Nivel 6</option>
+                            <option value="Nivel 7">Nivel 7</option>
+                            <option value="Nivel 8">Nivel 8</option>
+                            <option value="Nivel 9">Nivel 9</option>
+                            <option value="Nivel 10">Nivel 10</option>
+                            <option value="Nivel 11">Nivel 11</option>
+                            <option value="Nivel 12">Nivel 12</option>
+                            <option value="Nivel 13">Nivel 13</option>
+                            <option value="Nivel 14">Nivel 14</option>
+                            <option value="Nivel 15">Nivel 15</option>
+                            <option value="Nivel 16">Nivel 16</option>
+                            <option value="Nivel 17">Nivel 17</option>
+                            <option value="Nivel 18">Nivel 18</option>
+                            <option value="Nivel 19">Nivel 19</option>
+                            <option value="Nivel 20">Nivel 20</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr>
+
+
+
+
                 <div class="radio-custom my-3">
 
                     <h1>Raza</h1>
@@ -127,10 +132,6 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                     <input type="radio" id="picaro" value="Pícaro" v-model="clase">
                     <label for="picaro">Pícaro</label>
 
-                    <button class="btn btn-outline-dark">
-                        <input type="radio" id="draco" value="Dracónido" v-model="raza">
-                        <label for="draco">Dracónido</label>
-                    </button>
 
                     <h1>Atributos</h1>
                     <div class="row my-3">
@@ -208,122 +209,37 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 
                     <hr>
 
-                    <!-- <div class="my-3">
-                
-                    <h1>Información</h1>
-
-                    <div>
-                    
-                        <h3>Alineamiento</h3>
-
-                        <div class="w-75">
-
-                            <div class="row border radio-custom">
-
-                                <div class="col-md-3">    
-
-                                    <label>
-                                        <input id="lb" value="Legal Bueno" v-model="align" type="radio">Legal Bueno
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label>
-                                        <input id="nb" value="Neutral Bueno" v-model="align" type="radio">Neutral Bueno
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label>
-                                        <input id="cb" value="Caótico Bueno" v-model="align" type="radio">Caótico Bueno
-                                    </label>
-
-                                </div>
-                            </div>
-
-                            <div class="row border radio-custom">
-
-                                <div class="col-md-3">    
-
-                                    <label>
-                                        <input id="ln" value="Legal Neutral" v-model="align" type="radio">Legal Neutral
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label>
-                                        <input id="n" value="Neutral" v-model="align" type="radio"> Neutral
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label>
-                                        <input id="cn" value="Caótico Neutral" v-model="align" type="radio">Caótico Neutral
-                                    </label>
-
-                                </div>
-                            </div>
-
-                            <div class="row border radio-custom">
-
-                                <div class="col-md-3">    
-
-                                    <label>
-                                        <input id="lm" value="Legal Maligno" v-model="align" type="radio">Legal Maligno
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label>
-                                        <input id="nm" value="Neutral Maligno" v-model="align" type="radio">Neutral Maligno
-                                    </label>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label>
-                                        <input id="cm" value="Caótico Maligno" v-model="align" type="radio">Caótico Maligno
-                                    </label>
-
-                                </div>
-                            </div>
-                                        
-
-                        </div>
-
-                    </div>
-
-                </div> -->
-
             </form>
 
 
 
         </div>
         </form>
-        <div class="col-md-4 border">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ nombre }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ raza }} {{ clase }} {{ nivel }}</h6>
-                    <p>Fuerza: {{ fuerza }}</p>
-                    <p>Destreza: {{ destreza }}</p>
-                    <p>Constitución: {{ constitucion }}</p>
-                    <p>Inteligencia: {{ inteligencia }}</p>
-                    <p>Sabiduria: {{ sabiduria }}</p>
-                    <p>Carisma: {{ carisma }}</p>
-
-                    <hr>
-
-                    <p>Trasfondo:</p>
-                    {{ trasfondo }}
 
 
-                </div>
+    </div>
+    <div class="col-md-4 ">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ nombre }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ raza }} {{ clase }} {{ nivel }}</h6>
+                <p>Fuerza: {{ fuerza }}</p>
+                <p>Destreza: {{ destreza }}</p>
+                <p>Constitución: {{ constitucion }}</p>
+                <p>Inteligencia: {{ inteligencia }}</p>
+                <p>Sabiduria: {{ sabiduria }}</p>
+                <p>Carisma: {{ carisma }}</p>
+
+                <hr>
+
+                <p>Trasfondo:</p>
+                {{ trasfondo }}
+
 
             </div>
+
         </div>
     </div>
-
 </div>
 
 
