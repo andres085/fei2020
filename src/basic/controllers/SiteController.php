@@ -144,11 +144,4 @@ class SiteController extends Controller
         return $this->render('moduloplayer');
     }
 
-    /**
-     * @return string
-     */
-    public function actionCreadorpj()
-    {
-        return $this->render('creadorpj');
-    }
 }

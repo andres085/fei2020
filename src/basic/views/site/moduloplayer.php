@@ -16,6 +16,18 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 <h1 style="text-align: center;"> Módulo del Jugador</h1>
 <br>
 
+    <!-- PRUEBA TOAST -->
+        <button type="button" id="btnToast" class="btn btn-block btn-success">Mostrar Toast</button>
+
+        <div class="toast" data-delay="2000" id="toast" style="position: absolute; bottom: 0; right: 0;">
+            <div class="toast-header">
+            Toast Header
+            </div>
+            <div class="toast-body">
+            Some text inside the toast body
+            </div>
+        </div>
+    <!-- FIN PRUEBA TOAST -->
 <div class="row">
 
 
@@ -31,14 +43,17 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
             
             <div class="container-fluid" style="max-height:450px ;overflow-y: auto;">
 
-            <button class="btn btn-outline-dark btn-pjs">Personaje</button>
-            <button class="btn btn-outline-dark btn-pjs">Personaje</button>
-            <button class="btn btn-outline-dark btn-pjs">Personaje</button>
-            <button class="btn btn-outline-dark btn-pjs">Personaje</button>
-            <button class="btn btn-outline-dark btn-pjs">Personaje</button>
-            <button class="btn btn-outline-dark btn-pjs">Personaje</button>
-            <button class="btn btn-outline-dark btn-pjs">Personaje</button>
-            <button class="btn btn-outline-dark btn-pjs">Personaje</button>
+            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalEditarNota">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
+            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalEditarNota">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
+            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalEditarNota">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
+            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalEditarNota">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
+            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalEditarNota">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
+            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalEditarNota">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
+            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalEditarNota">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
+            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalEditarNota">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
+            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalEditarNota">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
+            
+            
             </div>
         </div>
                     
@@ -51,6 +66,14 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                 message : "Pueba",
             }
         })
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#btnToast").click(function(){
+                $('#toast').toast('show');
+            });
+        });
     </script>
 
 

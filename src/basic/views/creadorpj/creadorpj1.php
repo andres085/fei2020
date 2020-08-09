@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\web\View;
 
-$this->title = 'Modulo de Jugador';
+$this->title = 'Creador de Personajes';
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position' => View::POS_HEAD]);
@@ -239,6 +239,8 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
             </div>
 
         </div>
+
+        <button class="btn btn-success" onclick="window.location.href='/creadorpj/creadorpj2'">Siguiente <i class="fas fa-arrow-right"></i></button>
     </div>
 </div>
 
