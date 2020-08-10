@@ -113,7 +113,7 @@ class UsuarioController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $model
         ]);
     }
 }
