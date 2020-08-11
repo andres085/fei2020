@@ -16,7 +16,7 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
 <h1 style="text-align: center;"> Módulo del Jugador</h1>
 <br>
 
-    <!-- PRUEBA TOAST -->
+    <!-- PRUEBA TOAST 
         <button type="button" id="btnToast" class="btn btn-block btn-success">Mostrar Toast</button>
 
         <div class="toast" data-delay="2000" id="toast" style="position: absolute; bottom: 0; right: 0;">
@@ -27,13 +27,13 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
             Some text inside the toast body
             </div>
         </div>
-    <!-- FIN PRUEBA TOAST -->
+    FIN PRUEBA TOAST -->
 <div class="row">
 
 
     <div class="col-md-12">
                     
-        <button class="btn btn-block btn-outline-dark" onclick="window.location.href='creadorpj'"><h2><i class="fas fa-plus"></i><br> Agregar Personaje</h2></button>
+        <button class="btn btn-block btn-outline-dark" onclick="window.location.href='creadorpj1'"><h2><i class="fas fa-plus"></i><br> Agregar Personaje</h2></button>
         
         <div style="text-align: center;">
             <hr>

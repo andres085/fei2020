@@ -76,7 +76,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         <input type="radio" id="gnomo" value="Gnomo" v-model="personaje.raza">
                         <label for="gnomo">Gnomo</label>
 
-                        <input type="radio" id="humano" value="Humano" v-model="personaje.razaa">
+                        <input type="radio" id="humano" value="Humano" v-model="personaje.raza">
                         <label for="humano">Humano</label>
 
                         <input type="radio" id="mediano" value="Mediano" v-model="personaje.raza">
@@ -226,19 +226,19 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         <div class="col-md-4 ">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ nombre }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ raza }} {{ clase }} {{ nivel }}</h6>
-                    <p>Fuerza: {{ fuerza }}</p>
-                    <p>Destreza: {{ destreza }}</p>
-                    <p>Constitución: {{ constitucion }}</p>
-                    <p>Inteligencia: {{ inteligencia }}</p>
-                    <p>Sabiduria: {{ sabiduria }}</p>
-                    <p>Carisma: {{ carisma }}</p>
+                    <h5 class="card-title">{{ personaje.nombre }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ personaje.raza }} {{ personaje.clase }} {{ personaje.nivel }}</h6>
+                    <p>Fuerza: {{ personaje.fuerza }}</p>
+                    <p>Destreza: {{ personaje.destreza }}</p>
+                    <p>Constitución: {{ personaje.constitucion }}</p>
+                    <p>Inteligencia: {{ personaje.inteligencia }}</p>
+                    <p>Sabiduria: {{ personaje.sabiduria }}</p>
+                    <p>Carisma: {{ personaje.carisma }}</p>
 
                     <hr>
 
                     <p>Trasfondo:</p>
-                    {{ trasfondo }}
+                    {{ personaje.trasfondo }}
 
 
                 </div>
@@ -268,7 +268,19 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 // carisma: "",
                 // trasfondo: "",
                 usuario_id: <?= json_encode(Yii::$app->user->identity->id) ?>,
-                personaje: {},
+                personaje: {
+                    nombre: "Nombre",
+                    clase: "",
+                    nivel: "Nivel 1",
+                    raza: "",
+                    fuerza: "",
+                    destreza: "",
+                    constitucion: "",
+                    inteligencia: "",
+                    sabiduria: "",
+                    carisma: "",
+                    trasfondo: "",
+                },
             }
         },
         // mounted() {
