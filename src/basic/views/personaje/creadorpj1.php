@@ -64,7 +64,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                         <h1>Raza</h1>
 
-                        <input type="radio" class="btn btn-outlin-dark" id="draco" value="Dracónido" v-model="personaje.raza">
+                        <input type="radio" id="draco" value="Dracónido" v-model="personaje.raza">
                         <label for="draco">Dracónido</label>
 
                         <input type="radio" id="elfo" value="Elfo" v-model="personaje.raza">
