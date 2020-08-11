@@ -143,13 +143,13 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                             <div class="col-md-4 d-block" style="text-align:center">
                                 <h4>Fuerza</h4>
-                                <input v-model="personaje.fuerza" ref="fue" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                                <input v-model="personaje.fuerza" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                                 <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                             </div>
 
                             <div class="col-md-4 d-block" style="text-align:center">
                                 <h4>Destreza</h4>
-                                <input v-model="personaje.destreza" ref="des" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                                <input v-model="personaje.destreza" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                                 <button type="button" @click="destrezaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                             </div>
 
@@ -254,7 +254,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         el: '#app',
         data: function() {
             return {
-                // nombre: "Nombre",
+                //nombre: "Nombre",
                 // clase: "",
                 // nivel: "Nivel 1",
                 //raza: "",
@@ -269,7 +269,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 // trasfondo: "",
                 usuario_id: <?= json_encode(Yii::$app->user->identity->id) ?>,
                 personaje: {},
-                usuariopersonaje: {},
             }
         },
         // mounted() {
@@ -310,7 +309,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         };
                         axios.post('/apiv1/usuariopersonaje', idjoin)
                         console.log(response.data);
-                        self.Personaje = {};
+                        window.location.href = '/site/index';
                     })
                     .catch(function(error) {
                         // handle error
