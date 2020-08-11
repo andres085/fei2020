@@ -131,10 +131,6 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionVue()
-    {
-        return $this->render('vue');
-    }
 
     /**
      * @return string
