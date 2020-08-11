@@ -23,7 +23,7 @@
 
             <div class="col-md-8">
                 <div class="container">
-                    <button type="button" class="btn btn-outline-dark btn-block botones" onclick="window.location.href='/site/creadorpj'">
+                    <button type="button" class="btn btn-outline-dark btn-block botones" onclick="window.location.href='/creadorpj/creadorpj1'">
                         JUGADOR
                     </button>
                     <br>
