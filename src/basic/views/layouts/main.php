@@ -25,9 +25,12 @@ use app\assets\AppAsset;
     <?php $this->head() ?>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 13eec6cc20a4aeba47ef80a0621cbbb434e866ef
 
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -73,7 +76,11 @@ use app\assets\AppAsset;
             height: 15vh;
             font-size: larger;
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 13eec6cc20a4aeba47ef80a0621cbbb434e866ef
         .radio-custom label {
             display: inline-block;
             text-align: center;
