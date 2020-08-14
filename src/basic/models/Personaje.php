@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $nombre
+ * @property string $nivel
  * @property string $raza
  * @property string $clase
  * @property string|null $trasfondo
@@ -35,10 +36,12 @@ class Personaje extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'raza', 'clase'], 'required'],
+            [['nombre', 'nivel', 'raza', 'clase'], 'required'],
             [['nombre', 'raza', 'clase', 'trasfondo', 'dote'], 'string'],
+            [['nivel'], 'string', 'max' => 255],
         ];
     }
+
 
     /**
      * {@inheritdoc}
@@ -48,6 +51,7 @@ class Personaje extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'nombre' => 'Nombre',
+            'nivel' => 'Nivel',
             'raza' => 'Raza',
             'clase' => 'Clase',
             'trasfondo' => 'Trasfondo',
