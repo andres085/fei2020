@@ -29,46 +29,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
     FIN PRUEBA TOAST -->
 <div class="row">
 
-
-    <div class="col-md-12">
-                    
-        <button class="btn btn-block btn-outline-dark" onclick="window.location.href='creadorpj1'"><h2><i class="fas fa-plus"></i><br> Agregar Personaje</h2></button>
-        
-        <div style="text-align: center;">
-            <hr>
-
-            <h3>Tus Personajes</h3>
-            <h3><i class="fas fa-users"></i></h3>
-            
-            <div class="container-fluid" style="max-height:450px ;overflow-y: auto;">
-
-            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalPj">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
-            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalPj">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
-            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalPj">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
-            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalPj">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
-            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalPj">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
-            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalPj">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
-            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalPj">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
-            <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalPj">Personaje <h6 style="font-size:smaller;">Raza - Clase - Nivel</h6>
-           
-            
-            </div>
-        </div>
-                    
-    </>
-
-   
-
-
-    <!-- <script>
-        $(document).ready(function(){
-            $("#btnToast").click(function(){
-                $('#toast').toast('show');
-            });
-        });
-    </script> -->
-
-
             <div class="col-md-12">
 
                 <button class="btn btn-block btn-outline-dark" onclick="window.location.href='/personaje/creadorpj1'">
