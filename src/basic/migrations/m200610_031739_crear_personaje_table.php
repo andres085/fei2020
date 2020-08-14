@@ -14,7 +14,7 @@ class m200610_031739_crear_personaje_table extends Migration
     public function safeUp()
     {
         $this->createTable('personaje', [
-            'id' => $this->integer(11)->primaryKey(),
+            'id' => $this->primaryKey(),
             'nombre' => $this->text()->notNull(),
             'nivel' => $this->string()->notNull(),
             'raza' => $this->text()->notNull(),

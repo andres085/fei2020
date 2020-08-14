@@ -23,11 +23,7 @@
 
             <div class="col-md-8">
                 <div class="container">
-<<<<<<< HEAD
                     <button type="button" class="btn btn-outline-dark btn-block botones" onclick="window.location.href='/site/moduloplayer'">
-=======
-                    <button type="button" class="btn btn-outline-dark btn-block botones" onclick="window.location.href='/personaje/modulopj'">
->>>>>>> 76fe27ff20f82f8fb888b8dfb31c375c1d6fbfee
                         JUGADOR
                     </button>
                     <br>
