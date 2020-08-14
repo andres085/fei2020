@@ -58,6 +58,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     <hr>
 
 
+
+
                     <div class="radio-custom my-3">
 
                         <h1>Raza</h1>
@@ -281,6 +283,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 },
             }
         },
+        // mounted() {
+        //     this.getPersonajes();
+        // },
         methods: {
             fuerzaRandom: function() {
                 this.fuerza = this.valorRandom();
@@ -316,7 +321,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         };
                         axios.post('/apiv1/usuariopersonaje', idjoin)
                         console.log(response.data);
-                        window.location.href = '/personaje/modulopj';
+                        window.location.href = '/site/index';
                     })
                     .catch(function(error) {
                         // handle error
