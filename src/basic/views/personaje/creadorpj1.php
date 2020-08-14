@@ -283,22 +283,22 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         },
         methods: {
             fuerzaRandom: function() {
-                this.fuerza = this.valorRandom();
+                this.personaje.fuerza = this.valorRandom();
             },
             destrezaRandom: function() {
-                this.destreza = this.valorRandom();
+                this.personaje.destreza = this.valorRandom();
             },
             constitucionRandom: function() {
-                this.constitucion = this.valorRandom();
+                this.personaje.constitucion = this.valorRandom();
             },
             inteligenciaRandom: function() {
-                this.inteligencia = this.valorRandom();
+                this.personaje.inteligencia = this.valorRandom();
             },
             sabiduriaRandom: function() {
-                this.sabiduria = this.valorRandom();
+                this.personaje.sabiduria = this.valorRandom();
             },
             carismaRandom: function() {
-                this.carisma = this.valorRandom();
+                this.personaje.carisma = this.valorRandom();
             },
             valorRandom: function() {
                 return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);

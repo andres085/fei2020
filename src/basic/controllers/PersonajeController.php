@@ -23,4 +23,9 @@ class PersonajeController extends \yii\web\Controller
     {
         return $this->render('modulopj');
     }
+
+    public function actionHojapj()
+    {
+        return $this->render('hojapj');
+    }
 }
