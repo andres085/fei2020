@@ -97,7 +97,7 @@ use app\assets\AppAsset;
             'options' => ['class' => 'navbar-nav'],
             'items' => [
                 ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
+                ['label' => 'Selector', 'url' => ['/selector/index']],
                 Yii::$app->user->isGuest ? (['label' => 'Registro', 'url' => ['/usuario/create']]) : '',
                 Yii::$app->user->isGuest ? (['label' => 'Login', 'url' => ['/site/login']]) : ('<li>'
                     . Html::beginForm(['/site/logout'], 'post')

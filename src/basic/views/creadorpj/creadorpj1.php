@@ -309,7 +309,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         };
                         axios.post('/apiv1/usuariopersonaje', idjoin)
                         console.log(response.data);
-                        window.location.href = '/site/index';
+                        window.location.href = '/site/moduloplayer';
                     })
                     .catch(function(error) {
                         // handle error
