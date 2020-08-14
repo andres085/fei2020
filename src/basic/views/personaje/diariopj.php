@@ -82,7 +82,14 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
     </div>
 
 
-    <div class="modal fade" id="ModalEditarNota">
+    
+
+</div>
+
+
+
+
+<div class="modal fade" id="ModalEditarNota">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -95,14 +102,17 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="form-group">
+                        <form action="">
+                            <label for="TituloNotaDiariopj">Título</label>
+                            <input class="form-control" type="text" name="TituloNotaDiariopj" id="titulopj" placeholder="Titulo a editar">
+                            
+                            <br>
 
-                    <label for="TituloNotaDiariopj">Título</label>
-                    <input class="form-control" type="text" name="TituloNotaDiariopj" id="titulopj" placeholder="Titulo a editar">
-                    <br>
-                    <label for="NotaDiariopj">Descripción</label>
-                    <textarea class="form-control" name="NotaDiariopj" id="notapj" rows="15" cols="60" autofocus>
-                        Texto traido de la BD para editar
-                    </textarea>
+                            <label for="NotaDiariopj">Descripción</label>
+                            <textarea class="form-control" name="NotaDiariopj" id="notapj" rows="15" cols="60" autofocus>
+                                Texto traido de la BD para editar
+                            </textarea>
+                        </form>
                     </div>
                 </div>
 
@@ -118,9 +128,3 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
             </div>
         </div>
     </div>
-
-</div>
-
-
-
-

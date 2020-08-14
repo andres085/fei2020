@@ -76,7 +76,7 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
         <form action="">
 
             <div>
-                <select class="form-control" name="" id="tipoObj">
+                <select class="form-control" name="" id="tipoObj" required>
                     <option value="" selected disabled>Seleccione el tipo de objeto</option>
                     <option value="arma">Arma</option>
                     <option value="armadura">Armadura</option>
@@ -87,21 +87,21 @@ $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position
             
             <div>
                 <label for="nombreObj">Nombre</label>
-                <input class="form-control" id="nombreObj"type="text">                
+                <input class="form-control" id="nombreObj"type="text" required>                
             </div>
 
             <div>
                 <label for="descripcion">Descripcion</label>
-                <textarea class="form-control" name="" id="descripcion" cols="30" rows="5" placeholder="Descripción del objeto"></textarea>
+                <textarea class="form-control" name="" id="descripcion" cols="30" rows="5" placeholder="Descripción del objeto" required></textarea>
             </div>
 
             <div>
                 <label for="valor">Valor</label>
-                <input class="form-control" id="valor" type="text">
+                <input class="form-control" id="valor" type="text" required>
             </div>
             <div>
                 <label for="peso">Peso</label>
-                <input class="form-control" id="peso" type="text">
+                <input class="form-control" id="peso" type="text" required>
             </div>
 
             <div>

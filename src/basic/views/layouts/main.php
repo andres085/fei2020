@@ -78,6 +78,21 @@ use app\assets\AppAsset;
         .radio-custom input[type="radio"]:checked+label {
             background-color: #bbb;
         }
+
+        .input-stats-modalpj {
+            width: 75px;
+            height: 75px;
+            font-size: xx-large;
+            text-align: center;
+        }
+
+        .input-mod-modalpj {
+            width: 75px;
+            height: auto;
+            text-align: center;
+        }
+
+        
     </style>
 </head>
 
