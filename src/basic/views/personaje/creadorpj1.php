@@ -18,178 +18,196 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
             <div class="col-md-8 ">
 
-
-                <!-- NOMBRE Y NIVEL -->
                 <form>
-                    <div class="row my-3">
 
-                        <div class="col-md-9">
-                            <h1>Nombre</h1>
-                            <input type="text" v-model="personaje.nombre">
+                <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-1" role="tab">Caracteristicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-2" role="tab">Trasfondo</a>
+                    </li>
+        
+                </ul>
+
+                <div class="tab-content" id="pills-tabContent">
+                    
+                    <div class="tab-pane fade show active" id="pills-1" role="tabpanel">
+                        
+                        <div class="row my-3">
+
+                            <div class="col-md-9">
+                                <h1>Nombre</h1>
+                                <input type="text" v-model="personaje.nombre" required>
+                            </div>
+
+                            <div class="col-md-3">
+                                <h1>Nivel</h1>
+                                <select name="nivel" id="nivel" v-model="personaje.nivel" required>
+                                    <option value="Nivel 1">Nivel 1</option>
+                                    <option value="Nivel 2">Nivel 2</option>
+                                    <option value="Nivel 3">Nivel 3</option>
+                                    <option value="Nivel 4">Nivel 4</option>
+                                    <option value="Nivel 5">Nivel 5</option>
+                                    <option value="Nivel 6">Nivel 6</option>
+                                    <option value="Nivel 7">Nivel 7</option>
+                                    <option value="Nivel 8">Nivel 8</option>
+                                    <option value="Nivel 9">Nivel 9</option>
+                                    <option value="Nivel 10">Nivel 10</option>
+                                    <option value="Nivel 11">Nivel 11</option>
+                                    <option value="Nivel 12">Nivel 12</option>
+                                    <option value="Nivel 13">Nivel 13</option>
+                                    <option value="Nivel 14">Nivel 14</option>
+                                    <option value="Nivel 15">Nivel 15</option>
+                                    <option value="Nivel 16">Nivel 16</option>
+                                    <option value="Nivel 17">Nivel 17</option>
+                                    <option value="Nivel 18">Nivel 18</option>
+                                    <option value="Nivel 19">Nivel 19</option>
+                                    <option value="Nivel 20">Nivel 20</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="col-md-3">
-                            <h1>Nivel</h1>
-                            <select name="nivel" id="nivel" v-model="personaje.nivel">
-                                <option value="Nivel 1">Nivel 1</option>
-                                <option value="Nivel 2">Nivel 2</option>
-                                <option value="Nivel 3">Nivel 3</option>
-                                <option value="Nivel 4">Nivel 4</option>
-                                <option value="Nivel 5">Nivel 5</option>
-                                <option value="Nivel 6">Nivel 6</option>
-                                <option value="Nivel 7">Nivel 7</option>
-                                <option value="Nivel 8">Nivel 8</option>
-                                <option value="Nivel 9">Nivel 9</option>
-                                <option value="Nivel 10">Nivel 10</option>
-                                <option value="Nivel 11">Nivel 11</option>
-                                <option value="Nivel 12">Nivel 12</option>
-                                <option value="Nivel 13">Nivel 13</option>
-                                <option value="Nivel 14">Nivel 14</option>
-                                <option value="Nivel 15">Nivel 15</option>
-                                <option value="Nivel 16">Nivel 16</option>
-                                <option value="Nivel 17">Nivel 17</option>
-                                <option value="Nivel 18">Nivel 18</option>
-                                <option value="Nivel 19">Nivel 19</option>
-                                <option value="Nivel 20">Nivel 20</option>
-                            </select>
+                        <hr>
+
+
+                        <div class="radio-custom my-3">
+
+                            <h1>Raza</h1>
+
+                            <input type="radio" id="draco" value="Dracónido" v-model="personaje.raza">
+                            <label for="draco">Dracónido</label>
+
+                            <input type="radio" id="elfo" value="Elfo" v-model="personaje.raza">
+                            <label for="elfo">Elfo</label>
+
+                            <input type="radio" id="enano" value="Enano" v-model="personaje.raza">
+                            <label for="enano">Enano</label>
+
+                            <input type="radio" id="gnomo" value="Gnomo" v-model="personaje.raza">
+                            <label for="gnomo">Gnomo</label>
+
+                            <input type="radio" id="humano" value="Humano" v-model="personaje.raza">
+                            <label for="humano">Humano</label>
+
+                            <input type="radio" id="mediano" value="Mediano" v-model="personaje.raza">
+                            <label for="mediano">Mediano</label>
+
+                            <input type="radio" id="semielfo" value="Semielfo" v-model="personaje.raza">
+                            <label for="semielfo">Semielfo</label>
+
+                            <input type="radio" id="semiorco" value="Semiorco" v-model="personaje.raza">
+                            <label for="semiorco">Semiorco</label>
+
+                            <input type="radio" id="tiefling" value="Tiefling" v-model="personaje.raza">
+                            <label for="tiefling">Tiefling</label>
+
                         </div>
-                    </div>
-
-                    <hr>
-
-
-                    <div class="radio-custom my-3">
-
-                        <h1>Raza</h1>
-
-                        <input type="radio" id="draco" value="Dracónido" v-model="personaje.raza">
-                        <label for="draco">Dracónido</label>
-
-                        <input type="radio" id="elfo" value="Elfo" v-model="personaje.raza">
-                        <label for="elfo">Elfo</label>
-
-                        <input type="radio" id="enano" value="Enano" v-model="personaje.raza">
-                        <label for="enano">Enano</label>
-
-                        <input type="radio" id="gnomo" value="Gnomo" v-model="personaje.raza">
-                        <label for="gnomo">Gnomo</label>
-
-                        <input type="radio" id="humano" value="Humano" v-model="personaje.raza">
-                        <label for="humano">Humano</label>
-
-                        <input type="radio" id="mediano" value="Mediano" v-model="personaje.raza">
-                        <label for="mediano">Mediano</label>
-
-                        <input type="radio" id="semielfo" value="Semielfo" v-model="personaje.raza">
-                        <label for="semielfo">Semielfo</label>
-
-                        <input type="radio" id="semiorco" value="Semiorco" v-model="personaje.raza">
-                        <label for="semiorco">Semiorco</label>
-
-                        <input type="radio" id="tiefling" value="Tiefling" v-model="personaje.raza">
-                        <label for="tiefling">Tiefling</label>
-
-                    </div>
 
 
 
-                    <div class="radio-custom my-3">
+                        <div class="radio-custom my-3">
 
-                        <h1>Clase</h1>
+                            <h1>Clase</h1>
 
-                        <input type="radio" id="barbaro" value="Barbaro" v-model="personaje.clase">
-                        <label for="barbaro">Barbaro</label>
+                            <input type="radio" id="barbaro" value="Barbaro" v-model="personaje.clase">
+                            <label for="barbaro">Barbaro</label>
 
-                        <input type="radio" id="bardo" value="Bardo" v-model="personaje.clase">
-                        <label for="bardo">Bardo</label>
+                            <input type="radio" id="bardo" value="Bardo" v-model="personaje.clase">
+                            <label for="bardo">Bardo</label>
 
-                        <input type="radio" id="brujo" value="Brujo" v-model="personaje.clase">
-                        <label for="brujo">Brujo</label>
+                            <input type="radio" id="brujo" value="Brujo" v-model="personaje.clase">
+                            <label for="brujo">Brujo</label>
 
-                        <input type="radio" id="clerigo" value="Clerigo" v-model="personaje.clase">
-                        <label for="clerigo">Clerigo</label>
+                            <input type="radio" id="clerigo" value="Clerigo" v-model="personaje.clase">
+                            <label for="clerigo">Clerigo</label>
 
-                        <input type="radio" id="druida" value="Druida" v-model="personaje.clase">
-                        <label for="druida">Druida</label>
+                            <input type="radio" id="druida" value="Druida" v-model="personaje.clase">
+                            <label for="druida">Druida</label>
 
-                        <input type="radio" id="explorador" value="Explorador" v-model="personaje.clase">
-                        <label for="explorador">Explorador</label>
+                            <input type="radio" id="explorador" value="Explorador" v-model="personaje.clase">
+                            <label for="explorador">Explorador</label>
 
-                        <input type="radio" id="guerrero" value="Guerrero" v-model="personaje.clase">
-                        <label for="guerrero">Guerrero</label>
+                            <input type="radio" id="guerrero" value="Guerrero" v-model="personaje.clase">
+                            <label for="guerrero">Guerrero</label>
 
-                        <input type="radio" id="hechicero" value="Hechicero" v-model="personaje.clase">
-                        <label for="hechicero">Hechicero</label>
+                            <input type="radio" id="hechicero" value="Hechicero" v-model="personaje.clase">
+                            <label for="hechicero">Hechicero</label>
 
-                        <input type="radio" id="mago" value="Mago" v-model="personaje.clase">
-                        <label for="mago">Mago</label>
+                            <input type="radio" id="mago" value="Mago" v-model="personaje.clase">
+                            <label for="mago">Mago</label>
 
-                        <input type="radio" id="monje" value="Monje" v-model="personaje.clase">
-                        <label for="monje">Monje</label>
+                            <input type="radio" id="monje" value="Monje" v-model="personaje.clase">
+                            <label for="monje">Monje</label>
 
-                        <input type="radio" id="paladin" value="Paladín" v-model="personaje.clase">
-                        <label for="paladin">Paladín</label>
+                            <input type="radio" id="paladin" value="Paladín" v-model="personaje.clase">
+                            <label for="paladin">Paladín</label>
 
-                        <input type="radio" id="picaro" value="Pícaro" v-model="personaje.clase">
-                        <label for="picaro">Pícaro</label>
+                            <input type="radio" id="picaro" value="Pícaro" v-model="personaje.clase">
+                            <label for="picaro">Pícaro</label>
 
+                        </div>
 
                         <h1>Atributos</h1>
                         <div class="row my-3">
 
 
 
-                            <div class="col-md-4 d-block" style="text-align:center">
-                                <h4>Fuerza</h4>
-                                <input v-model="personaje.fuerza" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
-                            </div>
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Fuerza</h4>
+                            <input v-model="personaje.fuerza" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
 
-                            <div class="col-md-4 d-block" style="text-align:center">
-                                <h4>Destreza</h4>
-                                <input v-model="personaje.destreza" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                <button type="button" @click="destrezaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
-                            </div>
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Destreza</h4>
+                            <input v-model="personaje.destreza" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="destrezaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
 
 
-                            <div class="col-md-4 d-block" style="text-align:center">
-                                <h4>Constitución</h4>
-                                <input v-model="personaje.constitucion" type="number" id="con" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                <button type="button" @click="constitucionRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
-                            </div>
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Constitución</h4>
+                            <input v-model="personaje.constitucion" type="number" id="con" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="constitucionRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
 
                         </div>
 
                         <div class="row my-3">
 
-                            <div class="col-md-4 d-block" style="text-align:center">
-                                <h4>Inteligencia</h4>
-                                <input v-model="personaje.inteligencia" type="number" id="int" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                <button type="button" @click="inteligenciaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
-                            </div>
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Inteligencia</h4>
+                            <input v-model="personaje.inteligencia" type="number" id="int" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="inteligenciaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
 
-                            <div class="col-md-4 d-block" style="text-align:center">
-                                <h4>Sabiduria</h4>
-                                <input v-model="personaje.sabiduria" type="number" id="sab" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                <button type="button" @click="sabiduriaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
-                            </div>
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Sabiduria</h4>
+                            <input v-model="personaje.sabiduria" type="number" id="sab" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="sabiduriaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
 
 
-                            <div class="col-md-4 d-block" style="text-align:center">
-                                <h4>Carisma</h4>
-                                <input v-model="personaje.carisma" type="number" id="car" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                <button type="button" @click="carismaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
-                            </div>
+                        <div class="col-md-4 d-block" style="text-align:center">
+                            <h4>Carisma</h4>
+                            <input v-model="personaje.carisma" type="number" id="car" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                            <button type="button" @click="carismaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                        </div>
 
 
                         </div>
 
+                    </div>
 
+
+                    <div class="tab-pane fade" id="pills-2" role="tabpanel">
 
                         <div class="my-3">
                             <h1>Trasfondo</h1>
 
-                            <select v-model="personaje.trasfondo">
+                            <select class="form-control" v-model="personaje.trasfondo">
                                 <option disabled value="">Seleccione un elemento</option>
                                 <option>Acólito</option>
                                 <option>Artesano</option>
@@ -210,39 +228,98 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                         <hr>
 
-                </form>
+                        <h1>Informacicón del Personaje</h1>
+            
+                        <br>
+                        
+                        <div>
+                            <h3>Personalidad</h3>
 
+                            <textarea class="form-control" name="personalidad" id="personalidad" rows="2" v-model="personaje.personalidad"></textarea>
+                        </div>
 
+                        <br>
 
-            </div>
-            <button @click="addPersonaje()" type="button" class="btn btn-primary m-3">Crear</button>
-            </form>
+                        <div>
+                            <h3>Ideales</h3>
 
+                            <textarea class="form-control" name="ideal" id="ideal" rows="2" v-model="personaje.ideal"></textarea>
+                        </div>
 
-        </div>
+                        <br>
 
-        <div class="col-md-4 ">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ personaje.nombre }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ personaje.raza }} {{ personaje.clase }} {{ personaje.nivel }}</h6>
-                    <p>Fuerza: {{ personaje.fuerza }}</p>
-                    <p>Destreza: {{ personaje.destreza }}</p>
-                    <p>Constitución: {{ personaje.constitucion }}</p>
-                    <p>Inteligencia: {{ personaje.inteligencia }}</p>
-                    <p>Sabiduria: {{ personaje.sabiduria }}</p>
-                    <p>Carisma: {{ personaje.carisma }}</p>
+                        <div>
+                            <h3>Vínculos</h3>
 
-                    <hr>
+                            <textarea class="form-control" name="vinculo" id="vinculo" rows="2" v-model="personaje.vinculo"></textarea>
+                        </div>
 
-                    <p>Trasfondo:</p>
-                    {{ personaje.trasfondo }}
+                        <br>
 
+                        <div>
+                            <h3>Defectos</h3>
+
+                            <textarea class="form-control" name="defecto" id="defecto" rows="2" v-model="personaje.defecto"></textarea>
+                        </div>
+
+                    </div>
 
                 </div>
 
+                </form>
+
+                
+
             </div>
+            
+
+            <div class="col-md-4 ">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>{{ personaje.nombre }}</b></h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ personaje.raza }} {{ personaje.clase }} {{ personaje.nivel }}</h6>
+                        <p><b>Fuerza:</b> {{ personaje.fuerza }}</p>
+                        <p><b>Destreza:</b> {{ personaje.destreza }}</p>
+                        <p><b>Constitución:</b> {{ personaje.constitucion }}</p>
+                        <p><b>Inteligencia:</b> {{ personaje.inteligencia }}</p>
+                        <p><b>Sabiduria:</b> {{ personaje.sabiduria }}</p>
+                        <p><b>Carisma:</b> {{ personaje.carisma }}</p>
+
+                        <hr>
+
+                        <div><b>Trasfondo:</b></div>
+                        <div>{{ personaje.trasfondo }}</div>
+
+                        <br>
+
+                        <div><b>Personalidad:</b></div>
+                        <div>{{ personaje.personalidad }} </div>
+
+                        <br>
+
+                        <div><b>Ideales:</b></div>
+                        <div>{{ personaje.ideal }} </div>
+
+                        <br>
+
+                        <div><b>Vinculos:</</div>
+                        <div>{{ personaje.vinculo }} </div>
+
+                        <br>
+
+                        <div><b>Defectos:</b></div>
+                        <div>{{ personaje.defecto }} </div>
+
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+        <button @click="addPersonaje()" type="button" class="btn btn-block btn-success m-3">Crear</button>
+        
+
+        
     </div>
 </div>
 
@@ -278,6 +355,10 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     sabiduria: "",
                     carisma: "",
                     trasfondo: "",
+                    personalidad: "",
+                    ideal: "",
+                    vinculo: "",
+                    defecto: "",
                 },
             }
         },
