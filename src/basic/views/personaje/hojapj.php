@@ -242,6 +242,84 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         <!-- TRASFONDO -->
         <div class="tab-pane fade" id="pills-trasfondo" role="tabpanel" aria-labelledby="pills-trasfondo-tab">
             
+            <div>
+                <h3><b>Trasfondo:</b> {{trasfondo}} </h3>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut deleniti voluptate placeat mollitia qui, voluptatibus, numquam accusantium minus quis voluptates quo. Est facere sit, iusto in nulla doloribus officia officiis.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consectetur totam ut quis repellat amet mollitia tenetur omnis. Numquam labore ad perferendis. Earum ab atque voluptatibus doloremque. Numquam, accusantium tempore.
+                </p>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6><b>Competencia con Habilidades:</b></h6>
+                        <ul class="list-unstyled">
+                            <li> {{competencia1}} </li>
+                            <li> {{competencia2}} </li>
+                        </ul>
+
+                        <h6><b>Competencia con Equipo:</b></h6>
+                        <ul class="list-unstyled">
+                            <li> {{competencia1}} </li>
+                            <li> {{competencia2}} </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-8">
+                        <h6><b>Rasgo:</b> {{nombre_rasgo}} </h6>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, officia! Sequi illum odit perferendis molestias veniam modi ipsa laborum laudantium? Voluptatum magnam ipsum repellendus facilis nemo quas dolor quasi esse.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ab facilis id itaque incidunt natus quasi reiciendis aliquam officiis veniam velit voluptatem facere necessitatibus dolorum assumenda, sint, a esse? Pariatur?
+                        </p>
+
+                        <h6><b>Especialidad:</b> {{onmbre_especialidad}} </h6>
+
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio recusandae minus eos earum dicta ducimus beatae, tempore, obcaecati cumque mollitia labore pariatur incidunt ad autem optio suscipit inventore ex quod.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse laborum aut tempore nemo ullam, aperiam deserunt iure qui asperiores est accusamus amet assumenda libero mollitia iusto alias quidem ab accusantium?
+                        </p>
+                    </div>
+            </div>
+
+
+            <div>
+                <h3><b>Personalidad</b></h3>
+
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente repellendus ea, labore reprehenderit assumenda praesentium totam aliquam! Dolorum debitis autem perferendis a iste deleniti numquam? Aperiam numquam quas necessitatibus blanditiis!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos facere, repellendus deleniti voluptatibus in pariatur maiores, illo quo quidem ipsam blanditiis aperiam recusandae vero accusantium totam et eius odio error?
+                </p>
+            </div>
+
+            <hr>
+
+            <div>
+                <h3><b>Ideales:</b></h3>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
+                </p>
+            </div>
+
+            <hr>
+
+            <div>
+                <h3><b>Vinculos:</b></h3>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
+                </p>
+            </div>
+
+            <hr>
+
+            <div>
+                <h3><b>Defectos:</b></h3>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
+                </p>
+            </div>
+
+
+
         </div>
 
         <!-- OBJETOS -->

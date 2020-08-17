@@ -159,15 +159,16 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
             </div>
 
-            <!-- Modal footer -->
-            <div class="modal-footer">
-
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="submit" onclick="window.location.href='hojapj'" class="btn btn-success">Ver Hoja de Personaje </button>
-            </div>
-
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar Personaje</button>
+            <button type="submit" onclick="window.location.href='hojapj'" class="btn btn-success">Ver Hoja de Personaje </button>
         </div>
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="submit" onclick="window.location.href='hojapj'" class="btn btn-success">Ver Hoja de Personaje </button>
     </div>
+
+</div>
+</div>
 </div>
 
 
