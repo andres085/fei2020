@@ -19,9 +19,30 @@ class m200610_031739_crear_personaje_table extends Migration
             'nivel' => $this->string()->notNull(),
             'raza' => $this->text()->notNull(),
             'clase' => $this->text()->notNull(),
-            'trasfondo' => $this->text()->Null(),
+            'fuerza' => $this->integer()->notNull(),
+            'destreza' => $this->integer()->notNull(),
+            'constitucion' => $this->integer()->notNull(),
+            'inteligencia' => $this->integer()->notNull(),
+            'sabiduria' => $this->integer()->notNull(),
+            'carisma' => $this->integer()->notNull(),
+            'id_trasfondo' => $this->integer()->notNull(),
             'dote' => $this->text()->Null(),
         ]);
+
+        $this->createIndex(
+            'idx-personaje-id_trasfondo',
+            'personaje',
+            'id_trasfondo'
+        );
+
+        $this->addForeignKey(
+            'fk-personaje-id_trasfondo',
+            'personaje',
+            'id_trasfondo',
+            'trasfondo',
+            'id',
+            'CASCADE'
+        );
     }
 
     /**

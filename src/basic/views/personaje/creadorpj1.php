@@ -252,32 +252,21 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         el: '#app',
         data: function() {
             return {
-                //nombre: "Nombre",
-                // clase: "",
-                // nivel: "Nivel 1",
-                //raza: "",
                 min: 3,
                 max: 18,
-                // fuerza: "",
-                // destreza: "",
-                // constitucion: "",
-                // inteligencia: "",
-                // sabiduria: "",
-                // carisma: "",
-                // trasfondo: "",
                 usuario_id: <?= json_encode(Yii::$app->user->identity->id) ?>,
                 personaje: {
-                    nombre: "Nombre",
-                    clase: "",
-                    nivel: "Nivel 1",
-                    raza: "",
-                    fuerza: "",
-                    destreza: "",
-                    constitucion: "",
-                    inteligencia: "",
-                    sabiduria: "",
-                    carisma: "",
-                    trasfondo: "",
+                    // nombre: "Nombre",
+                    // clase: "",
+                    // nivel: "Nivel 1",
+                    // raza: "",
+                    // fuerza: "",
+                    // destreza: "",
+                    // constitucion: "",
+                    // inteligencia: "",
+                    // sabiduria: "",
+                    // carisma: "",
+                    // trasfondo: "",
                 },
             }
         },
@@ -316,7 +305,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         };
                         axios.post('/apiv1/usuariopersonaje', idjoin)
                         console.log(response.data);
-                        window.location.href = '/personaje/modulopj';
+                        //window.location.href = '/personaje/modulopj';
+
                     })
                     .catch(function(error) {
                         // handle error

@@ -53,7 +53,7 @@ $config = [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'pluralize' => false,
-                    'controller' => ['apiv1/usuario', 'apiv1/usuariopersonaje', 'apiv1/personaje']
+                    'controller' => ['apiv1/usuario', 'apiv1/usuariopersonaje', 'apiv1/personaje', 'apiv1/atributo']
                 ]
             ],
         ],
