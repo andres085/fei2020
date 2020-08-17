@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Class m200612_144915_crear_diario_table
  */
-class m200612_144915_crear_diario_table extends Migration
+class m200816_163336_crear_diario_table extends Migration
 {
     /**
      * {@inheritdoc}

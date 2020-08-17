@@ -7,7 +7,7 @@ use yii\rest\ActiveController;
 /**
  * Default controller for the `apiv1` module
  */
-class AtributoController extends ActiveController
+class TrasfondoController extends ActiveController
 {
-    public $modelClass = 'app\modules\apiv1\models\Atributo';
+    public $modelClass = 'app\modules\apiv1\models\Trasfondo';
 }

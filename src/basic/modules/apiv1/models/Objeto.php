@@ -3,7 +3,7 @@
 namespace app\modules\apiv1\models;
 
 
-class Personaje extends \app\models\Personaje
+class Objeto extends \app\models\Objeto
 {
     public function fields()
     {

@@ -228,7 +228,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                             <hr>
 
-                            <h1>Informacicón del Personaje</h1>
+                            <h1>Información del Personaje</h1>
 
                             <br>
 

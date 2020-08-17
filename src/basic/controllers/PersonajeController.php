@@ -28,4 +28,9 @@ class PersonajeController extends \yii\web\Controller
     {
         return $this->render('hojapj');
     }
+
+    public function actionTrasfondo()
+    {
+        return $this->render('trasfondo');
+    }
 }

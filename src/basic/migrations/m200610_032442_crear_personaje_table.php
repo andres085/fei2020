@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Class m200610_031739_crear_personaje_table
  */
-class m200610_031739_crear_personaje_table extends Migration
+class m200610_032442_crear_personaje_table extends Migration
 {
     /**
      * {@inheritdoc}

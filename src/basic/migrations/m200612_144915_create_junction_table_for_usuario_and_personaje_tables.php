@@ -9,7 +9,7 @@ use yii\db\Migration;
  * - `{{%usuario}}`
  * - `{{%personaje}}`
  */
-class m200610_032442_create_junction_table_for_usuario_and_personaje_tables extends Migration
+class m200612_144915_create_junction_table_for_usuario_and_personaje_tables extends Migration
 {
     /**
      * {@inheritdoc}

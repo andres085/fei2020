@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Class m200816_163336_crear_tabla_trasfondos
  */
-class m200816_163336_crear_tabla_trasfondo extends Migration
+class m200610_031739_crear_tabla_trasfondo extends Migration
 {
     /**
      * {@inheritdoc}
@@ -15,7 +15,7 @@ class m200816_163336_crear_tabla_trasfondo extends Migration
         $this->createTable('trasfondo', [
             'id' => $this->primaryKey(),
             'nombre' => $this->text()->notNull(),
-            'descripcion' => $this->tex()->notNull(),
+            'descripcion' => $this->text()->notNull(),
             'nombre_rasgo' => $this->string(255)->notNull(),
             'rasgo' => $this->text()->notNull(),
             'nombre_especialidad' => $this->string(255),
@@ -34,7 +34,6 @@ class m200816_163336_crear_tabla_trasfondo extends Migration
     public function safeDown()
     {
         $this->dropTable('trasfondo');
-
         return true;
     }
 

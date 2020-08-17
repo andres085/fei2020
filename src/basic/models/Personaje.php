@@ -12,11 +12,17 @@ use Yii;
  * @property string $nivel
  * @property string $raza
  * @property string $clase
- * @property string|null $trasfondo
+ * @property int $fuerza
+ * @property int $destreza
+ * @property int $constitucion
+ * @property int $inteligencia
+ * @property int $sabiduria
+ * @property int $carisma
+ * @property int $id_trasfondo
  * @property string|null $dote
  *
- * @property Atributo[] $atributos
  * @property Diario[] $diarios
+ * @property Trasfondo $trasfondo
  * @property UsuarioPersonaje[] $usuarioPersonajes
  * @property Usuario[] $usuarios
  */
@@ -36,12 +42,13 @@ class Personaje extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'nivel', 'raza', 'clase'], 'required'],
-            [['nombre', 'raza', 'clase', 'trasfondo', 'dote'], 'string'],
+            [['nombre', 'nivel', 'raza', 'clase', 'fuerza', 'destreza', 'constitucion', 'inteligencia', 'sabiduria', 'carisma', 'id_trasfondo'], 'required'],
+            [['nombre', 'raza', 'clase', 'dote'], 'string'],
+            [['fuerza', 'destreza', 'constitucion', 'inteligencia', 'sabiduria', 'carisma', 'id_trasfondo'], 'integer'],
             [['nivel'], 'string', 'max' => 255],
+            [['id_trasfondo'], 'exist', 'skipOnError' => true, 'targetClass' => Trasfondo::className(), 'targetAttribute' => ['id_trasfondo' => 'id']],
         ];
     }
-
 
     /**
      * {@inheritdoc}
@@ -54,19 +61,15 @@ class Personaje extends \yii\db\ActiveRecord
             'nivel' => 'Nivel',
             'raza' => 'Raza',
             'clase' => 'Clase',
-            'trasfondo' => 'Trasfondo',
+            'fuerza' => 'Fuerza',
+            'destreza' => 'Destreza',
+            'constitucion' => 'Constitucion',
+            'inteligencia' => 'Inteligencia',
+            'sabiduria' => 'Sabiduria',
+            'carisma' => 'Carisma',
+            'id_trasfondo' => 'Id Trasfondo',
             'dote' => 'Dote',
         ];
-    }
-
-    /**
-     * Gets query for [[Atributos]].
-     *
-     * @return \yii\db\ActiveQuery|AtributoQuery
-     */
-    public function getAtributos()
-    {
-        return $this->hasMany(Atributo::className(), ['id_personaje' => 'id']);
     }
 
     /**
@@ -77,6 +80,16 @@ class Personaje extends \yii\db\ActiveRecord
     public function getDiarios()
     {
         return $this->hasMany(Diario::className(), ['id_personaje' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Trasfondo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTrasfondo()
+    {
+        return $this->hasOne(Trasfondo::className(), ['id' => 'id_trasfondo']);
     }
 
     /**
