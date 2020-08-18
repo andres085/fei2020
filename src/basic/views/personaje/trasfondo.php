@@ -20,8 +20,10 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 <label for="descripcion">Descripcion</label>
                 <input type="text" v-model="trasfondo.descripcion" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion">
             </div>
+            <button @click="addTrasfondo()" type="button" class="btn btn-primary m-3">Crear</button>
+            <button @click="updTrasfondo(trasfondo.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
         </form>
-        <button @click="addTrasfondo()" type="button" class="btn btn-primary m-3">Crear</button>
+
         <table class="table">
             <thead>
                 <tr>
@@ -31,12 +33,15 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="trasfondo in trasfondos">
+                <tr v-for="(trasfondo, key) in trasfondos" v-bind:key="trasfondo.id">
                     <td>{{trasfondo.id}}</td>
                     <td>{{trasfondo.nombre}}</td>
                     <td>{{trasfondo.descripcion}}</td>
                     <td>
                         <button v-on:click="deleteTrasfondo(trasfondo.id)" type="button" class="btn btn-danger">Borrar</button>
+                    </td>
+                    <td>
+                        <button v-on:click="editTrasfondo(key)" type="button" class="btn btn-danger">Actualizar</button>
                     </td>
                 </tr>
             </tbody>
@@ -105,6 +110,33 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     .then(function() {
                         // always executed
                     });
+            },
+            editTrasfondo: function(key) {
+                this.trasfondo = Object.assign({}, this.trasfondos[key]);
+                this.trasfondo.key = key;
+                //this.isNewRecord = false;
+            },
+            updTrasfondo: function(key) {
+                var self = this;
+                const params = new URLSearchParams();
+                params.append('nombre', self.trasfondo.nombre);
+                params.append('descripcion', self.trasfondo.descripcion);
+                axios.patch('/apiv1/trasfondo/' + key, self.trasfondo)
+                    .then(function(response) {
+                        // handle success
+                        console.log(response.data);
+                        self.getTrasfondo();
+                        self.trasfondo = {};
+                        //self.isNewRecord = true;
+                    })
+                    .catch(function(error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .then(function() {
+                        // always executed
+                    });
+
             },
         }
     })
