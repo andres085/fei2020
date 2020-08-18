@@ -302,7 +302,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                         <br>
 
-                        <div><b>Vinculos:</</div> <div>{{ personaje.vinculo }} </div>
+                        <div><b>Vinculos:</b></div> <div>{{ personaje.vinculo }} </div>
 
                         <br>
 
