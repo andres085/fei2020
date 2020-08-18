@@ -54,6 +54,17 @@ class m200610_032442_crear_personaje_table extends Migration
      */
     public function safeDown()
     {
+
+        $this->dropForeignKey(
+            'fk-personaje-id_trasfondo',
+            'personaje'
+        );
+
+        $this->dropIndex(
+            'idx-personaje-id_trasfondo',
+            'personaje'
+        );
+        
         $this->dropTable('personaje');
         return true;
     }

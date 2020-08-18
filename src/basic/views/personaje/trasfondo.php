@@ -2,7 +2,7 @@
 
 use yii\web\View;
 
-$this->title = 'Modulo de trasfondos';
+$this->title = 'Trasfondos';
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position' => View::POS_HEAD]);
@@ -16,9 +16,49 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input type="text" v-model="trasfondo.nombre" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                
                 <br>
+                
                 <label for="descripcion">Descripcion</label>
                 <input type="text" v-model="trasfondo.descripcion" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion">
+                
+                <br>
+
+                <label for="nombre-rasgo">Nombre</label>
+                <input type="text" class="form-control" v-model="trasfondo.nombre_rasgo" name="nombre-rasgo" id="nombre-rasgo" placeholder="Nombre del Rasgo">
+
+                <br>
+
+                <label for="rasgo">Rasgo</label>
+                <textarea class="form-control" v-model="trasfondo.rasgo" name="rasgo" id="rasgo" cols="30" rows="4"></textarea>
+
+                <br>
+
+
+                <h4>Tiene especialidades?</h4>
+
+                <label for="espec_si">SI</label>
+                <input type="radio" name="espec_si" id="espec_si" v-model="especialidad" value="si">
+
+                <br>
+
+                <label for="espec_no">NO</label>
+                <input type="radio" name="espec-no" id="espec_no" v-model="especialidad" value="no">
+
+                <div v-if="especialidad === 'si'">
+                
+                    <br>
+
+                    <label for="nombre_espec">Nombre</label>
+                    <input class="form-control" v-model="trasfondo.nombre_especialidad" type="text" id="nombre_especialidad" name="nombre_especialidad" placeholder="Nombre de la Especialidad">
+
+                    <br>
+
+                    <label for="espec">Descripción de la Especialidad</label>
+                    <textarea class="form-control" v-model="trasfondo.especialidad" name="especialidad" id="especialidad" cols="30" rows="4"></textarea>
+                
+                </div>
+                <div v-else="x === 'no'"></div>
             </div>
             <button @click="addTrasfondo()" type="button" class="btn btn-primary m-3">Crear</button>
             <button @click="updTrasfondo(trasfondo.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
@@ -29,14 +69,18 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
-                    <th>Borrado</th>
+                    <th>Descripción</th>
+                    <th>Rasgo</th>
+                    <th>Especialidad</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="">
                 <tr v-for="(trasfondo, key) in trasfondos" v-bind:key="trasfondo.id">
                     <td>{{trasfondo.id}}</td>
                     <td>{{trasfondo.nombre}}</td>
                     <td>{{trasfondo.descripcion}}</td>
+                    <td>{{trasfondo.nombre_rasgo}}</td>
+                    <td>{{trasfondo.nombre_especialidad}}</td>
                     <td>
                         <button v-on:click="deleteTrasfondo(trasfondo.id)" type="button" class="btn btn-danger">Borrar</button>
                     </td>
@@ -53,6 +97,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         el: '#app',
         data: function() {
             return {
+
+                especialidad: "",
+
                 trasfondo: {},
                 trasfondos: [],
             }
@@ -121,6 +168,10 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 const params = new URLSearchParams();
                 params.append('nombre', self.trasfondo.nombre);
                 params.append('descripcion', self.trasfondo.descripcion);
+                params.append('nombre_rasgo', self.trasfondo.nombre_rasgo);
+                params.append('rasgo', self.trasfondo.rasgo);
+                params.append('nombre_espec', self.trasfondo.nombre_especialidad);
+                params.append('espec', self.trasfondo.especialidad);
                 axios.patch('/apiv1/trasfondo/' + key, self.trasfondo)
                     .then(function(response) {
                         // handle success
