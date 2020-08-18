@@ -26,6 +26,10 @@ class m200610_032442_crear_personaje_table extends Migration
             'sabiduria' => $this->integer()->notNull(),
             'carisma' => $this->integer()->notNull(),
             'id_trasfondo' => $this->integer()->notNull(),
+            'personalidad' => $this->text(),
+            'ideal' => $this->text(),
+            'vinculo' => $this->text(),
+            'defecto' => $this->text(),            
             'dote' => $this->text()->Null(),
         ]);
 
