@@ -38,8 +38,8 @@ class Trasfondo extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'descripcion'], 'required'],
-            [['nombre', 'descripcion', 'rasgo', 'comp_habilidades1', 'comp_habilidades2'], 'string'],
-            [['nombre_rasgo', 'nombre_especialidad', 'especialidad', 'comp_equipo1', 'comp_equipo2'], 'string', 'max' => 255],
+            [['nombre', 'descripcion', 'rasgo', 'especialidad', 'comp_habilidades1', 'comp_habilidades2'], 'string'],
+            [['nombre_rasgo', 'nombre_especialidad', 'comp_equipo1', 'comp_equipo2'], 'string', 'max' => 255],
         ];
     }
 

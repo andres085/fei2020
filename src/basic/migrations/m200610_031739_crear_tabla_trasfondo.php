@@ -14,12 +14,12 @@ class m200610_031739_crear_tabla_trasfondo extends Migration
     {
         $this->createTable('trasfondo', [
             'id' => $this->primaryKey(),
-            'nombre' => $this->text()->notNull(),
+            'nombre' => $this->string(255)->notNull(),
             'descripcion' => $this->text()->notNull(),
             'nombre_rasgo' => $this->string(255)->notNull(),
             'rasgo' => $this->text()->notNull(),
             'nombre_especialidad' => $this->string(255),
-            'especialidad' => $this->string(255),
+            'especialidad' => $this->text(),
             'comp_habilidades1' => $this->text()->notNull(),
             'comp_habilidades2' => $this->text()->notNull(),
             'comp_equipo1' => $this->string(255),

@@ -14,29 +14,24 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
 <div class="container-fluid">
 
-    <!-- NOMBRE -->
-    <div class="d-flex my-3 justify-content-center">
-        <h1>{{ nombre }}</h1>
-    </div>
+   
 
-    <hr>
-
-    <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+    <ul class="nav nav-tabs nav-fill" id="pills-tab" role="tablist">
 
         <li class="nav-item">
-            <a class="nav-link active" id="pills-info-tab" data-toggle="pill" href="#pills-info" role="tab" aria-controls="pills-info" aria-selected="true">Información</a>
+            <a class="nav-link active" id="pills-info-tab" data-toggle="pill" href="#pills-info" role="tab">Información</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" id="pills-trasfonde-tab" data-toggle="pill" href="#pills-trasfondo" role="tab" aria-controls="pills-trasfondo" aria-selected="false">Trasfondo</a>
+            <a class="nav-link" id="pills-trasfondo-tab" data-toggle="pill" href="#pills-trasfondo" role="tab">Trasfondo</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" id="pills-objetos-tab" data-toggle="pill" href="#pills-objetos" role="tab" aria-controls="pills-objetos" aria-selected="false">Objetos</a>
+            <a class="nav-link" id="pills-objetos-tab" data-toggle="pill" href="#pills-objetos" role="tab">Objetos</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" id="pills-diario-tab" data-toggle="pill" href="#pills-diario" role="tab" aria-controls="pills-diario" aria-selected="false">Diario</a>
+            <a class="nav-link" id="pills-diario-tab" data-toggle="pill" href="#pills-diario" role="tab">Diario</a>
         </li>
 
     </ul>
@@ -45,8 +40,13 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
     <div class="tab-content" id="pills-tabContent">
 
          <!-- INFORMACION -->
-        <div class="tab-pane fade show active" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
+        <div class="tab-pane fade show active" id="pills-info" role="tabpanel">
             
+            <!-- NOMBRE -->
+            <div class="d-flex my-3 justify-content-center">
+                <h1>{{ nombre }}</h1>
+            </div>
+
             <!-- RAZA -->
             <div class="d-flex my-3">
                 <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-raza" aria-expanded="false" aria-controls="collapseExample">
@@ -240,8 +240,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         </div>
 
         <!-- TRASFONDO -->
-        <div class="tab-pane fade" id="pills-trasfondo" role="tabpanel" aria-labelledby="pills-trasfondo-tab">
-            
+        <div class="tab-pane fade" id="pills-trasfondo" role="tabpanel">
+            <br>
             <div>
                 <h3><b>Trasfondo:</b> {{trasfondo}} </h3>
 
@@ -277,61 +277,63 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse laborum aut tempore nemo ullam, aperiam deserunt iure qui asperiores est accusamus amet assumenda libero mollitia iusto alias quidem ab accusantium?
                         </p>
                     </div>
+                </div>
+
+
+                <div>
+                    <h3><b>Personalidad</b></h3>
+
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente repellendus ea, labore reprehenderit assumenda praesentium totam aliquam! Dolorum debitis autem perferendis a iste deleniti numquam? Aperiam numquam quas necessitatibus blanditiis!
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos facere, repellendus deleniti voluptatibus in pariatur maiores, illo quo quidem ipsam blanditiis aperiam recusandae vero accusantium totam et eius odio error?
+                    </p>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h3><b>Ideales:</b></h3>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
+                    </p>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h3><b>Vinculos:</b></h3>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
+                    </p>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h3><b>Defectos:</b></h3>
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
+                    </p>
+                </div>
+
+
+
             </div>
 
-
-            <div>
-                <h3><b>Personalidad</b></h3>
-
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente repellendus ea, labore reprehenderit assumenda praesentium totam aliquam! Dolorum debitis autem perferendis a iste deleniti numquam? Aperiam numquam quas necessitatibus blanditiis!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos facere, repellendus deleniti voluptatibus in pariatur maiores, illo quo quidem ipsam blanditiis aperiam recusandae vero accusantium totam et eius odio error?
-                </p>
-            </div>
-
-            <hr>
-
-            <div>
-                <h3><b>Ideales:</b></h3>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
-                </p>
-            </div>
-
-            <hr>
-
-            <div>
-                <h3><b>Vinculos:</b></h3>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
-                </p>
-            </div>
-
-            <hr>
-
-            <div>
-                <h3><b>Defectos:</b></h3>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
-                </p>
-            </div>
-
-
-
+            
+                
         </div>
 
         <!-- OBJETOS -->
-        <div class="tab-pane fade" id="pills-objetos" role="tabpanel" aria-labelledby="pills-objetos-tab">
-            
+        <div class="tab-pane fade" id="pills-objetos" role="tabpanel">
+                ...
         </div>
 
-        <!-- DIARIO -->
-        <div class="tab-pane fade" id="pills-diario" role="tabpanel" aria-labelledby="pills-diario-tab">
-            
+            <!-- DIARIO -->
+        <div class="tab-pane fade" id="pills-diario" role="tabpanel">
         </div>
-    </div>
     
 
     

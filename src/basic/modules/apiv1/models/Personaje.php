@@ -7,6 +7,6 @@ class Personaje extends \app\models\Personaje
 {
     public function fields()
     {
-        return ['id', 'nombre', 'nivel', 'raza', 'clase'];
+        return ['id', 'nombre', 'nivel', 'raza', 'clase', 'trasfondo', 'personalidad', 'ideal', 'vinculo', 'defecto'];
     }
 }

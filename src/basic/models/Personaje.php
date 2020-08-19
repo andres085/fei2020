@@ -19,6 +19,10 @@ use Yii;
  * @property int $sabiduria
  * @property int $carisma
  * @property int $id_trasfondo
+ * @property string $personalidad
+ * @property string $ideal
+ * @property string vinculo
+ * defecto
  * @property string|null $dote
  *
  * @property Diario[] $diarios
@@ -43,7 +47,7 @@ class Personaje extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'nivel', 'raza', 'clase', 'fuerza', 'destreza', 'constitucion', 'inteligencia', 'sabiduria', 'carisma', 'id_trasfondo'], 'required'],
-            [['nombre', 'raza', 'clase', 'dote'], 'string'],
+            [['nombre', 'raza', 'clase', 'personalidad', 'ideal', 'vinculo', 'defecto', 'dote'], 'string'],
             [['fuerza', 'destreza', 'constitucion', 'inteligencia', 'sabiduria', 'carisma', 'id_trasfondo'], 'integer'],
             [['nivel'], 'string', 'max' => 255],
             [['id_trasfondo'], 'exist', 'skipOnError' => true, 'targetClass' => Trasfondo::className(), 'targetAttribute' => ['id_trasfondo' => 'id']],
@@ -68,6 +72,10 @@ class Personaje extends \yii\db\ActiveRecord
             'sabiduria' => 'Sabiduria',
             'carisma' => 'Carisma',
             'id_trasfondo' => 'Id Trasfondo',
+            'personalidad' => 'Personalidad',
+            'ideal' => 'Ideal',
+            'vinculo' => 'Vinculo',
+            'defecto' => 'Defecto',
             'dote' => 'Dote',
         ];
     }

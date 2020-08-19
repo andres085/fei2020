@@ -7,6 +7,6 @@ class Trasfondo extends \app\models\Trasfondo
 {
     public function fields()
     {
-        return ['id', 'nombre', 'descripcion'];
+        return ['id', 'nombre', 'descripcion', 'nombre_rasgo', 'rasgo', 'nombre_especialidad', 'especialidad'];
     }
 }

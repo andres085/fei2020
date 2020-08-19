@@ -42,6 +42,17 @@ class m200816_163336_crear_diario_table extends Migration
      */
     public function safeDown()
     {
+
+        $this->dropForeignKey(
+            'fk-diario-id_personaje',
+            'diario'
+        );
+
+        $this->dropIndex(
+            'idx-diario-id_personaje',
+            'diario'
+        );
+
         $this->dropTable('diario');
 
         return true;
