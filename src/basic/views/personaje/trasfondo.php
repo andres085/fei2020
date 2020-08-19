@@ -20,8 +20,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 <label for="descripcion">Descripcion</label>
                 <input type="text" v-model="trasfondo.descripcion" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion">
             </div>
-            <button @click="addTrasfondo()" type="button" class="btn btn-primary m-3">Crear</button>
-            <button @click="updTrasfondo(trasfondo.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
+            <button v-if="isNewRecord" @click="addTrasfondo()" type="button" class="btn btn-primary m-3">Crear</button>
+            <button v-if="!isNewRecord" @click="updTrasfondo(trasfondo.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
         </form>
 
         <table class="table">
@@ -55,6 +55,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             return {
                 trasfondo: {},
                 trasfondos: [],
+                isNewRecord: true,
             }
         },
         mounted() {
@@ -114,7 +115,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             editTrasfondo: function(key) {
                 this.trasfondo = Object.assign({}, this.trasfondos[key]);
                 this.trasfondo.key = key;
-                //this.isNewRecord = false;
+                this.isNewRecord = false;
             },
             updTrasfondo: function(key) {
                 var self = this;
@@ -127,7 +128,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         console.log(response.data);
                         self.getTrasfondo();
                         self.trasfondo = {};
-                        //self.isNewRecord = true;
+                        self.isNewRecord = true;
                     })
                     .catch(function(error) {
                         // handle error
