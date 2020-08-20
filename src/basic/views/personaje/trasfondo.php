@@ -16,15 +16,15 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input type="text" v-model="trasfondo.nombre" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
-                
-                <br>
-                
-                <label for="descripcion">Descripcion</label>
-                <input type="text" v-model="trasfondo.descripcion" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion">
-                
+
                 <br>
 
-                <label for="nombre-rasgo">Nombre</label>
+                <label for="descripcion">Descripcion</label>
+                <input type="text" v-model="trasfondo.descripcion" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion">
+
+                <br>
+
+                <label for="nombre-rasgo">Nombre Rasgo</label>
                 <input type="text" class="form-control" v-model="trasfondo.nombre_rasgo" name="nombre-rasgo" id="nombre-rasgo" placeholder="Nombre del Rasgo">
 
                 <br>
@@ -38,15 +38,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 <h4>Tiene especialidades?</h4>
 
                 <label for="espec_si">SI</label>
-                <input type="radio" name="espec_si" id="espec_si" v-model="especialidad" value="si">
+                <input type="radio" name="espec_si" id="espec_si" v-model="selected" value="si">
+                <div v-show="selected === 'si'">
 
-                <br>
-
-                <label for="espec_no">NO</label>
-                <input type="radio" name="espec-no" id="espec_no" v-model="especialidad" value="no">
-
-                <div v-if="especialidad === 'si'">
-                
                     <br>
 
                     <label for="nombre_espec">Nombre</label>
@@ -56,11 +50,19 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <label for="espec">Descripción de la Especialidad</label>
                     <textarea class="form-control" v-model="trasfondo.especialidad" name="especialidad" id="especialidad" cols="30" rows="4"></textarea>
-                
+
                 </div>
-                <div v-else="x === 'no'"></div>
+                <br>
+
+                <label for="espec_no">NO</label>
+                <input type="radio" name="espec-no" id="espec_no" v-model="selected" value="no">
+                <div v-show="selected === 'no'">
+
+                </div>
+
             </div>
             <button v-if="isNewRecord" @click="addTrasfondo()" type="button" class="btn btn-primary m-3">Crear</button>
+            <button v-if="!isNewRecord" @click="nuevoTrasfondo()" type="button" class="btn btn-success m-3">Nuevo</button>
             <button v-if="!isNewRecord" @click="updTrasfondo(trasfondo.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
         </form>
 
@@ -98,8 +100,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         data: function() {
             return {
 
-                especialidad: "",
-
+                selected: null,
                 trasfondo: {},
                 trasfondos: [],
                 isNewRecord: true,
@@ -190,6 +191,10 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     });
 
             },
+            nuevoTrasfondo: function() {
+                this.trasfondo = {};
+                this.isNewRecord = true;
+            }
         }
     })
 </script>
