@@ -14,11 +14,6 @@ class PersonajeController extends \yii\web\Controller
         return $this->render('creadorpj2');
     }
 
-    public function actionDiariopj()
-    {
-        return $this->render('diariopj');
-    }
-
     public function actionModulopj()
     {
         return $this->render('modulopj');

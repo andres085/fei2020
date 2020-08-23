@@ -241,7 +241,13 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
         <!-- TRASFONDO -->
         <div class="tab-pane fade" id="pills-trasfondo" role="tabpanel">
-            <br>
+            
+            <div class="my-4" style="text-align: center;">
+                <h1>Datos de Trasfondo</h1>
+            </div>
+
+            <hr>
+
             <div>
                 <h3><b>Trasfondo:</b> {{trasfondo}} </h3>
 
@@ -328,13 +334,210 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
         <!-- OBJETOS -->
         <div class="tab-pane fade" id="pills-objetos" role="tabpanel">
-                ...
+        
+            <div class="my-4" style="text-align: center;">
+                <h1>Tus Objetos</h1>
+            </div>
+
+            <div class="my-2">
+                <button class="btn btn-block btn-success" data-toggle="modal" data-target="#agregarObj">Agregar un objeto a tu inventario</button>
+            </div>
+
+            <div>
+                <table class="table table-responisve table-hover table-sm">
+                    
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo</th>
+                            <th>Descripcion</th>
+                            <th>Valor</th>
+                            <th>Peso</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr class="cilckable-row" data-toggle="modal" data-target="#modalEditarObj" style="cursor: pointer;">
+
+                            <td>{{nombre}}</td>
+                            <td>{{tipo}}</td>
+                            <td> {{descripcion}} </td>
+                            <td>{{valor}}</td>
+                            <td>{{peso}}</td>
+                            
+                        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
         </div>
 
             <!-- DIARIO -->
         <div class="tab-pane fade" id="pills-diario" role="tabpanel">
+
+            <div class="my-4" style="text-align: center;">
+                <h1>Diario del Personaje</h1>
+            </div>
+
+            <button type="button" class="btn btn-block btn-success" data-toggle="modal" data-target="#ModalNotaDiariopj">
+                Agregar una Nota al Diario
+            </button>
+
+            <div style="text-align: center;">
+            <hr>
+
+            <h3>Tus Notas</h3>
+            <h3><i class="fas fa-edit"></i></h3>
+            
+            <div class="container-fluid" style="max-height:450px ;overflow-y: auto;">
+
+                <button type="button" class="btn btn-outline-dark btn-pjs" data-toggle="modal" data-target="#ModalEditarNota">Nota <h6 style="font-size:smaller;">Fecha y Hora</h6></button>
+            </div>
+        </div>
+
         </div>
     
 
     
+</div>
+
+
+<!-- Modal Agregar Objeto -->
+<div class="modal fade" id="agregarObj">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h4 class="modal-title">Agrega un objeto nuevo</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+        
+        <form action="">
+
+            <div>
+                <label for="tipoObj"><b>Objeto Base</b></label>
+                <select class="form-control" name="tipoObj" id="tipoObj" required>
+                    <option value="" selected disabled>Seleccione el objeto base</option>
+                    <option value="arma">{{obj traido de la base}}</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="nombreObj"><b>Nombre</b></label>
+                <input class="form-control" id="nombreObj"type="text" required>                
+            </div>
+
+            <div>
+                <label for="descripcion"><b>Descripción</b></label>
+                <textarea class="form-control" name="" id="descripcion" cols="30" rows="5" placeholder="Descripción del objeto" required></textarea>
+            </div>
+
+            <div>
+                <label for="valor"><b>Valor</b></label>
+                <input class="form-control" id="valor" type="text" required>
+            </div>
+            <div>
+                <label for="peso"><b>Peso</b></label>
+                <input class="form-control" id="peso" type="text" required>
+            </div>
+
+            <div>
+                
+            </div>
+        </form>
+       
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-success">Agregar Objeto</button>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+  <!-- MODAL AGREGAR NOTA -->
+<div class="modal fade" id="ModalNotaDiariopj">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h4 class="modal-title">Añade una nueva nota</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+            <div class="modal-body">
+                <div class="form-group">
+
+                <label for="TituloNotaDiariopj">Título</label>
+                <input class="form-control" type="text" name="TituloNotaDiariopj" id="titulopj">
+                <br>
+                <label for="NotaDiariopj">Descripción</label>
+                <textarea class="form-control" name="NotaDiariopj" id="notapj" rows="15" cols="60" placeholder="Escribe aqui tu nueva entrada del diario" autofocus></textarea>
+                </div>
+            </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            
+            <button type="submit" class="btn btn-success">Agregar Nota <i class="fas fa-feather-alt"></i> </button>
+            
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- MODAL EDITAR NOTA -->
+<div class="modal fade" id="ModalEditarNota">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Edita la nota</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="form-group">
+                    <form action="">
+                        <label for="TituloNotaDiariopj">Título</label>
+                        <input class="form-control" type="text" name="TituloNotaDiariopj" id="titulopj" placeholder="Titulo a editar">
+                        
+                        <br>
+
+                        <label for="NotaDiariopj">Descripción</label>
+                        <textarea class="form-control" name="NotaDiariopj" id="notapj" rows="15" cols="60" autofocus>
+                            Texto traido de la BD para editar
+                        </textarea>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                
+                <button type="submit" class="btn btn-success">Agregar Nota <i class="fas fa-feather-alt"></i> </button>
+                
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+            </div>
+
+        </div>
+    </div>
 </div>

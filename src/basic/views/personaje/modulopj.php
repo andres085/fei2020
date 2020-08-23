@@ -55,7 +55,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
     </div>
 </div>
 
-
+<!-- MODAL DEL PERSONAJE -->
 <div class="modal fade" id="ModalPj">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -159,12 +159,11 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
             </div>
 
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar Personaje</button>
-            <button type="submit" onclick="window.location.href='hojapj'" class="btn btn-success">Ver Hoja de Personaje </button>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar Personaje</button>
+                <button type="submit" onclick="window.location.href='hojapj'" class="btn btn-success">Ver Hoja de Personaje </button>
+            </div>
         </div>
-
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="submit" onclick="window.location.href='hojapj'" class="btn btn-success">Ver Hoja de Personaje </button>
     </div>
 
 </div>
