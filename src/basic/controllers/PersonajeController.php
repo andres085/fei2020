@@ -9,11 +9,6 @@ class PersonajeController extends \yii\web\Controller
         return $this->render('creadorpj1');
     }
 
-    public function actionCreadorpj2()
-    {
-        return $this->render('creadorpj2');
-    }
-
     public function actionModulopj()
     {
         return $this->render('modulopj');
