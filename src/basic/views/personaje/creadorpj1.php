@@ -205,27 +205,16 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         <div class="tab-pane fade" id="pills-2" role="tabpanel">
 
                             <div class="my-3">
+                                <!-- ###################################################################### -->
                                 <h1>Trasfondo</h1>
 
-                                <select class="form-control" v-model="personaje.trasfondo">
-                                    <option disabled value="">Seleccione un elemento</option>
-                                    <option>Acólito</option>
-                                    <option>Artesano</option>
-                                    <option>Artista</option>
-                                    <option>Charlatán</option>
-                                    <option>Criminal</option>
-                                    <option>Ermitaño</option>
-                                    <option>Erudito</option>
-                                    <option>Héroe del Pueblo</option>
-                                    <option>Huérfano</option>
-                                    <option>Marinero</option>
-                                    <option>Noble</option>
-                                    <option>Salvaje</option>
-                                    <option>Soldado</option>
+                                <select class="form-control" v-model="personaje.id_trasfondo" @change="onChange($event)">
+                                    <option value="">Seleccione un elemento</option>
+                                    <option v-for="(trasf, index) in trasfondos" :value="trasf.id" :key="index">{{trasf.nombre}}</>
                                 </select>
 
                             </div>
-
+                            <!-- ###################################################################### -->
                             <hr>
 
                             <h1>Información del Personaje</h1>
@@ -288,7 +277,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         <hr>
 
                         <div><b>Trasfondo:</b></div>
-                        <div>{{ personaje.trasfondo }}</div>
+
+                        <div>{{selTrasf}}</div>
 
                         <br>
 
@@ -302,7 +292,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                         <br>
 
-                        <div><b>Vinculos:</b></div> <div>{{ personaje.vinculo }} </div>
+                        <div><b>Vinculos:</b></div>
+                        <div>{{ personaje.vinculo }} </div>
 
                         <br>
 
@@ -342,12 +333,23 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     inteligencia: "",
                     sabiduria: "",
                     carisma: "",
-                    trasfondo: "",
+                    id_trasfondo: "",
                     personalidad: "",
                     ideal: "",
                     vinculo: "",
                     defecto: "",
                 },
+                trasfondos: [],
+            }
+        },
+        mounted() {
+            this.getTrasfondo();
+        },
+        computed: {
+            selTrasf() {
+                var trasf = this.trasfondos[this.personaje.id_trasfondo - 1];
+                //return this.trasfondos[this.personaje.id_trasfondo - 1];
+                return trasf;
             }
         },
         methods: {
@@ -397,6 +399,23 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         // always executed
                     });
             },
+            getTrasfondo: function() {
+                var self = this;
+                axios.get('/apiv1/trasfondo')
+                    .then(function(response) {
+                        self.trasfondos = response.data;
+                    })
+                    .catch(function(error) {
+                        //handle error
+                        console.log(error);
+                    })
+                    .then(function() {
+                        //always executed
+                    });
+            },
+            onChange: function($event) {
+                console.log(event.target.value)
+            }
         },
 
     })
