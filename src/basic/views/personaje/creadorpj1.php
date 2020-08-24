@@ -348,7 +348,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         computed: {
             selTrasf() {
                 var trasf = this.trasfondos[this.personaje.id_trasfondo - 1];
-                //return this.trasfondos[this.personaje.id_trasfondo - 1];
                 return trasf;
             }
         },
