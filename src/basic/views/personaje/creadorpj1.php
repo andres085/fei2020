@@ -208,9 +208,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <!-- ###################################################################### -->
                                 <h1>Trasfondo</h1>
 
-                                <select class="form-control" v-model="personaje.id_trasfondo" @change="onChange($event)">
+                                <select class="form-control" v-model="personaje.trasfondo" @change="guardarId()">
                                     <option value="">Seleccione un elemento</option>
-                                    <option v-for="(trasf, index) in trasfondos" :value="trasf.id" :key="index">{{trasf.nombre}}</>
+                                    <option v-for="(trasf, index) in trasfondos" :value="trasf" :key="index">{{trasf.nombre}}</>
                                 </select>
 
                             </div>
@@ -278,7 +278,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                         <div><b>Trasfondo:</b></div>
 
-                        <div>{{selTrasf}}</div>
+                        <div>{{personaje.trasfondo.nombre}}</div>
 
                         <br>
 
@@ -333,6 +333,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     inteligencia: "",
                     sabiduria: "",
                     carisma: "",
+                    trasfondo: {},
                     id_trasfondo: "",
                     personalidad: "",
                     ideal: "",
@@ -344,13 +345,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         },
         mounted() {
             this.getTrasfondo();
-        },
-        computed: {
-            selTrasf() {
-                var trasf = this.trasfondos[this.personaje.id_trasfondo - 1];
-                //return this.trasfondos[this.personaje.id_trasfondo - 1];
-                return trasf;
-            }
         },
         methods: {
             fuerzaRandom: function() {
@@ -413,8 +407,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         //always executed
                     });
             },
-            onChange: function($event) {
-                console.log(event.target.value)
+            guardarId: function() {
+                this.personaje.id_trasfondo = this.personaje.trasfondo.id;
             }
         },
 
