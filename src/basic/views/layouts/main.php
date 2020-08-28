@@ -24,21 +24,8 @@ use app\assets\AppAsset;
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
     <!--FONT AWESOME 5-->
     <script src="https://kit.fontawesome.com/b458f559f0.js" crossorigin="anonymous"></script>
-
-
-    <link rel="stylesheet" href="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.min.css">
-    <script src="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js"></script>
-
 
 
     <style>
@@ -90,8 +77,6 @@ use app\assets\AppAsset;
             height: auto;
             text-align: center;
         }
-
-        
     </style>
 </head>
 
