@@ -19,15 +19,15 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         <h1 style="text-align: center;"> Módulo del Jugador</h1>
         <br>
         <!-- MODAL DEL PERSONAJE -->
-        <b-modal id="modal-1" title="BootstrapVue" v-model="showPersonaje">
+        <b-modal id="modal-1" title="Detalle Personaje" v-model="showPersonaje">
             <div class="row">
-
+                <h3>Nombre: {{personaje.nombre}}</h3>
                 <div class="col-md-6 d-flex justify-content-center">
-                    <h3>{{ personaje.raza }}</h3>
+                    <h3>Raza: {{ personaje.raza }}</h3>
                 </div>
 
                 <div class="col-md-6 d-flex justify-content-center">
-                    <h3>{{ personaje.clase }}</h3>
+                    <h3>Clase: {{ personaje.clase }}</h3>
                 </div>
 
 
@@ -45,7 +45,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div>
                         <h5>Fuerza</h5>
-                        <input type="number" class="form-control input-stats-modalpj" value="0" disabled>
+                        <input type="number" class="form-control input-stats-modalpj" v-model="personaje.fuerza" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
 
@@ -55,7 +55,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div>
                         <h5>Destreza</h5>
-                        <input type="number" class="form-control input-stats-modalpj" value="0" disabled>
+                        <input type="number" class="form-control input-stats-modalpj" v-model="personaje.destreza" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
 
@@ -65,7 +65,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div>
                         <h5>Constitución</h5>
-                        <input type="number" class="form-control input-stats-modalpj" value="0" disabled>
+                        <input type="number" class="form-control input-stats-modalpj" v-model="personaje.constitucion" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
 
@@ -80,7 +80,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div>
                         <h5>Inteligencia</h5>
-                        <input type="number" class="form-control input-stats-modalpj" value="0" disabled>
+                        <input type="number" class="form-control input-stats-modalpj" v-model="personaje.inteligencia" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
 
@@ -90,7 +90,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div>
                         <h5>Sabiduria</h5>
-                        <input type="number" class="form-control input-stats-modalpj" value="0" disabled>
+                        <input type="number" class="form-control input-stats-modalpj" v-model="personaje.sabiduria" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
 
@@ -100,7 +100,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div>
                         <h5>Carisma</h5>
-                        <input type="number" class="form-control input-stats-modalpj" value="0" disabled>
+                        <input type="number" class="form-control input-stats-modalpj" v-model="personaje.carisma" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
 
@@ -122,13 +122,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             </div>
         </div>
     FIN PRUEBA TOAST -->
-        <div>
-            <b-button v-b-modal.modal-1>Launch demo modal</b-button>
-
-            <b-modal id="modal-1" title="BootstrapVue">
-                <p class="my-4">Hello from modal!</p>
-            </b-modal>
-        </div>
 
         <div class="row">
 
@@ -146,9 +139,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div class="container-fluid" style="max-height:450px ;overflow-y: auto;" v-if="usuarios.personajes!=null" v-for="(personaje, key) in usuarios.personajes" :key="personaje.id">
 
-                        <button type="button" class="btn btn-outline-dark btn-pjs" @click="personaje = personaje">{{personaje.nombre}}
+                        <b-button v-b-modal.modal-1 type="button" class="btn btn-outline-dark btn-pjs" user="'personaje'" @click="sendInfo(personaje)">{{personaje.nombre}}
                             <h6 style="font-size:smaller;"> {{personaje.raza}} - {{personaje.clase}} - {{personaje.nivel}}</h6>
-                        </button>
+                        </b-button>
 
                     </div>
                 </div>
@@ -157,10 +150,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
     </div>
 </div>
-
-
-
-
 
 
 <script>
@@ -193,6 +182,10 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         //always executed
                     });
             },
+            sendInfo: function(personaje)
+            {
+                this.personaje = personaje;
+            }
         }
     });
 
