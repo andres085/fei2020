@@ -30,7 +30,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     <h3>Clase: {{ personaje.clase }}</h3>
                 </div>
 
-
             </div>
 
             <div class="row">
@@ -42,34 +41,27 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             <div class="row my-3">
 
                 <div class="col-md-4 d-flex justify-content-center">
-
                     <div>
                         <h5>Fuerza</h5>
                         <input type="number" class="form-control input-stats-modalpj" v-model="personaje.fuerza" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
-
                 </div>
 
                 <div class="col-md-4 d-flex justify-content-center">
-
                     <div>
                         <h5>Destreza</h5>
                         <input type="number" class="form-control input-stats-modalpj" v-model="personaje.destreza" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
-
                 </div>
 
                 <div class="col-md-4 d-flex justify-content-center">
-
                     <div>
                         <h5>Constitución</h5>
                         <input type="number" class="form-control input-stats-modalpj" v-model="personaje.constitucion" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
-
-
                 </div>
 
             </div>
@@ -77,51 +69,45 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             <div class="row my-3">
 
                 <div class="col-md-4 d-flex justify-content-center">
-
                     <div>
                         <h5>Inteligencia</h5>
                         <input type="number" class="form-control input-stats-modalpj" v-model="personaje.inteligencia" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
-
                 </div>
 
                 <div class="col-md-4 d-flex justify-content-center">
-
                     <div>
                         <h5>Sabiduria</h5>
                         <input type="number" class="form-control input-stats-modalpj" v-model="personaje.sabiduria" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
-
                 </div>
 
                 <div class="col-md-4 d-flex justify-content-center">
-
                     <div>
                         <h5>Carisma</h5>
                         <input type="number" class="form-control input-stats-modalpj" v-model="personaje.carisma" disabled>
                         <input type="text" class="form-control input-mod-modalpj" value="0" disabled>
                     </div>
-
                 </div>
-
             </div>
+            <template #modal-footer="{ ok, cancel, hide }">
+                <b-button size="sm" variant="success" @click="diarioPj(personaje.id)">
+                    Diario
+                </b-button>
+                <b-button size="sm" variant="success" @click="update()">
+                    Actualizar
+                </b-button>
+                <b-button size="sm" variant="danger" @click="borrar()">
+                    Borrar
+                </b-button>
+                <b-button size="sm" variant="danger" @click="cancel()">
+                    Cancelar
+                </b-button>
+            </template>
 
         </b-modal>
-
-        <!-- PRUEBA TOAST 
-        <button type="button" id="btnToast" class="btn btn-block btn-success">Mostrar Toast</button>
-
-        <div class="toast" data-delay="2000" id="toast" style="position: absolute; bottom: 0; right: 0;">
-            <div class="toast-header">
-                Toast Header
-            </div>
-            <div class="toast-body">
-            Some text inside the toast body
-            </div>
-        </div>
-    FIN PRUEBA TOAST -->
 
         <div class="row">
 
@@ -157,7 +143,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         el: '#app',
         data: function() {
             return {
-                //usuarios: [],
                 usuarios: [],
                 id: <?= json_encode(Yii::$app->user->identity->id) ?>,
                 personaje: {},
@@ -181,6 +166,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     .then(function() {
                         //always executed
                     });
+            },
+            diarioPj: function(id){
+                window.location.href = '/personaje/diario?id_personaje='+id;
             },
             sendInfo: function(personaje)
             {

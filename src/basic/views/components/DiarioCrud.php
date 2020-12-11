@@ -5,7 +5,7 @@
         <b-modal
                 @errors="errors"
                 v-model="modalShow"
-                id="modal-1" title="Nuevo Item">
+                id="modal-1" title="Nueva Carga">
             <div>
                 <form action="">
                     <div v-if="i>0" v-for="(field,i) in modelfields" class="form-group">
@@ -81,8 +81,8 @@ const Diario = {
             model : Object,
             fields: {
                 type:Array,
-                // default: Object.keys(model),
             },
+            id_personaje: Number,
         },
         mounted() {
             this.getModels();
@@ -91,6 +91,9 @@ const Diario = {
             currentPage: function() {
                 this.getModels();
             }
+        },
+        beforeUpdate () {
+            this.idPj();
         },
         data : function(){
             return {
@@ -101,7 +104,8 @@ const Diario = {
                 filter:{},
                 errors: {},
                 models: [],
-                activemodel:{},
+                activemodel:{
+                },
                 isNewRecord:true,
             }
         },
@@ -116,11 +120,8 @@ const Diario = {
                 getModels: function(){
                 var self = this;
                 self.errors = {};
-                // var filters = self.normalizeFilters();
                 axios.get('/apiv1/'+self.modelname+'?page='+self.currentPage,{params:self.filter})
                     .then(function (response) {
-                        // handle success
-                        // console.log(response.data);
                         self.pagination.total = response.headers['x-pagination-total-count'];
                         self.pagination.totalPages = response.headers['x-pagination-page-count'];
                         self.pagination.perPage = response.headers['x-pagination-per-page'];
@@ -195,7 +196,9 @@ const Diario = {
                     .then(function () {
                         // always executed
                     });
-
+            },
+            idPj: function(){
+                this.activemodel.id_personaje = this.$props.id_personaje;
             }
         }
     }

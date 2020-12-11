@@ -17,7 +17,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 echo $this->render('/components/DiarioCrud');
 ?>
 <div id="app">
-    <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="fields">
+    <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="fields" :id_personaje='id_personaje'>
     </diario>
 </div>
 <script>
@@ -26,10 +26,21 @@ echo $this->render('/components/DiarioCrud');
         components: {
             diario:Diario,
         },
+        props:['id_personaje'],
         data: {
             model: <?= json_encode($model->getAttributes()) ?>,
-            fields: ['id_personaje', 'hora', 'info'], //poner en un array los campos que queres
+            fields: ['id_personaje', 'hora', 'info'],
             modelname: <?= json_encode($model::tableName()) ?>,
+        },
+        mounted () {
+            this.getId();
+        },
+        methods: {
+            getId : function (){
+                let url = window.location.href;
+                let id = url.substring(url.lastIndexOf('=') + 1);
+                this.id_personaje = Number(id);
+            },
         }
     })
 </script>
