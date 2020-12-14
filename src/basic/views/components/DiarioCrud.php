@@ -86,14 +86,15 @@ const Diario = {
         },
         mounted() {
             this.getModels();
+            this.getDate();
         },
         watch:{
             currentPage: function() {
                 this.getModels();
-            }
+            },
         },
         beforeUpdate () {
-            this.idPj();
+            this.addId();
         },
         data : function(){
             return {
@@ -126,7 +127,6 @@ const Diario = {
                         self.pagination.totalPages = response.headers['x-pagination-page-count'];
                         self.pagination.perPage = response.headers['x-pagination-per-page'];
                         self.models = response.data;
-
                     })
                     .catch(function (error) {
                         // handle error
@@ -197,9 +197,15 @@ const Diario = {
                         // always executed
                     });
             },
-            idPj: function(){
-                this.activemodel.id_personaje = this.$props.id_personaje;
-            }
+            addId: function(){
+                if(this.model.hasOwnProperty('id_personaje')){
+                    this.activemodel.id_personaje = this.$props.id_personaje;
+                }
+            },
+            getDate: function(){
+                let fecha = moment().format('YYYY/DD/MM, h:mm:ss');
+                this.activemodel.fecha_hora = fecha;
+            },
         }
     }
 

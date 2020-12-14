@@ -14,6 +14,7 @@ $this->registerCssFile("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.
 $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position' => View::POS_HEAD]);
 $this->registerJsFile("https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js", ['position' => $this::POS_HEAD]);
 $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['position' => View::POS_HEAD]);
+$this->registerJsFile("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js", ['position' => View::POS_HEAD]);
 echo $this->render('/components/DiarioCrud');
 ?>
 <div id="app">
@@ -29,7 +30,7 @@ echo $this->render('/components/DiarioCrud');
         props:['id_personaje'],
         data: {
             model: <?= json_encode($model->getAttributes()) ?>,
-            fields: ['id_personaje', 'hora', 'info'],
+            fields: ['fecha_hora', 'info'],
             modelname: <?= json_encode($model::tableName()) ?>,
         },
         mounted () {
