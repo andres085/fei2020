@@ -17,7 +17,7 @@
             </div>
             <template v-slot:modal-footer="{ ok, cancel, hide }">
                 <button v-if="isNewRecord"  @click="addModel()" type="button" class="btn btn-primary m-3">Crear</button>
-                <button v-if="!isNewRecord"  @click="activemodel={}" type="button" class="btn btn-success m-3">Nuevo</button>
+                <button v-if="!isNewRecord"  @click="newRecord()" type="button" class="btn btn-success m-3">Nuevo</button>
                 <button v-if="!isNewRecord" @click="updateModel(activemodel[modelfields[0]])" type="button" class="btn btn-primary m-3">Actualizar</button>
             </template>
         </b-modal>
@@ -86,12 +86,17 @@ const Diario = {
         },
         mounted() {
             this.getModels();
-            this.getDate();
         },
         watch:{
             currentPage: function() {
                 this.getModels();
             },
+            '$data': {
+                handler: function(isNewRecord) {
+                    this.getDate();
+                },
+                deep: true
+            }
         },
         beforeUpdate () {
             this.addId();
@@ -203,9 +208,13 @@ const Diario = {
                 }
             },
             getDate: function(){
-                let fecha = moment().format('YYYY/DD/MM, h:mm:ss');
-                this.activemodel.fecha_hora = fecha;
+                    let fecha = moment().format('YYYY/MM/DD, h:mm:ss');
+                    this.activemodel.fecha_hora = fecha;
             },
+            newRecord: function() {
+                this.activemodel = {};
+                this.isNewRecord = true;
+            }
         }
     }
 

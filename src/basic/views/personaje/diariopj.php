@@ -1,6 +1,5 @@
 <?php
 
-use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Modulo de Jugador';
@@ -29,9 +28,9 @@ echo $this->render('/components/DiarioCrud');
         },
         props:['id_personaje'],
         data: {
-            model: <?= json_encode($model->getAttributes()) ?>,
-            fields: ['fecha_hora', 'info'],
-            modelname: <?= json_encode($model::tableName()) ?>,
+            model: <?=json_encode($model->getAttributes())?>,
+            fields: ['id', 'id_personaje', 'fecha_hora', 'info'],
+            modelname: <?=json_encode($model::tableName())?>,
         },
         mounted () {
             this.getId();
