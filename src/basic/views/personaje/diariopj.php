@@ -17,26 +17,25 @@ $this->registerJsFile("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/m
 echo $this->render('/components/DiarioCrud');
 ?>
 <div id="app">
-    <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="fields" :id_personaje='id_personaje'>
+    <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="['fecha_hora', 'info']" :id_personaje='id_personaje'>
     </diario>
 </div>
 <script>
     var app = new Vue({
         el: "#app",
         components: {
-            diario:Diario,
+            diario: Diario,
         },
-        props:['id_personaje'],
+        props: ['id_personaje'],
         data: {
-            model: <?=json_encode($model->getAttributes())?>,
-            fields: ['id', 'id_personaje', 'fecha_hora', 'info'],
-            modelname: <?=json_encode($model::tableName())?>,
+            model: <?= json_encode($model->getAttributes()) ?>,
+            modelname: <?= json_encode($model::tableName()) ?>,
         },
-        mounted () {
+        mounted() {
             this.getId();
         },
         methods: {
-            getId : function (){
+            getId: function() {
                 let url = window.location.href;
                 let id = url.substring(url.lastIndexOf('=') + 1);
                 this.id_personaje = Number(id);

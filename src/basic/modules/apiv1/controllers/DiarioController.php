@@ -10,4 +10,18 @@ use yii\rest\ActiveController;
 class DiarioController extends ActiveController
 {
     public $modelClass = 'app\modules\apiv1\models\Diario';
+
+    public function actions()
+    {
+        $actions = parent::actions();
+        //Cambiar la fuente de datos de la accion index
+        $actions['index']['prepareDataProvider'] = [$this, 'prepareDataProvider'];
+        return $actions;
+    }
+
+    public function prepareDataProvider()
+    {
+        $searchModel = new \app\modules\apiv1\models\DiarioSearch();
+        return $searchModel->search(\Yii::$app->request->queryParams);
+    }
 }
