@@ -1,6 +1,6 @@
 <?php
-
 namespace app\controllers;
+use app\models\Diario;
 
 class PersonajeController extends \yii\web\Controller
 {
@@ -22,5 +22,13 @@ class PersonajeController extends \yii\web\Controller
     public function actionTrasfondo()
     {
         return $this->render('trasfondo');
+    }
+
+    public function actionDiario()
+    {
+        $model = new Diario();
+         return $this->render('diariopj', [
+            'model' => $model,
+        ]);
     }
 }
