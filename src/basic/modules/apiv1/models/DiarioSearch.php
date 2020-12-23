@@ -18,13 +18,6 @@ class DiarioSearch extends Diario
         return parent::fields();
     }
 
-    public function afterFind()
-    {
-        parent::afterFind();
-
-        $this->fecha_hora = Yii::$app->formatter->asDatetime($this->fecha_hora, 'dd/MM/yyyy - HH:mm');
-    }
-
     /**
      * Creates data provider instance with search query applied
      *
