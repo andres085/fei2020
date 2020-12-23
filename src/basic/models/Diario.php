@@ -69,4 +69,9 @@ class Diario extends \yii\db\ActiveRecord
     {
         return new DiarioQuery(get_called_class());
     }
+    
+    public function afterFind()
+    {
+        $this->fecha_hora = Yii::$app->formatter->asDatetime($this->fecha_hora, 'dd/MM/yyyy - HH:mm');
+    }
 }

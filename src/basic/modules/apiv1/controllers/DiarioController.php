@@ -14,7 +14,6 @@ class DiarioController extends ActiveController
     public function actions()
     {
         $actions = parent::actions();
-        //Cambiar la fuente de datos de la accion index
         $actions['index']['prepareDataProvider'] = [$this, 'prepareDataProvider'];
         return $actions;
     }
