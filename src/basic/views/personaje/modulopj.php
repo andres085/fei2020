@@ -96,6 +96,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 <b-button size="sm" variant="success" @click="diarioPj(personaje.id)">
                     Diario
                 </b-button>
+                <b-button size="sm" variant="success" @click="hojaPj(personaje.id)">
+                    Hoja del Personaje
+                </b-button>
                 <b-button size="sm" variant="success" @click="update()">
                     Actualizar
                 </b-button>
@@ -169,6 +172,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             },
             diarioPj: function(id){
                 window.location.href = '/personaje/diario?id_personaje='+id;
+            },
+            hojaPj: function(id){
+                window.location.href = '/personaje/hojapj?id_personaje='+id;
             },
             sendInfo: function(personaje)
             {
