@@ -13,6 +13,7 @@ use Yii;
  * @property string $tipo_daño
  * @property string $tipo_obj
  * @property string $categoria
+ * @property string $descripcion
  * @property string $propiedades
  * @property string $valor
  * @property string $peso
@@ -34,7 +35,7 @@ class objeto extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'daño', 'tipo_daño', 'tipo_obj', 'categoria', 'propiedades', 'valor', 'peso'], 'required'],
-            [['nombre', 'propiedades'], 'string', 'max' => 255],
+            [['nombre', 'propiedades', 'descripcion'], 'string', 'max' => 255],
             [['daño'], 'string', 'max' => 6],
             [['tipo_daño', 'tipo_obj', 'categoria'], 'string', 'max' => 50],
             [['valor', 'peso'], 'string', 'max' => 10],
@@ -52,6 +53,7 @@ class objeto extends \yii\db\ActiveRecord
             'daño' => 'Daño',
             'tipo_daño' => 'Tipo Daño',
             'tipo_obj' => 'Tipo Obj',
+            'descripcion' => 'Descripcion',
             'categoria' => 'Categoria',
             'propiedades' => 'Propiedades',
             'valor' => 'Valor',

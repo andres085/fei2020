@@ -7,6 +7,6 @@ class Objeto extends \app\models\Objeto
 {
     public function fields()
     {
-        return ['id', 'nombre', 'daño', 'tipo_daño', 'tipo_obj', 'categoria', 'propiedades', 'valor', 'peso'];
+        return ['id', 'nombre', 'daño', 'tipo_daño', 'tipo_obj', 'categoria', 'descripcion', 'propiedades', 'valor', 'peso'];
     }
 }

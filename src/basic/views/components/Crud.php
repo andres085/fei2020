@@ -1,6 +1,6 @@
 <script type="text/x-template" id="crud-template">
     <div class="container">
-        <h1>Diario del Personaje</h1>
+        <h1>Objetos</h1>
         <!-- Button trigger modal -->
         <b-modal
                 @errors="errors"
@@ -69,8 +69,8 @@
 </script>
 
 <script>
-    const Diario = {
-        name: 'diario',
+    const Crud = {
+        name: 'crud',
         template: '#crud-template',
         props: {
             modelname: String,
@@ -78,7 +78,6 @@
             fields: {
                 type: Array,
             },
-            id_personaje: Number,
         },
         mounted() {
             this.getModels();
@@ -87,15 +86,6 @@
             currentPage: function() {
                 this.getModels();
             },
-            '$data': {
-                handler: function(isNewRecord) {
-                    this.getDate();
-                },
-                deep: true
-            }
-        },
-        beforeUpdate() {
-            this.addId();
         },
         data: function() {
             return {
@@ -197,15 +187,6 @@
                     .then(function() {
                         // always executed
                     });
-            },
-            addId: function() {
-                if (this.model.hasOwnProperty('id_personaje')) {
-                    this.activemodel.id_personaje = this.$props.id_personaje;
-                }
-            },
-            getDate: function() {
-                let fecha = moment().format('YYYY/MM/DD, h:mm:ss');
-                this.activemodel.fecha_hora = fecha;
             },
             newRecord: function() {
                 this.activemodel = {};
