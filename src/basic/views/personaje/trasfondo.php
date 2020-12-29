@@ -99,7 +99,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         el: '#app',
         data: function() {
             return {
-
                 selected: null,
                 trasfondo: {},
                 trasfondos: [],

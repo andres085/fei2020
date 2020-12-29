@@ -22,17 +22,17 @@
         <div class="tab-content" id="pills-tabContent">
 
             <!-- INFORMACION -->
-            <div class="tab-pane fade show active" id="pills-info" role="tabpanel">
+            <div class="tab-pane fade show active" v-for="(model,key) in models" id="pills-info" role="tabpanel">
                 
                 <!-- NOMBRE -->
                 <div class="d-flex my-3 justify-content-center">
-                    <h1>{{ nombre }}</h1>
+                    <h1>{{ model.nombre }}</h1>
                 </div>
 
                 <!-- RAZA -->
                 <div class="d-flex my-3">
                     <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-raza" aria-expanded="false" aria-controls="collapseExample">
-                    <h3>{{raza}}</h3>
+                    <h3>{{model.raza}}</h3>
                     </button>
 
                     <div class="collapse" id="collapse-raza">
@@ -51,7 +51,7 @@
                 <!-- CLASE -->
                 <div class="d-flex my-3">
                     <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-clase" aria-expanded="false" aria-controls="collapseExample">
-                    <h3>{{clase}}</h3>
+                    <h3>{{model.clase}}</h3>
                     </button>
 
                     <div class="collapse" id="collapse-clase">
@@ -128,7 +128,7 @@
                             <div class="card-body" style="text-align: center;">
                                 <h5 class="card-title">Fuerza</h5>
                                 <hr>
-                                <h5 class="card-text">15</h5>
+                                <h5 class="card-text">{{model.fuerza}}</h5>
                                 <h6 class="card-text">+3</h6>
                                 
                             </div>
@@ -144,7 +144,7 @@
                             <div class="card-body" style="text-align: center;">
                                 <h5 class="card-title">Destreza</h5>
                                 <hr>
-                                <h5 class="card-text">15</h5>
+                                <h5 class="card-text">{{model.destreza}}</h5>
                                 <h6 class="card-text">+3</h6>
                                 
                             </div>
@@ -160,7 +160,7 @@
                             <div class="card-body" style="text-align: center;">
                                 <h5 class="card-title">Constitución</h5>
                                 <hr>
-                                <h5 class="card-text">15</h5>
+                                <h5 class="card-text">{{model.constitucion}}</h5>
                                 <h6 class="card-text">+3</h6>
                                 
                             </div>
@@ -176,7 +176,7 @@
                             <div class="card-body" style="text-align: center;">
                                 <h5 class="card-title">Inteligencia</h5>
                                 <hr>
-                                <h5 class="card-text">15</h5>
+                                <h5 class="card-text">{{model.inteligencia}}</h5>
                                 <h6 class="card-text">+3</h6>
                                 
                             </div>
@@ -192,7 +192,7 @@
                             <div class="card-body" style="text-align: center;">
                                 <h5 class="card-title">Sabiduria</h5>
                                 <hr>
-                                <h5 class="card-text">15</h5>
+                                <h5 class="card-text">{{model.sabiduria}}</h5>
                                 <h6 class="card-text">+3</h6>
                                 
                             </div>
@@ -209,7 +209,7 @@
 
                                 <h5 class="card-title">Carisma</h5>
                                 <hr>
-                                <h5 class="card-text">15</h5>
+                                <h5 class="card-text">{{model.carisma}}</h5>
                                 <h6 class="card-text">+3</h6>
                             
                             </div>
@@ -219,7 +219,7 @@
             </div>
 
             <!-- TRASFONDO -->
-            <div class="tab-pane fade" id="pills-trasfondo" role="tabpanel">
+            <div class="tab-pane fade" id="pills-trasfondo" v-for="(model, key) in models" role="tabpanel">
                 
                 <div class="my-4" style="text-align: center;">
                     <h1>Datos de Trasfondo</h1>
@@ -228,7 +228,7 @@
                 <hr>
 
                 <div>
-                    <h3><b>Trasfondo:</b> {{trasfondo}} </h3>
+                    <h3><b>Trasfondo:</b> {{model.trasfondo.nombre}} </h3>
 
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut deleniti voluptate placeat mollitia qui, voluptatibus, numquam accusantium minus quis voluptates quo. Est facere sit, iusto in nulla doloribus officia officiis.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consectetur totam ut quis repellat amet mollitia tenetur omnis. Numquam labore ad perferendis. Earum ab atque voluptatibus doloremque. Numquam, accusantium tempore.
@@ -238,25 +238,25 @@
                         <div class="col-md-4">
                             <h6><b>Competencia con Habilidades:</b></h6>
                             <ul class="list-unstyled">
-                                <li> {{competencia1}} </li>
-                                <li> {{competencia2}} </li>
+                                <li> {{model.trasfondo.competencia1}} </li>
+                                <li> {{model.trasfondo.competencia2}} </li>
                             </ul>
 
                             <h6><b>Competencia con Equipo:</b></h6>
                             <ul class="list-unstyled">
-                                <li> {{competencia1}} </li>
-                                <li> {{competencia2}} </li>
+                                <li> {{model.trasfondo.competencia1}} </li>
+                                <li> {{model.trasfondo.competencia2}} </li>
                             </ul>
                         </div>
 
                         <div class="col-md-8">
-                            <h6><b>Rasgo:</b> {{nombre_rasgo}} </h6>
+                            <h6><b>Rasgo:</b> {{model.trasfondo.nombre_rasgo}} </h6>
 
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, officia! Sequi illum odit perferendis molestias veniam modi ipsa laborum laudantium? Voluptatum magnam ipsum repellendus facilis nemo quas dolor quasi esse.
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ab facilis id itaque incidunt natus quasi reiciendis aliquam officiis veniam velit voluptatem facere necessitatibus dolorum assumenda, sint, a esse? Pariatur?
                             </p>
 
-                            <h6><b>Especialidad:</b> {{onmbre_especialidad}} </h6>
+                            <h6><b>Especialidad:</b> {{model.trasfondo.nombre_especialidad}} </h6>
 
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio recusandae minus eos earum dicta ducimus beatae, tempore, obcaecati cumque mollitia labore pariatur incidunt ad autem optio suscipit inventore ex quod.
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse laborum aut tempore nemo ullam, aperiam deserunt iure qui asperiores est accusamus amet assumenda libero mollitia iusto alias quidem ab accusantium?
@@ -268,8 +268,7 @@
                     <div>
                         <h3><b>Personalidad</b></h3>
 
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente repellendus ea, labore reprehenderit assumenda praesentium totam aliquam! Dolorum debitis autem perferendis a iste deleniti numquam? Aperiam numquam quas necessitatibus blanditiis!
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos facere, repellendus deleniti voluptatibus in pariatur maiores, illo quo quidem ipsam blanditiis aperiam recusandae vero accusantium totam et eius odio error?
+                        <p>{{model.personalidad}}
                         </p>
                     </div>
 
@@ -278,8 +277,7 @@
                     <div>
                         <h3><b>Ideales:</b></h3>
 
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
+                        <p>{{model.ideal}}
                         </p>
                     </div>
 
@@ -288,8 +286,8 @@
                     <div>
                         <h3><b>Vinculos:</b></h3>
 
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
+                        <p>
+                        {{model.vinculo}}
                         </p>
                     </div>
 
@@ -298,8 +296,8 @@
                     <div>
                         <h3><b>Defectos:</b></h3>
 
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti natus ipsam nemo similique ullam voluptates id quam nihil rerum temporibus perferendis earum beatae dolores nobis cum, eaque consequuntur ut maiores?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dicta aliquam culpa atque ab obcaecati modi perspiciatis dolore iste accusamus excepturi quibusdam fugiat, molestiae voluptas, exercitationem a accusantium odit? Consequatur!
+                        <p>
+                        {{model.defecto}}
                         </p>
                     </div>
 
@@ -368,17 +366,6 @@
         mounted() {
             this.getModels();
         },
-        watch: {
-            currentPage: function() {
-                this.getModels();
-            },
-            '$data': {
-                handler: function(isNewRecord) {
-                    this.getDate();
-                },
-                deep: true
-            }
-        },
         beforeUpdate() {
             this.addId();
         },
@@ -406,11 +393,9 @@
             getModels: function() {
                 var self = this;
                 self.errors = {};
-                axios.get('/apiv1/'+self.modelname+'?page='+self.currentPage+'&per-page=10',{params:self.filter})
+                axios.get('/apiv1/personaje'+this.id_personaje)
                     .then(function(response) {
-                        self.pagination.total = response.headers['x-pagination-total-count'];
-                        self.pagination.totalPages = response.headers['x-pagination-page-count'];
-                        self.pagination.perPage = response.headers['x-pagination-per-page'];
+                       
                         self.models = response.data;
                     })
                     .catch(function(error) {
@@ -483,19 +468,25 @@
                         // always executed
                     });
             },
-            addId: function() {
-                if (this.model.hasOwnProperty('id_personaje')) {
-                    this.activemodel.id_personaje = this.$props.id_personaje;
-                }
-            },
-            getDate: function() {
-                let fecha = moment().format('YYYY/MM/DD, h:mm:ss');
-                this.activemodel.fecha_hora = fecha;
-            },
             newRecord: function() {
                 this.activemodel = {};
                 this.isNewRecord = true;
-            }
+            },
+            getTrasfondo: function() {
+                var self = this;
+                self.errors = {};
+                axios.get('/apiv1/trasfondo'+this.activemodel.id_trasfondo)
+                    .then(function(response) {
+                        self.models = response.data;
+                    })
+                    .catch(function(error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .then(function() {
+                        // always executed
+                    });
+            },
         }
     }
 </script>
