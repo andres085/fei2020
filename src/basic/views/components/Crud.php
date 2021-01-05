@@ -154,7 +154,7 @@
                         console.log(response.data);
                         self.getModels()
                         self.activemodel = {};
-                        alert('Diario Actualizado');
+                        alert('Equipo Agregado');
                     })
                     .catch(function(error) {
                         // var errors = error.response.data;
@@ -178,6 +178,7 @@
                         self.modalShow = false;
                         self.getModels();
                         self.activemodel = {};
+                         alert('Equipo Actualizado');
                     })
                     .catch(function(error) {
                         // handle error

@@ -6,9 +6,11 @@ use yii\web\View;
 $this->title = 'Hoja de Personaje';
 $this->params['breadcrumbs'][] = $this->title;
 
-
+$this->registerCssFile("//unpkg.com/bootstrap/dist/css/bootstrap.min.css", ['position' => $this::POS_HEAD]);
+$this->registerCssFile("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css", ['position' => $this::POS_HEAD]);
 
 $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position' => View::POS_HEAD]);
+$this->registerJsFile("https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js", ['position' => $this::POS_HEAD]);
 $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['position' => View::POS_HEAD]);
 ?>
 
@@ -326,9 +328,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     <h1>Tus Objetos</h1>
                 </div>
 
-                <div class="my-2">
-                    <button class="btn btn-block btn-success" data-toggle="modal" data-target="#agregarObj">Agregar un objeto a tu inventario</button>
-                </div>
+                <b-button v-b-modal.modal-1 type="button" class="btn btn-block btn-success" user="" @click="">Agregar un objeto a tu inventario
+                </b-button>
+
 
                 <div>
                     <table class="table table-responisve table-hover table-sm">
@@ -345,19 +347,62 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                         <tbody>
 
-                            <tr class="cilckable-row" data-toggle="modal" data-target="#modalEditarObj" style="cursor: pointer;">
+                            <tr class="clickable-row" data-toggle="modal" data-target="#modalEditarObj" style="cursor: pointer;">
 
-                                <td>{{nombre}}</td>
-                                <td>{{tipo}}</td>
-                                <td> {{descripcion}} </td>
-                                <td>{{valor}}</td>
-                                <td>{{peso}}</td>
+                                <td>Nombre</td>
+                                <td>Tipo</td>
+                                <td>Descripcion</td>
+                                <td>Valor</td>
+                                <td>Peso</td>
                                 
                             </tr>
             
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Modal Objeto -->
+                <b-modal id="modal-1" title="Agregar Objeto" v-model="showModal">  
+
+                    <form action="">
+                        <div>
+                            <select class="form-control" v-model="objetoSeleccionado" @change="guardarId()">
+                                <option value="">Seleccione un Objeto</option>
+                                <option v-for="(objeto, index) in objetos" :key="index" :value="objeto">{{objeto.nombre}}</option>
+                            </select>
+                        </div><br>
+                            
+                        <div>
+                            <label for="nombreObj"><b>Nombre: {{objetoSeleccionado.nombre}}</b></label>   
+                        </div>
+
+                        <div>
+                            <label for="descripcion"><b>Descripción: {{objetoSeleccionado.descripcion}}</b></label>
+                        </div>
+
+                        <div>
+                            <label for="valor"><b>Valor: {{objetoSeleccionado.valor}}</b></label>
+                        </div>
+
+                            <div>
+                                <label for="peso"><b>Peso: {{objetoSeleccionado.peso}}</b></label>
+                            </div>
+
+                            <div>
+                                
+                            </div>
+                    </form>
+
+                    <template #modal-footer="{ ok, cancel, hide }">
+                            <b-button size="sm" variant="success" @click="agregarObj(index)">
+                                Agregar Objeto
+                            </b-button>
+                            <b-button size="sm" variant="danger" @click="cancel()">
+                                    Cancelar
+                            </b-button>
+                    </template>
+
+                </b-modal>  
             </div>
             
         </div>
@@ -365,17 +410,22 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 </div>
 
 <script>
-    var app = new Vue ({
-        el: '#app',
+var app = new Vue ({
+    el: '#app',
             data: function() {
                 return {
-                    personaje: {},
+                    personaje: {
+                    },
                     id_personaje:"",
+                    objetos:[],
+                    showModal: false,
+                    objetoSeleccionado:{},
                 }
             },
             mounted() {
                     this.getId();
                     this.getPersonaje();
+                    this.getObjetos();
                 },
             methods: {
                 getPersonaje: function() {
@@ -392,11 +442,28 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                             //always executed
                         });
                     },
+                getObjetos: function() {
+                    var self = this;
+                    axios.get('/apiv1/objeto')
+                        .then(function(response) {
+                            self.objetos = response.data;
+                        })
+                        .catch(function(error) {
+                            //handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            //always executed
+                        });
+                },
                 getId: function() {
                     let url = window.location.href;
                     let id = url.substring(url.lastIndexOf('=') + 1);
                     this.id_personaje = Number(id);
                 },
+                guardarId: function() {
+                    console.log(value);
+                }
             }
-    });
+});
 </script>

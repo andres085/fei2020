@@ -17,6 +17,8 @@ class m200811_165126_crear_tabla_objetos extends Migration
             'nombre' => $this->string(255)->notNull(),
             'daño' => $this->string(6),
             'tipo_daño' =>$this->string(50),
+            'defensa' => $this->string(50),
+            'penalizacion' => $this->string(50),
             'tipo_obj' => $this->string(50)->notNull(),
             'descripcion' => $this->text()->notNull(),
             'categoria' => $this->string(50)->notNull(),

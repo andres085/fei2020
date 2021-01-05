@@ -12,6 +12,8 @@ use Yii;
  * @property string $daño
  * @property string $tipo_daño
  * @property string $tipo_obj
+ * @property string $defensa
+ * @property string $penalizacion
  * @property string $categoria
  * @property string $descripcion
  * @property string $propiedades
@@ -34,9 +36,9 @@ class objeto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'daño', 'tipo_daño', 'tipo_obj', 'categoria', 'propiedades', 'valor', 'peso'], 'required'],
-            [['nombre', 'propiedades', 'descripcion'], 'string', 'max' => 255],
-            [['daño'], 'string', 'max' => 6],
+            [['nombre', 'categoria', 'propiedades', 'valor', 'peso'], 'required'],
+            [['nombre', 'propiedades', 'descripcion', 'penalizacion'], 'string', 'max' => 255],
+            [['daño', 'defensa'], 'string', 'max' => 6],
             [['tipo_daño', 'tipo_obj', 'categoria'], 'string', 'max' => 50],
             [['valor', 'peso'], 'string', 'max' => 10],
         ];
@@ -53,6 +55,8 @@ class objeto extends \yii\db\ActiveRecord
             'daño' => 'Daño',
             'tipo_daño' => 'Tipo Daño',
             'tipo_obj' => 'Tipo Obj',
+            'defensa' => 'Defensa',
+            'penalizacion' => 'Penalización',
             'descripcion' => 'Descripcion',
             'categoria' => 'Categoria',
             'propiedades' => 'Propiedades',
