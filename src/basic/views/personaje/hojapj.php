@@ -342,19 +342,19 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <th>Descripcion</th>
                                 <th>Valor</th>
                                 <th>Peso</th>
+                                <th>Editar</th>
                             </tr>
                         </thead>
 
                         <tbody>
 
-                            <tr class="clickable-row" data-toggle="modal" data-target="#modalEditarObj" style="cursor: pointer;">
-
-                                <td>Nombre</td>
-                                <td>Tipo</td>
-                                <td>Descripcion</td>
-                                <td>Valor</td>
-                                <td>Peso</td>
-                                
+                            <tr class="clickable-row" data-toggle="modal" data-target="#modalEditarObj" style="cursor: pointer;" v-for="(objeto, key) in personaje.objetos" :key="objeto.id">
+                                <td>{{objeto.nombre}}</td>
+                                <td>{{objeto.tipo_obj}}</td>
+                                <td>{{objeto.descripcion}}</td>
+                                <td>{{objeto.valor}}</td>
+                                <td>{{objeto.peso}}</td>
+                                <td><button v-on:click="quitarObj(objeto.id)" type="button" class="btn btn-danger">Quitar</button></td>
                             </tr>
             
                         </tbody>
@@ -394,7 +394,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     </form>
 
                     <template #modal-footer="{ ok, cancel, hide }">
-                            <b-button size="sm" variant="success" @click="agregarObj(index)">
+                            <b-button size="sm" variant="success" @click="agregarObj()">
                                 Agregar Objeto
                             </b-button>
                             <b-button size="sm" variant="danger" @click="cancel()">
@@ -463,6 +463,44 @@ var app = new Vue ({
                 },
                 guardarId: function() {
                     console.log(value);
+                },
+                agregarObj: function() {
+                    var self = this;
+                    var idjoin = {
+                                personaje_id: this.personaje.id,
+                                objeto_id: this.objetoSeleccionado.id
+                            };
+                    axios.post('/apiv1/personajeobjeto', idjoin)
+                        .then(function(response) {
+                            // handle success
+                            console.log(response.data);
+                            alert('Objeto Agregado');
+                            self.getPersonaje();
+                        })
+                        .catch(function(error) {
+                            // handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            // always executed
+                        });
+                },
+                quitarObj: function(objeto_id) {
+                    var self = this;
+                    axios.delete('/apiv1/personajeobjeto/' + self.personaje.id + ',' +objeto_id )
+                    .then(function(response) {
+                        // handle success
+                        console.log(response.data);
+                        alert("Objeto borrado con exito");
+                        self.getPersonaje();
+                    })
+                    .catch(function(error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .then(function() {
+                        // always executed
+                    });
                 }
             }
 });

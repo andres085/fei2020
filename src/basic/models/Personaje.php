@@ -111,6 +111,26 @@ class Personaje extends \yii\db\ActiveRecord
     }
 
     /**
+     * Gets query for [[PersonajeObjetos]].
+     *
+     * @return \yii\db\ActiveQuery|yii\db\ActiveQuery
+     */
+    public function getPersonajeObjetos()
+    {
+        return $this->hasMany(PersonajeObjeto::className(), ['personaje_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Objetos]].
+     *
+     * @return \yii\db\ActiveQuery|yii\db\ActiveQuery
+     */
+    public function getObjetos()
+    {
+        return $this->hasMany(Objeto::className(), ['id' => 'objeto_id'])->viaTable('personaje_objeto', ['personaje_id' => 'id']);
+    }
+
+    /**
      * Gets query for [[Usuarios]].
      *
      * @return \yii\db\ActiveQuery|UsuarioQuery
@@ -128,4 +148,5 @@ class Personaje extends \yii\db\ActiveRecord
     {
         return new PersonajeQuery(get_called_class());
     }
+
 }
