@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="50"
+   height="55.720108"
+   viewBox="0 0 13.229166 14.742612"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="isotipo-min.svg"
+   inkscape:export-filename="/home/fidel/Escritorio/HerramientaD&amp;D/fei2020/Recursos/Manual de Marca/isotipo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.9930928"
+     inkscape:cx="-151.8428"
+     inkscape:cy="1.4315323"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="994"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     units="px"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-282.25742)">
+    <path
+       id="path30"
+       style="fill:#610000;fill-opacity:1;stroke:#000000;stroke-width:0.20145512;stroke-opacity:1"
+       d="m 7.6025794,282.36122 c -0.1317085,-0.0324 -1.0374229,0.84802 -3.5463244,3.33856 -2.1754513,2.15954 -3.95552744,4.04064 -3.95552744,4.18021 0,0.36495 0.40425389,0.3244 3.49241764,-0.35059 3.2788572,-0.71665 4.0043707,-0.74451 4.7896772,-0.18532 1.7306076,1.23231 1.512899,3.96343 -0.3789055,4.75388 -1.5769634,0.65889 -4.464854,-0.0586 -6.1333691,-1.52351 -0.4016115,-0.35262 -0.7723777,-0.57 -0.8239253,-0.48318 -0.21176185,0.35664 0.5812805,2.14757 1.3252042,2.99271 0.8641273,0.98171 1.5245633,1.39399 2.7086263,1.69113 0.9787105,0.2456 2.7157819,0.1099 3.9334919,-0.30731 1.3007551,-0.44564 2.8269621,-1.86573 3.5140631,-3.2701 0.799606,-1.63435 0.799606,-3.6873 0,-5.32165 -0.990475,-2.02444 -3.2142826,-3.58449 -5.1099631,-3.58449 -0.3680635,0 -0.669291,-0.0567 -0.669291,-0.1263 0,-0.0696 0.284271,-0.6362 0.631518,-1.25909 0.182029,-0.32653 0.2821775,-0.5302 0.2223075,-0.54495 z m -3.1386909,4.31594 c 0.06708,10e-4 0.1093233,0.0481 0.1420404,0.13338 0.2322905,0.60533 0.1347771,1.03098 -0.3379874,1.47512 -0.47779,0.44885 -1.0534134,0.55443 -1.4951736,0.27385 -0.1753367,-0.11137 0.04028,-0.44333 0.7279124,-1.1206 0.5481891,-0.53993 0.8156101,-0.76356 0.9632082,-0.76175 z"
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>
