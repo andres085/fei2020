@@ -18,7 +18,8 @@ class PersonajeController extends \yii\web\Controller
 
     public function actionHojapj()
     {
-        $model = new Personaje();
+        
+        $model = new Diario();
         return $this->render('hojapj', ['model' => $model]);
     }
 

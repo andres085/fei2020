@@ -69,7 +69,7 @@
 </script>
 
 <script>
-    const Crud = {
+    const CrudDiario = {
         name: 'cruddiario',
         template: '#crud-template',
         props: {
