@@ -182,10 +182,4 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             }
         }
     });
-
-    // $(document).ready(function() {
-    //     $("#btnToast").click(function() {
-    //         $('#toast').toast('show');
-    //     });
-    // });
 </script>

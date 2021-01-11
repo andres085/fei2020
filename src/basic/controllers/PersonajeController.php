@@ -1,6 +1,8 @@
 <?php
 namespace app\controllers;
 use app\models\Diario;
+use app\models\Personaje;
+use app\models\Objeto;
 
 class PersonajeController extends \yii\web\Controller
 {
@@ -16,7 +18,9 @@ class PersonajeController extends \yii\web\Controller
 
     public function actionHojapj()
     {
-        return $this->render('hojapj');
+        
+        $model = new Diario();
+        return $this->render('hojapj', ['model' => $model]);
     }
 
     public function actionTrasfondo()
@@ -30,5 +34,17 @@ class PersonajeController extends \yii\web\Controller
          return $this->render('diariopj', [
             'model' => $model,
         ]);
+    }
+
+    public function actionEquipo()
+    {
+        $model = new Objeto();
+        return $this->render('equipo', ['model' => $model]);
+    }
+
+    public function actionEquipo2()
+    {
+        //$model = new Objeto();
+        return $this->render('equipo2');
     }
 }

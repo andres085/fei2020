@@ -69,8 +69,8 @@
 </script>
 
 <script>
-    const Diario = {
-        name: 'diario',
+    const CrudDiario = {
+        name: 'cruddiario',
         template: '#crud-template',
         props: {
             modelname: String,
