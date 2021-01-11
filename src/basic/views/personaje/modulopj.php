@@ -128,8 +128,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div class="container-fluid" style="max-height:450px ;overflow-y: auto;" v-if="usuarios.personajes!=null" v-for="(personaje, key) in usuarios.personajes" :key="personaje.id">
 
-                        <b-button v-b-modal.modal-1 type="button" class="btn btn-outline-dark btn-pjs" user="'personaje'" @click="sendInfo(personaje)">{{personaje.nombre}}
-                            <h6 style="font-size:smaller;"> {{personaje.raza}} - {{personaje.clase}} - {{personaje.nivel}}</h6>
+                        <b-button v-b-modal.modal-1 type="button" class="btn btn-pjs btn-dark" user="'personaje'" @click="sendInfo(personaje)"><h4>{{personaje.nombre}}</h4>
+                            <h5> {{personaje.raza}} - {{personaje.clase}} - {{personaje.nivel}}</h5>
                         </b-button>
 
                     </div>
