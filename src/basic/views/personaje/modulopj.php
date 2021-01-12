@@ -102,7 +102,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 <b-button size="sm" variant="success" @click="update()">
                     Actualizar
                 </b-button>
-                <b-button size="sm" variant="danger" @click="borrar()">
+                <b-button size="sm" variant="danger" @click="deletePersonaje(personaje.id)">
                     Borrar
                 </b-button>
                 <b-button size="sm" variant="danger" @click="cancel()">
@@ -169,6 +169,25 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     .then(function() {
                         //always executed
                     });
+            },
+            deletePersonaje: function(id){
+                var self = this;
+                if(confirm("Seguro que desea borrar este personaje?")){
+                    axios.delete('/apiv1/personaje/' + id)
+                        .then(function(response) {
+                            // handle success
+                            console.log(response.data);
+                            self.getPersonajes()
+                            alert("Objeto borrado con exito")
+                        })
+                        .catch(function(error) {
+                            // handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            // always executed
+                        });
+                }
             },
             diarioPj: function(id){
                 window.location.href = '/personaje/diario?id_personaje='+id;
