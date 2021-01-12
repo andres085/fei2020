@@ -39,7 +39,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                                 <div class="col-md-9">
                                     <h1>Nombre</h1>
-                                    <input type="text" v-model="personaje.nombre" required>
+                                    <input type="text" v-model="personaje.nombre">
+                                    <br>
+                                    <span class="text-danger" v-if="errors.nombre" >{{errors.nombre}}</span>
                                 </div>
 
                                 <div class="col-md-3">
@@ -102,9 +104,11 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                                 <input type="radio" id="tiefling" value="Tiefling" v-model="personaje.raza">
                                 <label for="tiefling">Tiefling</label>
+                                <br>
+                                <span class="text-danger" v-if="errors.raza" >{{errors.raza}}</span>
 
                             </div>
-
+                            
 
 
                             <div class="radio-custom my-3">
@@ -146,6 +150,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                                 <input type="radio" id="picaro" value="Pícaro" v-model="personaje.clase">
                                 <label for="picaro">Pícaro</label>
+                                <br>
+                                <span class="text-danger" v-if="errors.clase" >{{errors.clase}}</span>
 
                             </div>
 
@@ -158,12 +164,15 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                     <h4>Fuerza</h4>
                                     <input v-model="personaje.fuerza" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                                     <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <span class="text-danger" v-if="errors.fuerza" >{{errors.fuerza}}</span>
                                 </div>
+                                
 
                                 <div class="col-md-4 d-block" style="text-align:center">
                                     <h4>Destreza</h4>
                                     <input v-model="personaje.destreza" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                                     <button type="button" @click="destrezaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <span class="text-danger" v-if="errors.destreza" >{{errors.destreza}}</span>
                                 </div>
 
 
@@ -171,6 +180,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                     <h4>Constitución</h4>
                                     <input v-model="personaje.constitucion" type="number" id="con" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                                     <button type="button" @click="constitucionRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <span class="text-danger" v-if="errors.constitucion" >{{errors.constitucion}}</span>
                                 </div>
 
                             </div>
@@ -181,12 +191,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                     <h4>Inteligencia</h4>
                                     <input v-model="personaje.inteligencia" type="number" id="int" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                                     <button type="button" @click="inteligenciaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <span class="text-danger" v-if="errors.inteligencia" >{{errors.inteligencia}}</span>
                                 </div>
 
                                 <div class="col-md-4 d-block" style="text-align:center">
                                     <h4>Sabiduria</h4>
                                     <input v-model="personaje.sabiduria" type="number" id="sab" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                                     <button type="button" @click="sabiduriaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <span class="text-danger" v-if="errors.sabiduria" >{{errors.sabiduria}}</span>
                                 </div>
 
 
@@ -194,9 +206,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                     <h4>Carisma</h4>
                                     <input v-model="personaje.carisma" type="number" id="car" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                                     <button type="button" @click="carismaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <span class="text-danger" v-if="errors.carisma" >{{errors.carisma}}</span>
                                 </div>
-
-
+                    
                             </div>
 
                         </div>
@@ -212,6 +224,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                     <option value="">Seleccione un elemento</option>
                                     <option v-for="(trasf, index) in trasfondos" :value="trasf" :key="index">{{trasf.nombre}}</>
                                 </select>
+                                <span class="text-danger" v-if="errors.id_trasfondo" >{{errors.id_trasfondo}}</span>
 
                             </div>
                             <!-- ###################################################################### -->
@@ -323,7 +336,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 max: 18,
                 usuario_id: <?= json_encode(Yii::$app->user->identity->id) ?>,
                 personaje: {
-                    nombre: "Nombre",
+                    nombre: "",
                     clase: "",
                     nivel: "Nivel 1",
                     raza: "",
@@ -341,6 +354,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     defecto: "",
                 },
                 trasfondos: [],
+                errors:{},
             }
         },
         mounted() {
@@ -385,8 +399,10 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     })
                     .catch(function(error) {
-                        // handle error
-                        console.log(error);
+                       //handle error
+                        console.log(error.response.data);
+                        self.errors = self.normalizeErrors(error.response.data);
+                        console.log(self.errors);
 
                     })
                     .then(function() {
@@ -409,7 +425,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             },
             guardarId: function() {
                 this.personaje.id_trasfondo = this.personaje.trasfondo.id;
-            }
+            },
+            normalizeErrors: function(errors) {
+                var allErrors = {};
+                for (var i = 0; i < errors.length; i++) {
+                    allErrors[errors[i].field] = errors[i].message;
+                }
+                return allErrors;
+            },
         },
 
     })

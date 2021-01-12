@@ -46,7 +46,7 @@ class Personaje extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'nivel', 'raza', 'clase', 'fuerza', 'destreza', 'constitucion', 'inteligencia', 'sabiduria', 'carisma', 'id_trasfondo'], 'required'],
+            [['nombre', 'nivel', 'raza', 'clase', 'fuerza', 'destreza', 'constitucion', 'inteligencia', 'sabiduria', 'carisma', 'id_trasfondo'], 'required', 'message' => 'Campo requerido'],
             [['nombre', 'raza', 'clase', 'personalidad', 'ideal', 'vinculo', 'defecto', 'dote'], 'string'],
             [['fuerza', 'destreza', 'constitucion', 'inteligencia', 'sabiduria', 'carisma', 'id_trasfondo'], 'integer'],
             [['nivel'], 'string', 'max' => 255],
