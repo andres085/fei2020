@@ -18,16 +18,21 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
     <div id="app">
         <h1 style="text-align: center;"> Módulo del Jugador</h1>
         <br>
+
+
         <!-- MODAL DEL PERSONAJE -->
         <b-modal id="modal-1" title="Detalle Personaje" v-model="showPersonaje">
             <div class="row">
-                <h3>Nombre: {{personaje.nombre}}</h3>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h3>{{personaje.nombre}}</h3>
+                </div>
+                
                 <div class="col-md-6 d-flex justify-content-center">
-                    <h3>Raza: {{ personaje.raza }}</h3>
+                    <h3>{{ personaje.raza }}</h3>
                 </div>
 
                 <div class="col-md-6 d-flex justify-content-center">
-                    <h3>Clase: {{ personaje.clase }}</h3>
+                    <h3>{{ personaje.clase }}</h3>
                 </div>
 
             </div>
@@ -92,21 +97,15 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     </div>
                 </div>
             </div>
+
+            <div>
+                
+                <button @click="hojaPj(personaje.id)" class="btn btn-outline-success btn-block">Hoja del Personaje</button>
+                
+            </div>
             <template #modal-footer="{ ok, cancel, hide }">
-                <b-button size="sm" variant="success" @click="diarioPj(personaje.id)">
-                    Diario
-                </b-button>
-                <b-button size="sm" variant="success" @click="hojaPj(personaje.id)">
-                    Hoja del Personaje
-                </b-button>
-                <b-button size="sm" variant="success" @click="update()">
-                    Actualizar
-                </b-button>
-                <b-button size="sm" variant="danger" @click="borrar()">
-                    Borrar
-                </b-button>
-                <b-button size="sm" variant="danger" @click="cancel()">
-                    Cancelar
+                <b-button class="btn btn-danger btn-block" size="sm" variant="danger" @click="borrar()">
+                    Eliminar Personaje
                 </b-button>
             </template>
 

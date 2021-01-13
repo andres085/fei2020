@@ -16,7 +16,7 @@ $this->registerJsFile("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/m
 echo $this->render('/components/CrudDiario');
 ?>
 
-<div class="container-fluid" id="app">
+<div style="height: 120vh;" class="container-fluid" id="app">
 
         <ul class="nav nav-tabs nav-fill" id="pills-tab" role="tablist">
 
@@ -248,19 +248,18 @@ echo $this->render('/components/CrudDiario');
                 <div>
                     <h3><b>Trasfondo: {{personaje.trasfondo.nombre}}</b></h3>
 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut deleniti voluptate placeat mollitia qui, voluptatibus, numquam accusantium minus quis voluptates quo. Est facere sit, iusto in nulla doloribus officia officiis.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis consectetur totam ut quis repellat amet mollitia tenetur omnis. Numquam labore ad perferendis. Earum ab atque voluptatibus doloremque. Numquam, accusantium tempore.
-                    </p>
+                    <p> {{personaje.trasfondo.descripcion}}  </p>
 
+                    <hr>
                     <div class="row">
-                        <div class="col-md-4">
-                            <h6><b>Competencia con Habilidades:</b></h6>
+                        <div class="col-md-4 border-right">
+                            <h5><b>Competencia con Habilidades:</b></h5>
                             <ul class="list-unstyled">
                                 <li> {{personaje.trasfondo.competencia1}} </li>
                                 <li> {{personaje.trasfondo.competencia2}} </li>
                             </ul>
 
-                            <h6><b>Competencia con Equipo:</b></h6>
+                            <h5><b>Competencia con Equipo:</b></h5>
                             <ul class="list-unstyled">
                                 <li> {{personaje.trasfondo.competencia1}} </li>
                                 <li> {{personaje.trasfondo.competencia2}} </li>
@@ -268,19 +267,17 @@ echo $this->render('/components/CrudDiario');
                         </div>
 
                         <div class="col-md-8">
-                            <h6><b>Rasgo:</b> {{personaje.trasfondo.nombre_rasgo}} </h6>
+                            <h5<b>Rasgo:</b> {{personaje.trasfondo.nombre_rasgo}} </h5>
 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, officia! Sequi illum odit perferendis molestias veniam modi ipsa laborum laudantium? Voluptatum magnam ipsum repellendus facilis nemo quas dolor quasi esse.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ab facilis id itaque incidunt natus quasi reiciendis aliquam officiis veniam velit voluptatem facere necessitatibus dolorum assumenda, sint, a esse? Pariatur?
-                            </p>
+                            <p> {{personaje.trasfondo.rasgo}} </p>
 
-                            <h6><b>Especialidad:</b> {{personaje.trasfondo.nombre_especialidad}} </h6>
+                            <h5><b>Especialidad:</b> {{personaje.trasfondo.nombre_especialidad}} </h5>
 
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio recusandae minus eos earum dicta ducimus beatae, tempore, obcaecati cumque mollitia labore pariatur incidunt ad autem optio suscipit inventore ex quod.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse laborum aut tempore nemo ullam, aperiam deserunt iure qui asperiores est accusamus amet assumenda libero mollitia iusto alias quidem ab accusantium?
-                            </p>
+                            <p> {{personaje.trasfondo.especialidad}} </p>
                         </div>
                     </div>
+
+                    <hr>
 
 
                     <div>
@@ -330,8 +327,10 @@ echo $this->render('/components/CrudDiario');
                     <h1>Tus Objetos</h1>
                 </div>
 
-                <b-button v-b-modal.modal-1 type="button" class="btn btn-block btn-success" user="" @click="">Agregar un objeto a tu inventario
+                <b-button v-b-modal.modal-1 type="button" class="btn btn-block btn-success" user="" @click=""><h5>Agregar un objeto a tu inventario</h5>
                 </b-button>
+
+                <hr>
 
 
                 <div>
@@ -413,7 +412,7 @@ echo $this->render('/components/CrudDiario');
                 
                 <!-- NOMBRE -->
                 <div class="d-flex my-3 justify-content-center">
-                    <h1>Diario</h1>
+                    
                 </div>
 
                 <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="['fecha_hora', 'info']" :id_personaje='id_personaje'>
