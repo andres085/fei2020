@@ -93,13 +93,10 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 </div>
             </div>
             <template #modal-footer="{ ok, cancel, hide }">
-                <b-button size="sm" variant="success" @click="diarioPj(personaje.id)">
-                    Diario
-                </b-button>
                 <b-button size="sm" variant="success" @click="hojaPj(personaje.id)">
                     Hoja del Personaje
                 </b-button>
-                <b-button size="sm" variant="success" @click="update()">
+                <b-button size="sm" variant="success" @click="updatePersonaje(personaje.id)">
                     Actualizar
                 </b-button>
                 <b-button size="sm" variant="danger" @click="deletePersonaje(personaje.id)">
@@ -188,6 +185,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                             // always executed
                         });
                 }
+            },
+            updatePersonaje: function(id){
+                window.location.href = '/personaje/creadorpj1?id_personaje='+id;
             },
             diarioPj: function(id){
                 window.location.href = '/personaje/diario?id_personaje='+id;

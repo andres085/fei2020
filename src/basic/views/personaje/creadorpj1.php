@@ -39,7 +39,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                                 <div class="col-md-9">
                                     <h1>Nombre</h1>
-                                    <input type="text" v-model="personaje.nombre">
+                                    <input type="text" v-model="personaje.nombre" id="nombre" name="nombre">
                                     <br>
                                     <span class="text-danger" v-if="errors.nombre" >{{errors.nombre}}</span>
                                 </div>
@@ -319,9 +319,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             </div>
 
         </div>
-        <button @click="addPersonaje()" type="button" class="btn btn-block btn-success m-3">Crear</button>
-
-
+        <button v-if="isNewRecord" @click="addPersonaje()" type="button" class="btn btn-block btn-success m-3">Crear</button>
+        <button v-if="!isNewRecord" @click="updatePj(id_personaje)" type="button" class="btn btn-block btn-success m-3">Actualizar</button>
 
     </div>
 </div>
@@ -355,10 +354,21 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 },
                 trasfondos: [],
                 errors:{},
+                id_personaje:"",
+                isNewRecord: true,
+                personajes:[],
             }
+        },
+        created (){
+            
         },
         mounted() {
             this.getTrasfondo();
+            this.getIdpj();
+            this.getPersonaje();
+        },
+        beforeUpdate() {
+            this.getPjactualizable();
         },
         methods: {
             fuerzaRandom: function() {
@@ -423,6 +433,21 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         //always executed
                     });
             },
+            //Buscamos el personaje a actualizar
+            getPersonaje: function() {
+                var self = this;
+                axios.get('/apiv1/personaje')
+                    .then(function(response) {
+                        self.personajes = response.data;
+                    })
+                    .catch(function(error) {
+                        //handle error
+                        console.log(error);
+                    })
+                    .then(function() {
+                        //always executed
+                    });
+            },
             guardarId: function() {
                 this.personaje.id_trasfondo = this.personaje.trasfondo.id;
             },
@@ -432,6 +457,53 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     allErrors[errors[i].field] = errors[i].message;
                 }
                 return allErrors;
+            },
+            getIdpj:function(){
+                let url = window.location.href;
+                let id = url.substring(url.lastIndexOf('=') + 1);
+                this.id_personaje = Number(id);
+            },
+            getPjactualizable:function(){
+                if(this.id_personaje){
+                    console.log("Existe");
+                    this.personaje = Object.assign({}, this.personajes[this.id_personaje]);
+                    //this.personaje.trasfondo = Object.assign({}, this.trasfondos[this.personaje.id_trasfondo]);
+                    this.personaje.id = this.id_personaje;
+                    this.isNewRecord = false;
+                }
+                else{
+                    console.log("No existe");
+                }
+            },
+            updatePj:function(id){
+                var self = this;
+                const params = new URLSearchParams();
+                params.append('nombre', self.personaje.nombre);
+                params.append('clase', self.personaje.clase);
+                params.append('nivel', self.personaje.nivel);
+                params.append('raza', self.personaje.raza);
+                params.append('fuerza', self.personaje.fuerza);
+                params.append('destreza', self.personaje.destreza);
+                params.append('constitucion', self.personaje.constitucion);
+                params.append('inteligencia', self.personaje.inteligencia);
+                params.append('sabiduria', self.personaje.sabiduria);
+                params.append('id_trasfondo', self.personaje.id_trasfondo);
+                params.append('personalidad', self.personaje.personalidad);
+                params.append('ideal', self.personaje.ideal);
+                params.append('vinculo', self.personaje.vinculo);
+                axios.patch('/apiv1/personaje/' + id, self.personaje)
+                    .then(function(response) {
+                        // handle success
+                        console.log(response.data);
+                        alert("Personaje Actualizado");
+                    })
+                    .catch(function(error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .then(function() {
+                        // always executed
+                    });
             },
         },
 
