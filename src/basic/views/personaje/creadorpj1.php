@@ -162,7 +162,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                                 <div class="col-md-4 d-block" style="text-align:center">
                                     <h4>Fuerza</h4>
-                                    <input v-model="personaje.fuerza" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                                    <input v-model="personaje.fuerza" id="fue" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                                     <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                                     <span class="text-danger" v-if="errors.fuerza" >{{errors.fuerza}}</span>
                                 </div>
@@ -220,9 +220,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <!-- ###################################################################### -->
                                 <h1>Trasfondo</h1>
 
-                                <select class="form-control" v-model="personaje.trasfondo" @change="guardarId()">
+                                <select class="form-control" v-model="trasfondoSelect">
                                     <option value="">Seleccione un elemento</option>
-                                    <option v-for="(trasf, index) in trasfondos" :value="trasf" :key="index">{{trasf.nombre}}</>
+                                    <option v-on:click="guardarId(trasfondo.id)" v-for="trasfondo in trasfondos" :selected="personaje.id_trasfondo == trasfondo.id" >{{trasfondo.nombre}}</>
                                 </select>
                                 <span class="text-danger" v-if="errors.id_trasfondo" >{{errors.id_trasfondo}}</span>
 
@@ -290,9 +290,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         <hr>
 
                         <div><b>Trasfondo:</b></div>
-
-                        <div>{{personaje.trasfondo.nombre}}</div>
-
+                        <div>{{trasfondoSelect}}</div>
+                        
                         <br>
 
                         <div><b>Personalidad:</b></div>
@@ -335,28 +334,13 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 max: 18,
                 usuario_id: <?= json_encode(Yii::$app->user->identity->id) ?>,
                 personaje: {
-                    nombre: "",
-                    clase: "",
-                    nivel: "Nivel 1",
-                    raza: "",
-                    fuerza: "",
-                    destreza: "",
-                    constitucion: "",
-                    inteligencia: "",
-                    sabiduria: "",
-                    carisma: "",
-                    trasfondo: {},
-                    id_trasfondo: "",
-                    personalidad: "",
-                    ideal: "",
-                    vinculo: "",
-                    defecto: "",
                 },
                 trasfondos: [],
                 errors:{},
                 id_personaje:"",
                 isNewRecord: true,
                 personajes:[],
+                trasfondoSelect:""
             }
         },
         created (){
@@ -367,9 +351,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             this.getIdpj();
             this.getPersonaje();
         },
-        beforeUpdate() {
-            this.getPjactualizable();
-        },
+        // beforeUpdate() {
+        //     this.getPjactualizable();
+        // },
         methods: {
             fuerzaRandom: function() {
                 this.personaje.fuerza = this.valorRandom();
@@ -448,8 +432,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         //always executed
                     });
             },
-            guardarId: function() {
-                this.personaje.id_trasfondo = this.personaje.trasfondo.id;
+            guardarId: function(id) {
+                this.personaje.id_trasfondo = id;
             },
             normalizeErrors: function(errors) {
                 var allErrors = {};
@@ -463,18 +447,17 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 let id = url.substring(url.lastIndexOf('=') + 1);
                 this.id_personaje = Number(id);
             },
-            getPjactualizable:function(){
-                if(this.id_personaje){
-                    console.log("Existe");
-                    this.personaje = Object.assign({}, this.personajes[this.id_personaje]);
-                    //this.personaje.trasfondo = Object.assign({}, this.trasfondos[this.personaje.id_trasfondo]);
-                    this.personaje.id = this.id_personaje;
-                    this.isNewRecord = false;
-                }
-                else{
-                    console.log("No existe");
-                }
-            },
+            // getPjactualizable:function(){
+            //     if(this.id_personaje){
+            //         console.log("Existe");
+            //         this.personaje = Object.assign({}, this.personajes[this.id_personaje]);
+            //         this.personaje.id = this.id_personaje;
+            //         this.isNewRecord = false;
+            //     }
+            //     else{
+            //         console.log("No existe");
+            //     }
+            // },
             updatePj:function(id){
                 var self = this;
                 const params = new URLSearchParams();
