@@ -98,25 +98,21 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 </div>
             </div>
 
-            <div>
-                
-                <button @click="hojaPj(personaje.id)" class="btn btn-outline-success btn-block">Hoja del Personaje</button>
-                
-            </div>
+
             <template #modal-footer="{ ok, cancel, hide }">
 
-                <b-button size="sm" variant="success" @click="hojaPj(personaje.id)">
-                    Hoja del Personaje
-                </b-button>
-                <b-button size="sm" variant="success" @click="updatePersonaje(personaje.id)">
-                    Actualizar
-                </b-button>
+                <button @click="hojaPj(personaje.id)" class="btn btn-outline-success btn-block">Hoja del Personaje</button>
+                
+                <button @click="updatePersonaje(personaje.id)" class="btn btn-outline-success btn-block">Actualizar</button>
+            
                 <b-button class="btn btn-danger btn-block" size="sm" variant="danger" @click="deletePersonaje(personaje.id)">
                     Borrar
                 </b-button>
-                <b-button size="sm" variant="danger" @click="cancel()">
-                    Cancelar
 
+                <b-button class="btn btn-danger btn-block" size="sm" variant="danger" @click="cancel()">
+                    Cancelar
+                </b-button>
+                
             </template>
 
         </b-modal>

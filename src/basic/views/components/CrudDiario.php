@@ -9,7 +9,7 @@
                 v-model="modalShow"
                 id="modal-1" title="Nueva Entrada">
             <div>
-                <form action=""> <textarea name="" id="" cols="30" rows="10"></textarea>
+                <form action="">
                     <div v-if="i>0" v-for="(field,i) in modelfields" class="form-group">
                         <label :for="field">{{field}}</label>
                         <textarea v-model="activemodel[field]" type="text" :name="field" :id="field" cols="30" rows="10" class="form-control" :placeholder="'Ingrese el '+ field " aria-describedby="helpId"></textarea>
@@ -34,11 +34,13 @@
         <table class="table" id="my-table">
             <thead>
             <tr>
+                <th>#</th>
                 <th v-for="field in modelfields">{{field}}</th>
                 <th></th>
                 <th></th>
             </tr>
             <tr>
+                <td></td>
                 <td v-for="field in modelfields">
                     <input v-on:change="getModels()" class="form-control" v-model="filter[field]">
                 </td>

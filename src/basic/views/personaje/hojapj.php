@@ -327,7 +327,7 @@ echo $this->render('/components/CrudDiario');
                     <h1>Tus Objetos</h1>
                 </div>
 
-                <b-button v-b-modal.modal-1 type="button" class="btn btn-block btn-success" user="" @click=""><h5>Agregar un objeto a tu inventario</h5>
+                <b-button v-b-modal.modal-2 type="button" class="btn btn-block btn-success" user="" @click=""><h5>Agregar un objeto a tu inventario</h5>
 
                 </b-button>
 
