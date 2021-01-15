@@ -29,7 +29,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 <div class="col-md-6 d-flex justify-content-center">
                     <h3>Clase: {{ personaje.clase }}</h3>
                 </div>
-
+                    
             </div>
 
             <div class="row">

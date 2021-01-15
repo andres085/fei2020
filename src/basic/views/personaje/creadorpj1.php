@@ -162,7 +162,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                                 <div class="col-md-4 d-block" style="text-align:center">
                                     <h4>Fuerza</h4>
-                                    <input v-model="personaje.fuerza" id="fue" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
+                                    <input v-model="personaje.fuerza" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
                                     <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                                     <span class="text-danger" v-if="errors.fuerza" >{{errors.fuerza}}</span>
                                 </div>
@@ -320,7 +320,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         </div>
         <button v-if="isNewRecord" @click="addPersonaje()" type="button" class="btn btn-block btn-success m-3">Crear</button>
         <button v-if="!isNewRecord" @click="updatePj(id_personaje)" type="button" class="btn btn-block btn-success m-3">Actualizar</button>
-
     </div>
 </div>
 
@@ -334,26 +333,30 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 max: 18,
                 usuario_id: <?= json_encode(Yii::$app->user->identity->id) ?>,
                 personaje: {
+                    fuerza:"",
+                    destreza:"",
+                    constitucion:"",
+                    inteligencia:"",
+                    sabiduria:"",
+                    carisma:"",
                 },
                 trasfondos: [],
                 errors:{},
                 id_personaje:"",
                 isNewRecord: true,
-                personajes:[],
+                personajes:{},
                 trasfondoSelect:""
             }
-        },
-        created (){
-            
         },
         mounted() {
             this.getTrasfondo();
             this.getIdpj();
             this.getPersonaje();
+            //this.getPjactualizable();
         },
-        // beforeUpdate() {
-        //     this.getPjactualizable();
-        // },
+        beforeUpdate(){
+            
+        },
         methods: {
             fuerzaRandom: function() {
                 this.personaje.fuerza = this.valorRandom();
@@ -423,6 +426,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 axios.get('/apiv1/personaje')
                     .then(function(response) {
                         self.personajes = response.data;
+                        self.getPjactualizable();
                     })
                     .catch(function(error) {
                         //handle error
@@ -447,17 +451,19 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 let id = url.substring(url.lastIndexOf('=') + 1);
                 this.id_personaje = Number(id);
             },
-            // getPjactualizable:function(){
-            //     if(this.id_personaje){
-            //         console.log("Existe");
-            //         this.personaje = Object.assign({}, this.personajes[this.id_personaje]);
-            //         this.personaje.id = this.id_personaje;
-            //         this.isNewRecord = false;
-            //     }
-            //     else{
-            //         console.log("No existe");
-            //     }
-            // },
+            getPjactualizable:function(){
+                if(this.id_personaje){
+                    console.log("Existe");
+                    let key = this.personajes.findIndex(x => x.id ===this.id_personaje);
+                    this.personaje = Object.assign({}, this.personajes[key]);
+                    this.trasfondoSelect = this.personaje.trasfondo.nombre;
+                    this.personaje.id = this.id_personaje;
+                    this.isNewRecord = false;
+                }
+                else{
+                    console.log("No existe");
+                }
+            },
             updatePj:function(id){
                 var self = this;
                 const params = new URLSearchParams();
