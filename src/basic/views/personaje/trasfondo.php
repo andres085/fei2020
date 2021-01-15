@@ -192,7 +192,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             },
             nuevoTrasfondo: function() {
                 this.trasfondo = {};
-                this.isNewRecord = true;
+                this.isNewRecord = false;
             }
         }
     })

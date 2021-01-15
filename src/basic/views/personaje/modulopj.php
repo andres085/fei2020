@@ -34,7 +34,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 <div class="col-md-6 d-flex justify-content-center">
                     <h3>{{ personaje.clase }}</h3>
                 </div>
-
+                    
             </div>
 
             <div class="row">
@@ -104,9 +104,19 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 
             </div>
             <template #modal-footer="{ ok, cancel, hide }">
-                <b-button class="btn btn-danger btn-block" size="sm" variant="danger" @click="borrar()">
-                    Eliminar Personaje
+
+                <b-button size="sm" variant="success" @click="hojaPj(personaje.id)">
+                    Hoja del Personaje
                 </b-button>
+                <b-button size="sm" variant="success" @click="updatePersonaje(personaje.id)">
+                    Actualizar
+                </b-button>
+                <b-button class="btn btn-danger btn-block" size="sm" variant="danger" @click="deletePersonaje(personaje.id)">
+                    Borrar
+                </b-button>
+                <b-button size="sm" variant="danger" @click="cancel()">
+                    Cancelar
+
             </template>
 
         </b-modal>
@@ -168,6 +178,28 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     .then(function() {
                         //always executed
                     });
+            },
+            deletePersonaje: function(id){
+                var self = this;
+                if(confirm("Seguro que desea borrar este personaje?")){
+                    axios.delete('/apiv1/personaje/' + id)
+                        .then(function(response) {
+                            // handle success
+                            console.log(response.data);
+                            self.getPersonajes()
+                            alert("Objeto borrado con exito")
+                        })
+                        .catch(function(error) {
+                            // handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            // always executed
+                        });
+                }
+            },
+            updatePersonaje: function(id){
+                window.location.href = '/personaje/creadorpj1?id_personaje='+id;
             },
             diarioPj: function(id){
                 window.location.href = '/personaje/diario?id_personaje='+id;
