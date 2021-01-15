@@ -8,12 +8,15 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="300"
-   height="309.28601"
-   viewBox="0 0 79.374998 81.831926"
+   height="309.28622"
+   viewBox="0 0 79.374998 81.831983"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="imagotipo.svg">
+   sodipodi:docname="imagotipo.svg"
+   inkscape:export-filename="/home/fidel/Escritorio/HerramientaD&amp;D/fei2020/Recursos/Manual de Marca/imagotipo-min.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -23,19 +26,23 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.9930928"
-     inkscape:cx="121.60157"
-     inkscape:cy="118.33505"
+     inkscape:zoom="1.28"
+     inkscape:cx="11.575316"
+     inkscape:cy="67.550502"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="997"
+     inkscape:window-height="994"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     units="px" />
+     units="px"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -52,7 +59,7 @@
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-215.16805)">
+     transform="translate(-5.8384879e-7,-215.16801)">
     <g
        id="g933"
        transform="matrix(1.4562952,0,0,1.4562952,-131.5656,195.64136)"

@@ -27,6 +27,10 @@ use app\assets\AppAsset;
     <!--FONT AWESOME 5-->
     <script src="https://kit.fontawesome.com/b458f559f0.js" crossorigin="anonymous"></script>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet"> 
+
 
     <style>
         /* Chrome, Safari, Edge, Opera */
@@ -41,6 +45,10 @@ use app\assets\AppAsset;
             -moz-appearance: textfield;
         }
 
+        .texto-secundario{
+            font-family: 'Caveat Brush', cursive;
+            font-size: x-large;
+        }        
         .btn-pjs {
             width: 90%;
             margin: 25px;
@@ -86,14 +94,14 @@ use app\assets\AppAsset;
     <div class="wrap">
         <?php
         NavBar::begin([
-            'brandLabel' => Yii::$app->name,
+            'brandLabel' => Html::img('@web/images/logotipo-reduccion-min.png', ['alt'=>Yii::$app->name]),
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => '',
             ],
         ]);
         echo Nav::widget([
-            'options' => ['class' => 'navbar-nav'],
+            'options' => ['class' => 'navbar-nav texto-secundario'],
             'items' => [
                 ['label' => 'Home', 'url' => ['/site/index']],
                 ['label' => 'Jugador', 'url' => ['/personaje/modulopj']],
@@ -102,8 +110,8 @@ use app\assets\AppAsset;
                 Yii::$app->user->isGuest ? (['label' => 'Login', 'url' => ['/site/login']]) : ('<li>'
                     . Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
-                        ['class' => 'btn btn-link logout']
+                        '<i style="font-size:larger;" class="fas fa-sign-out-alt"></i>',
+                        ['class' => 'btn']
                     )
                     . Html::endForm()
                     . '</li>')
@@ -112,14 +120,16 @@ use app\assets\AppAsset;
         NavBar::end();
         ?>
 
-        <div class="container">
-            <?= Breadcrumbs::widget([
+        <div class="container texto-secundario">
+            <!--<?= Breadcrumbs::widget([
                 'itemTemplate' => "\n\t<li class=\"breadcrumb-item\"><i>{link}</i></li>\n", // template for all links
                 'activeItemTemplate' => "\t<li class=\"breadcrumb-item active\">{link}</li>\n", // template for the active link
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
+            ]) ?>-->
             <?= Alert::widget() ?>
-            <?= $content ?>
+            <div class="mt-3">
+                <?= $content ?>
+            </div>
         </div>
     </div>
 
@@ -130,6 +140,9 @@ use app\assets\AppAsset;
     </footer> -->
 
     <?php $this->endBody() ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="sweetalert2.all.min.js"></script>
 </body>
 
 </html>

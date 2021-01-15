@@ -1,16 +1,18 @@
 <script type="text/x-template" id="crud-template">
     <div class="container">
-        <h1>Diario del Personaje</h1>
+        <div class="text-center">
+            <h1>Diario del Personaje</h1>
+        </div>
         <!-- Button trigger modal -->
         <b-modal
                 @errors="errors"
                 v-model="modalShow"
-                id="modal-1" title="Nueva Carga">
+                id="modal-1" title="Nueva Entrada">
             <div>
-                <form action="">
+                <form action=""> <textarea name="" id="" cols="30" rows="10"></textarea>
                     <div v-if="i>0" v-for="(field,i) in modelfields" class="form-group">
                         <label :for="field">{{field}}</label>
-                        <input v-model="activemodel[field]" type="text" :name="field" :id="field" class="form-control" :placeholder="'Ingrese el '+ field " aria-describedby="helpId">
+                        <textarea v-model="activemodel[field]" type="text" :name="field" :id="field" cols="30" rows="10" class="form-control" :placeholder="'Ingrese el '+ field " aria-describedby="helpId"></textarea>
                         <span class="text-danger" v-if="errors[field]" >{{errors[field]}}</span>
                     </div>
                 </form>
@@ -23,27 +25,20 @@
         </b-modal>
 
         <p>
-            <b-button  v-on:click="modalShow=true">Nueva Entrada</b-button>
+            <b-button class="btn btn-success btn-block"  v-on:click="modalShow=true">Nueva Entrada</b-button>
         </p>
 
-         <b-pagination
-            v-model="currentPage"
-            :total-rows="pagination.total"
-            :per-page="pagination.perPage"
-            aria-controls="my-table"
-        ></b-pagination>
+         
 
 
         <table class="table" id="my-table">
             <thead>
             <tr>
-                <th>#</th>
                 <th v-for="field in modelfields">{{field}}</th>
                 <th></th>
                 <th></th>
             </tr>
             <tr>
-                <td></td>
                 <td v-for="field in modelfields">
                     <input v-on:change="getModels()" class="form-control" v-model="filter[field]">
                 </td>
@@ -64,6 +59,13 @@
             </tr>
             </tbody>
         </table>
+
+        <b-pagination
+            v-model="currentPage"
+            :total-rows="pagination.total"
+            :per-page="pagination.perPage"
+            aria-controls="my-table"
+        ></b-pagination>
 
     </div>
 </script>
