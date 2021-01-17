@@ -7,6 +7,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position' => View::POS_HEAD]);
 $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['position' => View::POS_HEAD]);
+$this->registerJsFile("https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js", ['position' => $this::POS_HEAD]);
 ?>
 
 <div class="site-trasfondo">
@@ -23,6 +24,8 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 <input type="text" v-model="trasfondo.descripcion" name="descripcion" id="descripcion" class="form-control" placeholder="Descripcion">
 
                 <br>
+                <hr>
+                <br>
 
                 <label for="nombre-rasgo">Nombre Rasgo</label>
                 <input type="text" class="form-control" v-model="trasfondo.nombre_rasgo" name="nombre-rasgo" id="nombre-rasgo" placeholder="Nombre del Rasgo">
@@ -30,16 +33,21 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 <br>
 
                 <label for="rasgo">Rasgo</label>
-                <textarea class="form-control" v-model="trasfondo.rasgo" name="rasgo" id="rasgo" cols="30" rows="4"></textarea>
+                <textarea class="form-control" v-model="trasfondo.rasgo" name="rasgo" id="rasgo" cols="30" rows="10"></textarea>
 
                 <br>
-
+                <hr>
+                <br>
 
                 <h4>Tiene especialidades?</h4>
 
                 <label for="espec_si">SI</label>
-                <input type="radio" name="espec_si" id="espec_si" v-model="selected" value="si">
-                <div v-show="selected === 'si'">
+                <input type="radio" name="espec_si" id="espec_si" v-model="radio_espec" value="si">
+
+                <label for="espec_no">NO</label>
+                <input type="radio" name="espec-no" id="espec_no" v-model="radio_espec" value="no">
+                
+                <div v-show="radio_espec === 'si'">
 
                     <br>
 
@@ -49,18 +57,34 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     <br>
 
                     <label for="espec">Descripción de la Especialidad</label>
-                    <textarea class="form-control" v-model="trasfondo.especialidad" name="especialidad" id="especialidad" cols="30" rows="4"></textarea>
+                    <textarea class="form-control" v-model="trasfondo.especialidad" name="especialidad" id="especialidad" cols="30" rows="10"></textarea>
 
                 </div>
+
+                <div v-show="radio_espec === 'no'">
+
+                </div>
+                
                 <br>
 
-                <label for="espec_no">NO</label>
-                <input type="radio" name="espec-no" id="espec_no" v-model="selected" value="no">
-                <div v-show="selected === 'no'">
+                
 
-                </div>
+                <br>
+                <hr>
+                <br>
+
+                <h4>Competencias de Habilidades</h4>
+
+                <template>
+                  <div>
+                    <b-form-select v-model="selected" :options="options" multiple :select-size="18"></b-form-select>
+                    <div class="mt-3"></div>
+                  </div>
+                </template>
 
             </div>
+
+
             <button v-if="isNewRecord" @click="addTrasfondo()" type="button" class="btn btn-primary m-3">Crear</button>
             <button v-if="!isNewRecord" @click="nuevoTrasfondo()" type="button" class="btn btn-success m-3">Nuevo</button>
             <button v-if="!isNewRecord" @click="updTrasfondo(trasfondo.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
@@ -94,15 +118,39 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         </table>
     </div>
 </div>
+
+
 <script>
     var app = new Vue({
         el: '#app',
         data: function() {
             return {
-                selected: null,
+                radio_espec: null,
                 trasfondo: {},
                 trasfondos: [],
                 isNewRecord: true,
+
+                selected: [''], // Array reference
+                options: [
+                { value: '1', text: 'Acrobacias' },
+                { value: '2', text: 'Atletismo' },
+                { value: '3', text: 'Arcana' },
+                { value: '4', text: 'Engaño'},
+                { value: '5', text: 'Historia' },
+                { value: '6', text: 'Interpretación' },
+                { value: '7', text: 'Intimidación' },
+                { value: '8', text: 'Investigación' },
+                { value: '9', text: 'Juego de Manos' },
+                { value: '10', text: 'Medicina' },
+                { value: '11', text: 'Naturaleza' },
+                { value: '12', text: 'Percepción' },
+                { value: '13', text: 'Perspicacia' },
+                { value: '14', text: 'Persuasión' },
+                { value: '15', text: 'Religión' },
+                { value: '16', text: 'Sigilo' },
+                { value: '17', text: 'Supervivencia' },
+                { value: '18', text: 'Trato con Animales' },
+                ]
             }
         },
         mounted() {
