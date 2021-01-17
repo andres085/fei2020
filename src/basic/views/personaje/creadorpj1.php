@@ -227,6 +227,42 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <span class="text-danger" v-if="errors.id_trasfondo" >{{errors.id_trasfondo}}</span>
 
                             </div>
+
+                            <div>
+
+                                <h3>{Nombre Trasfondo}</h3>
+
+                                <p>{descripcion}</p>
+
+
+                                <h4>
+                                    Competencias de Habilidades: {competencias}
+                                </h4>
+
+
+                                <h4>
+                                    Competencias de Equipo: {competencias}
+                                </h4>
+                            </div>
+
+                            <div class="accordion" id="accordionTrasfondo">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
+                                        <h4>Rasgo: {nombre rasgo}</h4>
+                                        </button>
+                                    </h2>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionTrasfondo">
+                                    <div class="card-body">
+                                        {descripcion rasgo}
+                                    </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
                             <!-- ###################################################################### -->
                             <hr>
 
