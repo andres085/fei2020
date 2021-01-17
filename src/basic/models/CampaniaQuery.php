@@ -3,11 +3,11 @@
 namespace app\models;
 
 /**
- * This is the ActiveQuery class for [[Diario]].
+ * This is the ActiveQuery class for [[Campania]].
  *
- * @see Diario
+ * @see Campania
  */
-class DiarioQuery extends \yii\db\ActiveQuery
+class CampaniaQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class DiarioQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return Diario[]|array
+     * @return Campania[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class DiarioQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return Diario|array|null
+     * @return Campania|array|null
      */
     public function one($db = null)
     {

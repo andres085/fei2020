@@ -1,6 +1,6 @@
 <script type="text/x-template" id="crud-template">
     <div class="container">
-        <h1>Objetos</h1>
+        <h1>Campaña</h1>
         <!-- Button trigger modal -->
         <b-modal
                 @errors="errors"
@@ -154,7 +154,7 @@
                         console.log(response.data);
                         self.getModels()
                         self.activemodel = {};
-                        alert('Equipo Agregado');
+                        alert('Campaña Agregada');
                     })
                     .catch(function(error) {
                         // var errors = error.response.data;
@@ -178,7 +178,7 @@
                         self.modalShow = false;
                         self.getModels();
                         self.activemodel = {};
-                         alert('Equipo Actualizado');
+                         alert('Campaña Actualizada');
                     })
                     .catch(function(error) {
                         // handle error
