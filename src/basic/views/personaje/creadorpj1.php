@@ -352,10 +352,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             this.getTrasfondo();
             this.getIdpj();
             this.getPersonaje();
-            //this.getPjactualizable();
-        },
-        beforeUpdate(){
-            
         },
         methods: {
             fuerzaRandom: function() {

@@ -31,7 +31,7 @@ class Campania extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_usuario'], 'required'],
+            [['id_usuario', 'nombre'], 'required', 'message' => 'Campo requerido'],
             [['id_usuario'], 'integer'],
             [['nombre', 'detalles'], 'string'],
             [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['id_usuario' => 'id']],

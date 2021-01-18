@@ -42,6 +42,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             <div class="col-md-9">
             
             <button v-if="isNewRecord" @click="addCampania()" type="button" class="btn btn-block btn-success m-3">Crear</button>
+            <button v-if="!isNewRecord" @click="nuevaCampania()" type="button" class="btn btn-block btn-success m-3">Nueva</button>
             <button v-if="!isNewRecord" @click="updateCampania(id_campania)" type="button" class="btn btn-block btn-success m-3">Actualizar</button>
 
             </div>
@@ -57,10 +58,23 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         id_usuario: <?= json_encode(Yii::$app->user->identity->id) ?>,
                     },
                     isNewRecord: true,
-                    errors:{}
+                    errors:{},
+                    id_campania:"",
+                    campActualizar:{},
                 }
             },
+            mounted(){
+                this.getIdcampania();
+                this.getCampaniaupd();
+            },
             methods:{
+                normalizeErrors: function(errors) {
+                    var allErrors = {};
+                    for (var i = 0; i < errors.length; i++) {
+                        allErrors[errors[i].field] = errors[i].message;
+                    }
+                    return allErrors;
+                },
                 addCampania:function(){
                     var self = this;
                     axios.post('/apiv1/campania', self.campania)
@@ -83,14 +97,70 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     .catch(function(error) {
                        //handle error
                         console.log(error.response.data);
-                        //self.errors = self.normalizeErrors(error.response.data);
-                        //console.log(self.errors);
+                        self.errors = self.normalizeErrors(error.response.data);
+                        console.log(self.errors);
 
                     })
                     .then(function() {
                         // always executed
                     });
+                },
+                getCampania:function(id){
+                    var self = this;
+                    axios.get('/apiv1/campania/'+id)
+                    .then(function(response) {
+                        self.campania = response.data;
+                    })
+                    .catch(function(error) {
+                        //handle error
+                        console.log(error);
+                    })
+                    .then(function() {
+                        //always executed
+                    });
+                },
+                getIdcampania:function(){
+                    let url = window.location.href;
+                    let id = url.substring(url.lastIndexOf('=') + 1);
+                    this.id_campania = Number(id);
+                },
+                getCampaniaupd:function(){
+                    if(this.id_campania){
+                        console.log("Existe");
+                        this.isNewRecord = false;
+                        this.getCampania(this.id_campania);
+                    }
+                    else{
+                        console.log("No existe");
+                    }
+                },
+                updateCampania:function(id){
+                    var self = this;
+                    const params = new URLSearchParams();
+                    params.append('nombre', self.campania.nombre);
+                    params.append('detalles', self.campania.detalles);
+                    axios.patch('/apiv1/campania/' + id, self.campania)
+                    .then(function(response) {
+                        // handle success
+                        console.log(response.data);
+                        alert("Campaña Actualizada");
+                    })
+                    .catch(function(error) {
+                        // handle error
+                        console.log(error.response.data);
+                        self.errors = self.normalizeErrors(error.response.data);
+                        console.log(self.errors);
+                    })
+                    .then(function() {
+                        // always executed
+                    });
+                },
+                nuevaCampania:function(){
+                    this.campania = {};
+                    this.campania.id_usuario = <?= json_encode(Yii::$app->user->identity->id) ?>;
+                    this.isNewRecord = true;
                 }
-            },
+            }
+            
     })
 </script>
