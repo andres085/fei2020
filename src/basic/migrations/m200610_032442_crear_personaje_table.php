@@ -31,6 +31,7 @@ class m200610_032442_crear_personaje_table extends Migration
             'vinculo' => $this->text(),
             'defecto' => $this->text(),            
             'dote' => $this->text()->Null(),
+            'id_campania'=>$this->integer(),
         ]);
 
         $this->createIndex(
@@ -39,11 +40,26 @@ class m200610_032442_crear_personaje_table extends Migration
             'id_trasfondo'
         );
 
+        $this->createIndex(
+            'idx-personaje-id_campania',
+            'personaje',
+            'id_campania'
+        );
+
         $this->addForeignKey(
             'fk-personaje-id_trasfondo',
             'personaje',
             'id_trasfondo',
             'trasfondo',
+            'id',
+            'CASCADE'
+        );
+
+        $this->addForeignKey(
+            'fk-personaje-id_campania',
+            'personaje',
+            'id_campania',
+            'campania',
             'id',
             'CASCADE'
         );

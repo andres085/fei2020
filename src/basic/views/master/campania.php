@@ -39,11 +39,11 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
             <template #modal-footer="{ ok, cancel, hide }">
 
-                <button @click="" class="btn btn-outline-success btn-block">Ver Campaña</button>
+                <button @click="hojaCampaña(campañaModal.id)" class="btn btn-outline-success btn-block">Ver Campaña</button>
                 
                 <button @click="updateCampaña(campañaModal.id)" class="btn btn-outline-success btn-block">Actualizar</button>
             
-                <b-button class="btn btn-danger btn-block" size="sm" variant="danger" @click="">
+                <b-button class="btn btn-danger btn-block" size="sm" variant="danger" @click="deleteCampaña(campañaModal.id)">
                     Borrar Campaña
                 </b-button>
 
@@ -113,13 +113,29 @@ var app = new Vue({
                     });
             },
             deleteCampaña: function(id){
-                
+                var self = this;
+                if(confirm("Seguro que desea borrar esta Campaña?")){
+                    axios.delete('/apiv1/campania/' + id)
+                        .then(function(response) {
+                            // handle success
+                            console.log(response.data);
+                            self.getCampañas()
+                            alert("Objeto borrado con exito")
+                        })
+                        .catch(function(error) {
+                            // handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            // always executed
+                        });
+                }
             },
             updateCampaña: function(id){
                 window.location.href = '/master/creadorcampania?id='+id;
             },
             hojaCampaña: function(id){
-                window.location.href = ''+id;
+                window.location.href = '/master/hojacampania?id_campania='+id;
             },
             sendInfo: function(campaña)
             {

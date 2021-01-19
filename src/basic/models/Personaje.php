@@ -24,7 +24,7 @@ use Yii;
  * @property string vinculo
  * defecto
  * @property string|null $dote
- *
+ * @property int|null $id_campania
  * @property Diario[] $diarios
  * @property Trasfondo $trasfondo
  * @property UsuarioPersonaje[] $usuarioPersonajes
@@ -48,7 +48,7 @@ class Personaje extends \yii\db\ActiveRecord
         return [
             [['nombre', 'nivel', 'raza', 'clase', 'fuerza', 'destreza', 'constitucion', 'inteligencia', 'sabiduria', 'carisma', 'id_trasfondo'], 'required', 'message' => 'Campo requerido'],
             [['nombre', 'raza', 'clase', 'personalidad', 'ideal', 'vinculo', 'defecto', 'dote'], 'string'],
-            [['fuerza', 'destreza', 'constitucion', 'inteligencia', 'sabiduria', 'carisma', 'id_trasfondo'], 'integer'],
+            [['fuerza', 'destreza', 'constitucion', 'inteligencia', 'sabiduria', 'carisma', 'id_trasfondo', 'id_campania'], 'integer'],
             [['nivel'], 'string', 'max' => 255],
             [['id_trasfondo'], 'exist', 'skipOnError' => true, 'targetClass' => Trasfondo::className(), 'targetAttribute' => ['id_trasfondo' => 'id']],
         ];
@@ -88,6 +88,16 @@ class Personaje extends \yii\db\ActiveRecord
     public function getDiarios()
     {
         return $this->hasMany(Diario::className(), ['id_personaje' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Campania]].
+     *
+     * @return \yii\db\ActiveQuery|CampaniaQuery
+     */
+    public function getCampania()
+    {
+        return $this->hasOne(Campania::className(), ['id' => 'id_campania']);
     }
 
     /**

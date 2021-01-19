@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Diario;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
@@ -44,5 +45,13 @@ class MasterController extends \yii\web\Controller
     public function actionCreadorcampania()
     {
         return $this->render('creadorcampania');
+    }
+
+    public function actionHojacampania()
+    {
+        $model = new Diario();
+        return $this->render('hojacampania', [
+            'model' => $model,
+        ]);
     }
 }
