@@ -109,12 +109,12 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                             <div class="row">
                             
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="dañoarma">Daño</label>
                                     <input class="form-control" type="text">
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="tipodañoarma">Tipo de Daño</label>
                                     <select class="form-control" name="tipodañoarma" id="tipodañoarma">
                                         <option></option>
@@ -124,25 +124,34 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                     </select>
                                 </div>
 
-                                <div class="col-md-3">
-                                    <label for="moddañoarma">Mod. Daño</label>
+                                <div class="col-md-4">
+                                    <label for="moddañoarma">Mod. Daño y Ataque</label>
                                     <select class="form-control" name="moddañoarma" id="moddañoarma">
                                         <option></option>
                                         <option value="fuerza">Fuerza</option>
                                         <option value="destreza">Destreza</option>
                                         <option value="fuedes">Fuerza o Destreza</option>
                                     </select>
-                                </div>
+                                    <br>
+                                </div>                                
 
-                                <div class="col-md-3">
-                                    <label for="modataquearma">Mod. Ataque</label>
-                                    <select class="form-control" name="modataquearma" id="modataquearma">
-                                        <option></option>
-                                        <option value="fuerza">Fuerza</option>
-                                        <option value="destreza">Destreza</option>
-                                        <option value="fuedes">Fuerza o Destreza</option>
-                                    </select>
+                            </div>
+
+                            <div class="row">
+                            
+                                <div class="col-md-12">
+                                    <label for="propiedades"></label>
+                                    <template>
+                                      <div>
+                                        <multiselect
+                                          v-model="selected"
+                                          :options="options">
+                                        </multiselect>
+                                      </div>
+                                    </template>
+                                
                                 </div>
+                            
                             </div>
                             <label for="nombre">Tipo de Objeto</label>
                             <input type="text" v-model="objeto.tipo_obj" name="armatobj" id="armatobj" class="form-control" placeholder="Tipo de Objeto"><br>

@@ -143,6 +143,7 @@ use app\assets\AppAsset;
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="sweetalert2.all.min.js"></script>
+    
 </body>
 
 </html>
