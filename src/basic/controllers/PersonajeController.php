@@ -42,9 +42,4 @@ class PersonajeController extends \yii\web\Controller
         return $this->render('equipo', ['model' => $model]);
     }
 
-    public function actionEquipo2()
-    {
-        //$model = new Objeto();
-        return $this->render('equipo2');
-    }
 }
