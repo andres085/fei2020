@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Class m210119_132705_crear_tabla_armas
+ * Class m210120_151047_crear_tabla_armas
  */
-class m210119_132705_crear_tabla_armas extends Migration
+class m210120_151047_crear_tabla_armas extends Migration
 {
     /**
      * {@inheritdoc}
@@ -18,8 +18,7 @@ class m210119_132705_crear_tabla_armas extends Migration
             'categoria' => $this->string()->notNull(),
             'daño' => $this->string()->notNull(),
             'tipo_daño' => $this->string()->notNull(),
-            'mod_daño' => $this->string()->notNull(),
-            'mod_ataque' => $this->string()->notNull(),
+            'mod_daño_ataque' => $this->string()->notNull(),
             'alcance' => $this->string(),
             'prop1' => $this->string(),
             'prop2' => $this->string(),
@@ -35,7 +34,7 @@ class m210119_132705_crear_tabla_armas extends Migration
      */
     public function safeDown()
     {
-        echo "m210119_132705_crear_tabla_armas cannot be reverted.\n";
+        echo "m210120_151047_crear_tabla_armas cannot be reverted.\n";
 
         return false;
     }
@@ -49,7 +48,7 @@ class m210119_132705_crear_tabla_armas extends Migration
 
     public function down()
     {
-        echo "m210119_132705_crear_tabla_armas cannot be reverted.\n";
+        echo "m210120_151047_crear_tabla_armas cannot be reverted.\n";
 
         return false;
     }

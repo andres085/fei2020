@@ -41,162 +41,231 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
         </div>
 
+        <br>
+
+        <div>
+            <button class="btn btn-success btn-block" @click="mostrar = !mostrar">Agregar un objeto</button>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div v-show="mostrar">
         
-        <ul class="nav nav-tabs nav-fill" id="pills-tab" role="tablist">
+            <ul class="nav nav-tabs nav-fill" id="pills-tab" role="tablist">
 
-            <li class="nav-item">
-                <a class="nav-link" id="pills-armas-tab" data-toggle="pill" href="#pills-armas" role="tab">Armas</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-armas-tab" data-toggle="pill" href="#pills-armas" role="tab">Armas</a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" id="pills-armadura-tab" data-toggle="pill" href="#pills-armadura" role="tab">Armadura</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-armadura-tab" data-toggle="pill" href="#pills-armadura" role="tab">Armadura</a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" id="pills-objetos-tab" data-toggle="pill" href="#pills-objetos" role="tab">Objetos</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-objetos-tab" data-toggle="pill" href="#pills-objetos" role="tab">Objetos</a>
+                </li>
 
-        </ul>
+            </ul>
 
-        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-content" id="pills-tabContent">
 
-            <!-- ARMAS -->
-            <div class="tab-pane fade" id="pills-armas" role="tabpanel">
+                <!-- ARMAS -->
+                <div class="tab-pane fade" id="pills-armas" role="tabpanel">
 
-                <div class="d-flex my-3 justify-content-center">
-                    <h1>ARMAS</h1>
-                </div>
-
-                <form>
-
-                    <div class="form-group">
-
-                        <label for="nombre">Nombre</label>
-                        <input type="text" v-model="objeto.nombre" name="armanombre" id="armanombre" class="form-control" placeholder="Nombre"><br>
-
-                        <label for="nombre">Descripción</label>
-                        <input type="text" v-model="objeto.descripcion" name="armadescripcion" id="armadescripcion" class="form-control" placeholder="Descripción"><br>
-
-                        <label for="nombre">Tipo de Objeto</label>
-                        <input type="text" v-model="objeto.tipo_obj" name="armatobj" id="armatobj" class="form-control" placeholder="Tipo de Objeto"><br>
-
-                        <label for="nombre">Precio</label>
-                        <input type="text" v-model="objeto.valor" name="armaprecio" id="armaprecio" class="form-control" placeholder="Precio"><br>
-
-                        <label for="nombre">Peso</label>
-                        <input type="text" v-model="objeto.peso" name="armapeso" id="armapeso" class="form-control" placeholder="Peso"><br>
-
-                        <label for="nombre">Propiedades</label>
-                        <input type="text" v-model="objeto.propiedades" name="armaprop" id="armaprop" class="form-control" placeholder="Propiedad"><br>
-
-                        <label for="nombre">Daño</label>
-                        <input type="text" v-model="objeto.daño" name="armadaño" id="armadaño" class="form-control" placeholder="Daño"><br>
-
-                        <label for="nombre">Tipo de Daño</label>
-                        <input type="text" v-model="objeto.tipo_daño" name="armatdaño" id="armatdaño" class="form-control" placeholder="Tipo de Daño"><br>
-
-                        <label for="nombre">Categoria</label>
-                        <input type="text" v-model="objeto.categoria" name="armacat" id="armacat" class="form-control" placeholder="Categoria"><br>
-
+                    <div class="d-flex my-3 justify-content-center">
+                        <h1>ARMAS</h1>
                     </div>
 
-                    <button v-if="isNewRecord" @click="addObjeto()" type="button" class="btn btn-primary m-3">Crear</button>
-                    <button v-if="!isNewRecord" @click="nuevoObjeto()" type="button" class="btn btn-success m-3">Nuevo</button>
-                    <button v-if="!isNewRecord" @click="updObjeto(objeto.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
+                    <form>
 
-                </form>
+                        <div class="form-group">
 
-            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="nombrearma">Nombre</label>
+                                    <input type="text" v-model="objeto.nombre" name="nombrearma" id="nombrearma" class="form-control" placeholder="Nombre"><br>
+                                </div>
 
-            <!-- ARMADURAS -->
-            <div class="tab-pane fade" id="pills-armadura" role="tabpanel">
+                                <div class="col-md-6">
+                                    <label for="categoriaarma">Categoria</label>
+                                    <select class="form-control" name="categoriaarma" id="categoria" placeholder="Seleccione una opción">
+                                        <option></option>
+                                        <option value="simple">Simple</option>
+                                        <option value="marcial">Marcial</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                <div class="d-flex my-3 justify-content-center">
-                    <h1>ARMADURAS</h1>
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <label for="nombre">Descripción</label>
+                                    <textarea class="form-control" name="descripcionarma" id="descripcionarma" cols="30" rows="5"></textarea>
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                            
+                                <div class="col-md-3">
+                                    <label for="dañoarma">Daño</label>
+                                    <input class="form-control" type="text">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="tipodañoarma">Tipo de Daño</label>
+                                    <select class="form-control" name="tipodañoarma" id="tipodañoarma">
+                                        <option></option>
+                                        <option value="contundente">Contundente</option>
+                                        <option value="cortante">Cortante</option>
+                                        <option value="perforante">Perforante</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="moddañoarma">Mod. Daño</label>
+                                    <select class="form-control" name="moddañoarma" id="moddañoarma">
+                                        <option></option>
+                                        <option value="fuerza">Fuerza</option>
+                                        <option value="destreza">Destreza</option>
+                                        <option value="fuedes">Fuerza o Destreza</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="modataquearma">Mod. Ataque</label>
+                                    <select class="form-control" name="modataquearma" id="modataquearma">
+                                        <option></option>
+                                        <option value="fuerza">Fuerza</option>
+                                        <option value="destreza">Destreza</option>
+                                        <option value="fuedes">Fuerza o Destreza</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label for="nombre">Tipo de Objeto</label>
+                            <input type="text" v-model="objeto.tipo_obj" name="armatobj" id="armatobj" class="form-control" placeholder="Tipo de Objeto"><br>
+
+                            <label for="nombre">Precio</label>
+                            <input type="text" v-model="objeto.valor" name="armaprecio" id="armaprecio" class="form-control" placeholder="Precio"><br>
+
+                            <label for="nombre">Peso</label>
+                            <input type="text" v-model="objeto.peso" name="armapeso" id="armapeso" class="form-control" placeholder="Peso"><br>
+
+                            <label for="nombre">Propiedades</label>
+                            <input type="text" v-model="objeto.propiedades" name="armaprop" id="armaprop" class="form-control" placeholder="Propiedad"><br>
+
+                            <label for="nombre">Daño</label>
+                            <input type="text" v-model="objeto.daño" name="armadaño" id="armadaño" class="form-control" placeholder="Daño"><br>
+
+                            <label for="nombre">Tipo de Daño</label>
+                            <input type="text" v-model="objeto.tipo_daño" name="armatdaño" id="armatdaño" class="form-control" placeholder="Tipo de Daño"><br>
+
+                            <label for="nombre">Categoria</label>
+                            <input type="text" v-model="objeto.categoria" name="armacat" id="armacat" class="form-control" placeholder="Categoria"><br>
+
+                        </div>
+
+                        <button v-if="isNewRecord" @click="addObjeto()" type="button" class="btn btn-success m-3">Crear</button>
+                        <button v-if="!isNewRecord" @click="nuevoObjeto()" type="button" class="btn btn-success m-3">Nuevo</button>
+                        <button v-if="!isNewRecord" @click="updObjeto(objeto.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
+
+                    </form>
+
                 </div>
 
-                <form>
+                <!-- ARMADURAS -->
+                <div class="tab-pane fade" id="pills-armadura" role="tabpanel">
 
-                    <div class="form-group">
-
-                        <label for="nombre">Nombre</label>
-                        <input type="text" v-model="objeto.nombre" name="armaduranombre" id="armaduranombre" class="form-control" placeholder="Nombre"><br>
-
-                        <label for="nombre">Descripción</label>
-                        <input type="text" v-model="objeto.descripcion" name="armaduradescripcion" id="armaduradescripcion" class="form-control" placeholder="Descripción"><br>
-
-                        <label for="nombre">Tipo de Objeto</label>
-                        <input type="text" v-model="objeto.tipo_obj" name="armaduratobj" id="armaduratobj" class="form-control" placeholder="Tipo de Objeto"><br>
-
-                        <label for="nombre">Precio</label>
-                        <input type="text" v-model="objeto.valor" name="armaduraprecio" id="armaduraprecio" class="form-control" placeholder="Precio"><br>
-
-                        <label for="nombre">Peso</label>
-                        <input type="text" v-model="objeto.peso" name="armadurapeso" id="armadurapeso" class="form-control" placeholder="Peso"><br>
-
-                        <label for="nombre">Propiedades</label>
-                        <input type="text" v-model="objeto.propiedades" name="armaduraprop" id="armaduraprop" class="form-control" placeholder="Propiedad"><br>
-
-                        <label for="nombre">Defensa</label>
-                        <input type="text" v-model="objeto.defensa" name="armaduradef" id="armaduradef" class="form-control" placeholder="Defensa"><br>
-
-                        <label for="nombre">Categoria</label>
-                        <input type="text" v-model="objeto.categoria" name="armaduracat" id="armaduracat" class="form-control" placeholder="Categoria"><br>
-
-                        <label for="nombre">Penalización</label>
-                        <input type="text" v-model="objeto.penalizacion" name="armadurapen" id="armadurapen" class="form-control" placeholder="Penalización"><br>
-
+                    <div class="d-flex my-3 justify-content-center">
+                        <h1>ARMADURAS</h1>
                     </div>
 
-                    <button v-if="isNewRecord" @click="addObjeto()" type="button" class="btn btn-primary m-3">Crear</button>
-                    <button v-if="!isNewRecord" @click="nuevoObjeto()" type="button" class="btn btn-success m-3">Nuevo</button>
-                    <button v-if="!isNewRecord" @click="updObjeto(objeto.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
+                    <form>
 
-                </form>
+                        <div class="form-group">
 
-            </div>
+                            <label for="nombre">Nombre</label>
+                            <input type="text" v-model="objeto.nombre" name="armaduranombre" id="armaduranombre" class="form-control" placeholder="Nombre"><br>
 
-            <!-- OBJETOS -->
+                            <label for="nombre">Descripción</label>
+                            <input type="text" v-model="objeto.descripcion" name="armaduradescripcion" id="armaduradescripcion" class="form-control" placeholder="Descripción"><br>
 
-            <div class="tab-pane fade" id="pills-objetos" role="tabpanel">
+                            <label for="nombre">Tipo de Objeto</label>
+                            <input type="text" v-model="objeto.tipo_obj" name="armaduratobj" id="armaduratobj" class="form-control" placeholder="Tipo de Objeto"><br>
 
-                <div class="d-flex my-3 justify-content-center">
-                    <h1>OBJETOS</h1>
+                            <label for="nombre">Precio</label>
+                            <input type="text" v-model="objeto.valor" name="armaduraprecio" id="armaduraprecio" class="form-control" placeholder="Precio"><br>
+
+                            <label for="nombre">Peso</label>
+                            <input type="text" v-model="objeto.peso" name="armadurapeso" id="armadurapeso" class="form-control" placeholder="Peso"><br>
+
+                            <label for="nombre">Propiedades</label>
+                            <input type="text" v-model="objeto.propiedades" name="armaduraprop" id="armaduraprop" class="form-control" placeholder="Propiedad"><br>
+
+                            <label for="nombre">Defensa</label>
+                            <input type="text" v-model="objeto.defensa" name="armaduradef" id="armaduradef" class="form-control" placeholder="Defensa"><br>
+
+                            <label for="nombre">Categoria</label>
+                            <input type="text" v-model="objeto.categoria" name="armaduracat" id="armaduracat" class="form-control" placeholder="Categoria"><br>
+
+                            <label for="nombre">Penalización</label>
+                            <input type="text" v-model="objeto.penalizacion" name="armadurapen" id="armadurapen" class="form-control" placeholder="Penalización"><br>
+
+                        </div>
+
+                        <button v-if="isNewRecord" @click="addObjeto()" type="button" class="btn btn-success m-3">Crear</button>
+                        <button v-if="!isNewRecord" @click="nuevoObjeto()" type="button" class="btn btn-success m-3">Nuevo</button>
+                        <button v-if="!isNewRecord" @click="updObjeto(objeto.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
+
+                    </form>
+
                 </div>
 
-                <form>
+                <!-- OBJETOS -->
 
-                    <div class="form-group">
+                <div class="tab-pane fade" id="pills-objetos" role="tabpanel">
 
-                        <label for="nombre">Nombre</label>
-                        <input type="text" v-model="objeto.nombre" name="objetonombre" id="objetonombre" class="form-control" placeholder="Nombre"><br>
-
-                        <label for="nombre">Descripción</label>
-                        <input type="text" v-model="objeto.descripcion" name="objetodescripcion" id="objetodescripcion" class="form-control" placeholder="Descripción"><br>
-
-                        <label for="nombre">Tipo de Objeto</label>
-                        <input type="text" v-model="objeto.tipo_obj" name="tobj" id="tobj" class="form-control" placeholder="Tipo de Objeto"><br>
-
-                        <label for="nombre">Precio</label>
-                        <input type="text" v-model="objeto.valor" name="objetoprecio" id="objetoprecio" class="form-control" placeholder="Precio"><br>
-
-                        <label for="nombre">Peso</label>
-                        <input type="text" v-model="objeto.peso" name="objetopeso" id="objetopeso" class="form-control" placeholder="Peso"><br>
-
-                        <label for="nombre">Categoria</label>
-                        <input type="text" v-model="objeto.categoria" name="armaduracat" id="armaduracat" class="form-control" placeholder="Categoria"><br>
-
-                        <label for="nombre">Propiedades</label>
-                        <input type="text" v-model="objeto.propiedades" name="objprop" id="objprop" class="form-control" placeholder="Propiedad"><br>
-
-
+                    <div class="d-flex my-3 justify-content-center">
+                        <h1>OBJETOS</h1>
                     </div>
 
-                    <button v-if="isNewRecord" @click="addObjeto()" type="button" class="btn btn-primary m-3">Crear</button>
-                    <button v-if="!isNewRecord" @click="nuevoObjeto()" type="button" class="btn btn-success m-3">Nuevo</button>
-                    <button v-if="!isNewRecord" @click="updObjeto(objeto.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
+                    <form>
 
-                </form>
+                        <div class="form-group">
+
+                            <label for="nombre">Nombre</label>
+                            <input type="text" v-model="objeto.nombre" name="objetonombre" id="objetonombre" class="form-control" placeholder="Nombre"><br>
+
+                            <label for="nombre">Descripción</label>
+                            <input type="text" v-model="objeto.descripcion" name="objetodescripcion" id="objetodescripcion" class="form-control" placeholder="Descripción"><br>
+
+                            <label for="nombre">Tipo de Objeto</label>
+                            <input type="text" v-model="objeto.tipo_obj" name="tobj" id="tobj" class="form-control" placeholder="Tipo de Objeto"><br>
+
+                            <label for="nombre">Precio</label>
+                            <input type="text" v-model="objeto.valor" name="objetoprecio" id="objetoprecio" class="form-control" placeholder="Precio"><br>
+
+                            <label for="nombre">Peso</label>
+                            <input type="text" v-model="objeto.peso" name="objetopeso" id="objetopeso" class="form-control" placeholder="Peso"><br>
+
+                            <label for="nombre">Categoria</label>
+                            <input type="text" v-model="objeto.categoria" name="armaduracat" id="armaduracat" class="form-control" placeholder="Categoria"><br>
+
+                            <label for="nombre">Propiedades</label>
+                            <input type="text" v-model="objeto.propiedades" name="objprop" id="objprop" class="form-control" placeholder="Propiedad"><br>
+
+
+                        </div>
+
+                        <button v-if="isNewRecord" @click="addObjeto()" type="button" class="btn btn-success m-3">Crear</button>
+                        <button v-if="!isNewRecord" @click="nuevoObjeto()" type="button" class="btn btn-success m-3">Nuevo</button>
+                        <button v-if="!isNewRecord" @click="updObjeto(objeto.id)" type="button" class="btn btn-primary m-3">Actualizar</button>
+
+                    </form>
+
+                </div>
 
             </div>
 
@@ -209,6 +278,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         el: '#app',
         data: function() {
             return {
+                mostrar: false,
                 selected: null,
                 objeto: {},
                 objetos: [],
