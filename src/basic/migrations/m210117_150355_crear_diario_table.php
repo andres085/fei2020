@@ -15,7 +15,6 @@ class m210117_150355_crear_diario_table extends Migration
         $this->createTable('diario', [
             'id' => $this->primaryKey(),
             'id_personaje' => $this->integer()->notNull(),
-            'id_campania' => $this->integer(),
             'fecha_hora' => $this->dateTime()->Null(),
             'info' => $this->text()->Null(),
         ]);
@@ -25,12 +24,6 @@ class m210117_150355_crear_diario_table extends Migration
             'idx-diario-id_personaje',
             'diario',
             'id_personaje'
-        );
-
-        $this->createIndex(
-            'idx-diario-id_campania',
-            'diario',
-            'id_campania'
         );
 
         //agrega la clave foranea id_personaje que referencia a la tabla personaje
@@ -43,14 +36,6 @@ class m210117_150355_crear_diario_table extends Migration
             'CASCADE'
         );
 
-        $this->addForeignKey(
-            'fk-diario-id_campania',
-            'diario',
-            'id_campania',
-            'campania',
-            'id',
-            'CASCADE'
-        );
     }
 
     /**

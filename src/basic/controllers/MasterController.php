@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\models\Diario;
+use app\models\Diariocampania;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
@@ -49,7 +49,7 @@ class MasterController extends \yii\web\Controller
 
     public function actionHojacampania()
     {
-        $model = new Diario();
+        $model = new Diariocampania();
         return $this->render('hojacampania', [
             'model' => $model,
         ]);

@@ -30,11 +30,9 @@ class Diario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_personaje'], 'required'],
-            [['id_personaje', 'id_campania'], 'integer'],
+            [['id_personaje'], 'integer'],
             [['fecha_hora'], 'safe'],
             [['info'], 'string'],
-            [['id_campania'], 'exist', 'skipOnError' => true, 'targetClass' => Campania::className(), 'targetAttribute' => ['id_campania' => 'id']],
             [['id_personaje'], 'exist', 'skipOnError' => true, 'targetClass' => Personaje::className(), 'targetAttribute' => ['id_personaje' => 'id']],
         ];
     }
@@ -47,7 +45,6 @@ class Diario extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'id_personaje' => 'Id Personaje',
-            'id_campania' => 'Id Campania',
             'fecha_hora' => 'Fecha Hora',
             'info' => 'Info',
         ];

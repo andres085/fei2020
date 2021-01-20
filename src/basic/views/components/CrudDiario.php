@@ -1,7 +1,7 @@
 <script type="text/x-template" id="crud-template">
     <div class="container">
         <div class="text-center">
-            <h1>Diario del Personaje</h1>
+            <h1>Diario</h1>
         </div>
         <!-- Button trigger modal -->
         <b-modal
@@ -83,6 +83,7 @@
                 type: Array,
             },
             id_personaje: Number,
+            id_campania: Number,
         },
         mounted() {
             this.getModels();
@@ -205,6 +206,9 @@
             addId: function() {
                 if (this.model.hasOwnProperty('id_personaje')) {
                     this.activemodel.id_personaje = this.$props.id_personaje;
+                }
+                else if(this.model.hasOwnProperty('id_campania')){
+                    this.activemodel.id_campania = this.$props.id_campania;
                 }
             },
             getDate: function() {

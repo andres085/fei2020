@@ -18,7 +18,7 @@ echo $this->render('/components/CrudDiario');
 <div style="height: 120vh;" class="container-fluid" id="app">
 
    <!-- MODAL DEL PJ -->
-        <b-modal id="modal-1" title="Personaje" v-model="showPj">
+        <b-modal id="modal-2" title="Personaje" v-model="showPj">
             
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-center">
@@ -41,9 +41,12 @@ echo $this->render('/components/CrudDiario');
                 </div>
             </div>
             
-              <div class="row">
-                <div class="col-md-12 d-flex justify-content-center" v-for="objeto in pjModal.objetos">
-                    <h3>{{objeto.nombre}}</h3>
+            <div class="row" v-for="trasfondo in pjModal" class="justify-content-center">
+                <div class="col-md-12">
+                    {{ trasfondo.nombre }}
+                </div>
+                <div class="col-md-12">
+                    {{ trasfondo.nombre_rasgo }}
                 </div>
             </div>
 
@@ -128,7 +131,7 @@ echo $this->render('/components/CrudDiario');
     </div><br>
     <div class="row" v-for="pj in pjCampaña">
         <div class="col" style="text-align:center">
-            <b-button v-b-modal.modal-1 type="button" class="btn btn-pjs btn-dark" user="'pj'" @click="sendInfo(pj)"><h4>{{pj.nombre}}</h4>
+            <b-button v-b-modal.modal-2 type="button" class="btn btn-pjs btn-dark" user="'pj'" @click="sendInfo(pj)"><h4>{{pj.nombre}}</h4>
             </b-button>
         </div>    
     </div>
@@ -137,8 +140,9 @@ echo $this->render('/components/CrudDiario');
     <div class="row">
 
         <div class="col">
-        
-            <h3 style="text-align:center">Diario de la Campaña</h3>
+
+            <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="['fecha_hora', 'info']" :id_campania ='id_campania'>
+            </diario>
         
         </div>
 
@@ -151,7 +155,7 @@ var app = new Vue ({
              components: {
                 diario: CrudDiario,
                 },
-                props: [''],
+                props: ['id_campania'],
             data: function() {
                 return {
                     campania:{},

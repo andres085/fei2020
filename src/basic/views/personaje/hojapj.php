@@ -267,7 +267,7 @@ echo $this->render('/components/CrudDiario');
                         </div>
 
                         <div class="col-md-8">
-                            <h5<b>Rasgo:</b> {{personaje.trasfondo.nombre_rasgo}} </h5>
+                            <h5><b>Rasgo:</b> {{personaje.trasfondo.nombre_rasgo}} </h5>
 
                             <p> {{personaje.trasfondo.rasgo}} </p>
 
