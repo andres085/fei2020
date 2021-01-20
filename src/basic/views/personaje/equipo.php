@@ -140,40 +140,72 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                             <div class="row">
                             
                                 <div class="col-md-12">
-                                    <label for="propiedades"></label>
-                                    <template>
-                                      <div>
-                                        <multiselect
-                                          v-model="selected"
-                                          :options="options">
-                                        </multiselect>
-                                      </div>
-                                    </template>
                                 
+                                    <!--<multiselect 
+                                      v-model="selectedProp"
+                                      :value="selectedFruit"
+                                      :options="options"
+                                      :multiple="true"
+                                      :max="maxItemSelected"
+                                      @input="maxSelected()"
+                                      >
+                                    </multiselect>-->
+                                
+                                    <label for="propiedades">Propiedades</label>
+                                    <select multiple class="form-control" name="propiedadesarma" id="propiedadesarma">
+                                        
+                                        <option @click="alcance = !alcance" value="alcance">Alcance</option>
+                                        <option value="arrojadiza">Arrojadiza</option>
+                                        <option value="recarga">Recarga</option>
+                                        <option value="distancia">Distancia</option>
+                                        <option value="especial">Especial</option>
+                                        <option value="ligera">Ligera</option>
+                                        <option value="municion">Munición</option>
+                                        <option value="pesada">Pesada</option>
+                                        <option value="sutil">Sutil</option>
+                                        <option value="versatil">Versatil</option>
+                                    
+                                    </select>
+                                    <br>
                                 </div>
                             
                             </div>
-                            <label for="nombre">Tipo de Objeto</label>
-                            <input type="text" v-model="objeto.tipo_obj" name="armatobj" id="armatobj" class="form-control" placeholder="Tipo de Objeto"><br>
 
-                            <label for="nombre">Precio</label>
-                            <input type="text" v-model="objeto.valor" name="armaprecio" id="armaprecio" class="form-control" placeholder="Precio"><br>
+                            <div v-show="alcance" class="row justify-content-center">
+                                
+                                <div class="col-md-4">
+                                    <label for="rangoarma">Rango</label>
+                                    <input class="form-control" name="rangoarma" type="text">
+                                    <br>
+                                </div>
+                                
+                            </div>
 
-                            <label for="nombre">Peso</label>
-                            <input type="text" v-model="objeto.peso" name="armapeso" id="armapeso" class="form-control" placeholder="Peso"><br>
+                            <div class="row">
+                            
+                                <div class="col-md-6">
+                                    <label for="precioarma">Precio</label>
+                                    <div class="input-group">
+                                      <input type="text" name="precioarma" class="form-control">
+                                      <div class="input-group-append">
+                                        <select name="selectprecioarma" class="form-control
+                                        " id="selectprecioarma">
+                                            <option value="cobre">pc</option>
+                                            <option value="plata">pp</option>
+                                            <option value="oro">po</option>
+                                            <option value="platino">ppl</option>
+                                        </select>                                                                                                                                                                                                                                                                                        
+                                      </div>
+                                    </div>
+                                </div>
 
-                            <label for="nombre">Propiedades</label>
-                            <input type="text" v-model="objeto.propiedades" name="armaprop" id="armaprop" class="form-control" placeholder="Propiedad"><br>
+                                <div class="col-md-6">
+                                    <label for="pesoarma">Peso</label>
+                                    <input class="form-control" name="pesoarma" type="text">
+                                </div>
 
-                            <label for="nombre">Daño</label>
-                            <input type="text" v-model="objeto.daño" name="armadaño" id="armadaño" class="form-control" placeholder="Daño"><br>
-
-                            <label for="nombre">Tipo de Daño</label>
-                            <input type="text" v-model="objeto.tipo_daño" name="armatdaño" id="armatdaño" class="form-control" placeholder="Tipo de Daño"><br>
-
-                            <label for="nombre">Categoria</label>
-                            <input type="text" v-model="objeto.categoria" name="armacat" id="armacat" class="form-control" placeholder="Categoria"><br>
-
+                            </div>
+                            
                         </div>
 
                         <button v-if="isNewRecord" @click="addObjeto()" type="button" class="btn btn-success m-3">Crear</button>
@@ -282,9 +314,11 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         
     </div>
 </div>
+
 <script>
     var app = new Vue({
         el: '#app',
+     
         data: function() {
             return {
                 mostrar: false,
@@ -292,6 +326,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 objeto: {},
                 objetos: [],
                 isNewRecord: true,
+
+                alcance: false,
+
             }
         },
         mounted() {

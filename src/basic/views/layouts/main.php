@@ -31,6 +31,8 @@ use app\assets\AppAsset;
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet"> 
 
+    <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
+
 
     <style>
         /* Chrome, Safari, Edge, Opera */
@@ -144,6 +146,8 @@ use app\assets\AppAsset;
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="sweetalert2.all.min.js"></script>
     
+    <script src="https://unpkg.com/vue-multiselect@2.1.0"></script>
+
 </body>
 
 </html>
