@@ -253,25 +253,28 @@ echo $this->render('/components/CrudDiario');
                     <hr>
                     <div class="row">
                         <div class="col-md-4 border-right">
-                            <h5><b>Competencia con Habilidades:</b></h5>
+                            <h4><b><u>Competencia con Habilidades:</u></b></h4>
                             <ul class="list-unstyled">
-                                <li> {{personaje.trasfondo.competencia1}} </li>
-                                <li> {{personaje.trasfondo.competencia2}} </li>
+                                <li> {{personaje.trasfondo.comp_habilidades1}} </li>
+                                <li> {{personaje.trasfondo.comp_habilidades2}} </li>
                             </ul>
 
-                            <h5><b>Competencia con Equipo:</b></h5>
+                            <h4><b><u>Competencia con Equipo:</u></b></h4>
                             <ul class="list-unstyled">
-                                <li> {{personaje.trasfondo.competencia1}} </li>
-                                <li> {{personaje.trasfondo.competencia2}} </li>
+                                <li> {{personaje.trasfondo.comp_equipo1}} </li>
+                                <li> {{personaje.trasfondo.comp_equipo2}} </li>
                             </ul>
                         </div>
 
                         <div class="col-md-8">
-                            <h5><b>Rasgo:</b> {{personaje.trasfondo.nombre_rasgo}} </h5>
+
+                          
+                            <h4><b><u>Rasgo:</u></b> {{personaje.trasfondo.nombre_rasgo}} </h4>
+
 
                             <p> {{personaje.trasfondo.rasgo}} </p>
 
-                            <h5><b>Especialidad:</b> {{personaje.trasfondo.nombre_especialidad}} </h5>
+                            <h4><b><u>Especialidad:</u></b> {{personaje.trasfondo.nombre_especialidad}} </h4>
 
                             <p> {{personaje.trasfondo.especialidad}} </p>
                         </div>
@@ -538,6 +541,7 @@ var app = new Vue ({
                     let ca = this.personaje.carisma;
 
                     //comparacion fuerza
+                    
                     if(f>=2 && f<=3){
                         this.modfue = -4;
                     }
