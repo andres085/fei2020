@@ -134,7 +134,7 @@ echo $this->render('/components/CrudDiario');
     </div><br>
     <div class="row">
         <div class="col" style="text-align:center" v-for="personaje in pjCampania">
-            <b-button v-b-modal.modal-2 type="button" class="btn btn-pjs btn-dark" user="'personaje'" @click="sendInfo(personaje)"><h4>{{personaje.nombre}}</h4>
+            <b-button v-if="personaje!=null" v-b-modal.modal-2 type="button" class="btn btn-pjs btn-dark" user="'personaje'" @click="sendInfo(personaje)"><h4>{{personaje.nombre}}</h4>
             </b-button>
         </div>    
     </div>
