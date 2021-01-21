@@ -77,6 +77,7 @@ class Personaje extends \yii\db\ActiveRecord
             'vinculo' => 'Vinculo',
             'defecto' => 'Defecto',
             'dote' => 'Dote',
+            'id_campania' => 'Id Campania',
         ];
     }
 

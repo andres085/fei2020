@@ -89,6 +89,7 @@
             this.getModels();
         },
         watch: {
+            
             currentPage: function() {
                 this.getModels();
             },
@@ -126,7 +127,26 @@
             getModels: function() {
                 var self = this;
                 self.errors = {};
-                axios.get('/apiv1/'+self.modelname+'?page='+self.currentPage+'&per-page=10',{params:self.filter})
+                if(this.model.hasOwnProperty('id_campania')){
+                    console.log("Diario Campania");
+                    axios.get('/apiv1/'+self.modelname+'?id_campania='+self.id_campania+'&?page='+self.currentPage+'&per-page=10',{params:self.filter})
+                        .then(function(response) {
+                            self.pagination.total = response.headers['x-pagination-total-count'];
+                            self.pagination.totalPages = response.headers['x-pagination-page-count'];
+                            self.pagination.perPage = response.headers['x-pagination-per-page'];
+                            self.models = response.data;
+                        })
+                        .catch(function(error) {
+                            // handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            // always executed
+                        });
+                }
+                else if(this.model.hasOwnProperty('id_personaje')){
+                    console.log("Diario Personaje");
+                    axios.get('/apiv1/'+self.modelname+'?id_personaje='+self.id_personaje+'&?page='+self.currentPage+'&per-page=10',{params:self.filter})
                     .then(function(response) {
                         self.pagination.total = response.headers['x-pagination-total-count'];
                         self.pagination.totalPages = response.headers['x-pagination-page-count'];
@@ -140,6 +160,7 @@
                     .then(function() {
                         // always executed
                     });
+                }
             },
             deleteModel: function(id) {
                 var self = this;

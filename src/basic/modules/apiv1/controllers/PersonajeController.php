@@ -10,4 +10,17 @@ use yii\rest\ActiveController;
 class PersonajeController extends ActiveController
 {
     public $modelClass = 'app\modules\apiv1\models\Personaje';
+
+    public function actions()
+    {
+        $actions = parent::actions();
+        $actions['index']['prepareDataProvider'] = [$this, 'prepareDataProvider'];
+        return $actions;
+    }
+
+    public function prepareDataProvider()
+    {
+        $searchModel = new \app\modules\apiv1\models\PersonajeSearch();
+        return $searchModel->search(\Yii::$app->request->queryParams);
+    }
 }

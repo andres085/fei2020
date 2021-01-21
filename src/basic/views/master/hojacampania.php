@@ -93,6 +93,9 @@ echo $this->render('/components/CrudDiario');
 
             <template #modal-footer="{ ok, cancel, hide }">
 
+                <b-button class="btn btn-danger btn-block" size="sm" variant="danger" @click="quitarPj(pjModal.id)">
+                    Quitar
+                </b-button>
                 <b-button class="btn btn-danger btn-block" size="sm" variant="danger" @click="cancel()">
                     Cancelar
                 </b-button>
@@ -121,7 +124,7 @@ echo $this->render('/components/CrudDiario');
         
             <h3>Personajes de la Campaña: </h3>
 
-            <select class="form-control" v-model="pjCampaña">
+            <select class="form-control">
                 <option value="">Seleccione los Personajes</option>
                 <option @click="guardarId(personaje.id)" v-for="personaje in personajes">{{personaje.nombre}}</option>
             </select><br>
@@ -129,9 +132,9 @@ echo $this->render('/components/CrudDiario');
         </div>
 
     </div><br>
-    <div class="row" v-for="pj in pjCampaña">
-        <div class="col" style="text-align:center">
-            <b-button v-b-modal.modal-2 type="button" class="btn btn-pjs btn-dark" user="'pj'" @click="sendInfo(pj)"><h4>{{pj.nombre}}</h4>
+    <div class="row">
+        <div class="col" style="text-align:center" v-for="personaje in pjCampania">
+            <b-button v-b-modal.modal-2 type="button" class="btn btn-pjs btn-dark" user="'personaje'" @click="sendInfo(personaje)"><h4>{{personaje.nombre}}</h4>
             </b-button>
         </div>    
     </div>
@@ -141,7 +144,7 @@ echo $this->render('/components/CrudDiario');
 
         <div class="col">
 
-            <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="['fecha_hora', 'info']" :id_campania ='id_campania'>
+            <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="['fecha_hora', 'info']" v-if="id_campania" :id_campania ='id_campania'>
             </diario>
         
         </div>
@@ -159,22 +162,21 @@ var app = new Vue ({
             data: function() {
                 return {
                     campania:{},
-                    id_campania:"",
                     personajes:[],
                     idSelect:"",
-                    pjCampaña:[],
                     pjModal:{},
                     showPj: false,
                     showModal: false,
                     model: <?= json_encode($model->getAttributes()) ?>,
                     modelname: <?= json_encode($model::tableName()) ?>,
+                    pjCampania:[],
                 }
             },
             mounted(){
                 this.getId();
                 this.getCampania();
                 this.getPersonajes();
-                this.getpjCampaña();
+                this.getPjcampania();
             },
             methods:{
                 getCampania: function() {
@@ -205,11 +207,14 @@ var app = new Vue ({
                             //always executed
                         });
                 },
-                getpjCampaña:function() {
+                getPjcampania: function(){
                     var self = this;
-                    axios.get('/apiv1/personaje?id_campania='+self.id_campania)
+                    axios.get('/apiv1/personaje', { params: {
+                    id_campania: this.id_campania} })
                         .then(function(response) {
-                            self.pjCampaña = response.data;
+                            console.log(response.data)
+                            self.pjCampania = response.data;
+                            //self.getPjcampania();
                         })
                         .catch(function(error) {
                             //handle error
@@ -232,6 +237,9 @@ var app = new Vue ({
                         // handle success
                         console.log(response.data);
                         alert("Personaje Agregado");
+                        self.personajes = response.data;
+                        //self.idSelect = "";
+                        //location.reload();
                     })
                     .catch(function(error) {
                         // handle error
@@ -248,6 +256,26 @@ var app = new Vue ({
                 sendInfo: function(personaje)
                 {
                     this.pjModal = personaje;
+                },
+                quitarPj:function(id){
+                    var self = this;
+                    axios.patch('/apiv1/personaje/' + id, {
+                    id_campania: null })
+                    .then(function(response) {
+                        // handle success
+                        console.log(response.data);
+                        alert("Personaje Quitado");
+                        self.personajes = response.data;
+                        self.getPersonajes();
+                        //location.reload();
+                    })
+                    .catch(function(error) {
+                        // handle error
+                        console.log(error.response.data);
+                    })
+                    .then(function() {
+                        // always executed
+                    });
                 }
             }
     })

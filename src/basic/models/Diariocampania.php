@@ -68,4 +68,9 @@ class Diariocampania extends \yii\db\ActiveRecord
     {
         return new DiariocampaniaQuery(get_called_class());
     }
+
+    public function afterFind()
+    {
+        $this->fecha_hora = Yii::$app->formatter->asDatetime($this->fecha_hora, 'dd/MM/yyyy - HH:mm');
+    }
 }

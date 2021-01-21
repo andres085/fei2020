@@ -416,7 +416,7 @@ echo $this->render('/components/CrudDiario');
                     
                 </div>
 
-                <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="['fecha_hora', 'info']" :id_personaje='id_personaje'>
+                <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="['fecha_hora', 'info']" v-if="id_personaje" :id_personaje='id_personaje'>
                 </diario>
             </div>
             

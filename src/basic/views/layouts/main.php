@@ -104,7 +104,7 @@ use app\assets\AppAsset;
             'options' => ['class' => 'navbar-nav texto-secundario'],
             'items' => [
                 ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'Jugador', 'url' => ['/personaje/modulopj']],
+                ['label' => 'Jugador', 'url' => ['/site/selector']],
                 ['label' => 'Equipo', 'url' => ['/personaje/equipo']],
                 Yii::$app->user->isGuest ? (['label' => 'Registro', 'url' => ['/usuario/create']]) : '',
                 Yii::$app->user->isGuest ? (['label' => 'Login', 'url' => ['/site/login']]) : ('<li>'
