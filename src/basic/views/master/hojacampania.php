@@ -214,7 +214,6 @@ var app = new Vue ({
                         .then(function(response) {
                             console.log(response.data)
                             self.pjCampania = response.data;
-                            //self.getPjcampania();
                         })
                         .catch(function(error) {
                             //handle error
@@ -237,9 +236,8 @@ var app = new Vue ({
                         // handle success
                         console.log(response.data);
                         alert("Personaje Agregado");
-                        self.personajes = response.data;
-                        //self.idSelect = "";
-                        //location.reload();
+                        self.idSelect = "";
+                        self.getPjcampania();
                     })
                     .catch(function(error) {
                         // handle error
@@ -265,9 +263,8 @@ var app = new Vue ({
                         // handle success
                         console.log(response.data);
                         alert("Personaje Quitado");
-                        self.personajes = response.data;
-                        self.getPersonajes();
-                        //location.reload();
+                        self.pjCampania = response.data;
+                        self.getPjcampania();
                     })
                     .catch(function(error) {
                         // handle error
