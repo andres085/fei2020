@@ -18,6 +18,14 @@ echo $this->render('/components/CrudDiario');
 
 <div style="height: 120vh;" class="container-fluid" id="app">
 
+    <div>
+        <button class="btn btn-outline-dark" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i> Volver
+        </button>
+    </div>
+
+    <br>
+
         <ul class="nav nav-tabs nav-fill" id="pills-tab" role="tablist">
 
             <li class="nav-item">

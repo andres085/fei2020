@@ -14,6 +14,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 <div class="site-personaje">
     <div class="container-fluid" id="app">
 
+    <div>
+        <button class="btn btn-outline-dark" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i> Volver
+        </button>
+    </div>
+
+    <br>
+
         <div class="row">
 
             <div class="col-md-8 ">
@@ -46,7 +54,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                                 <div class="col-md-3">
                                     <h1>Nivel</h1>
-                                    <select name="nivel" id="nivel" v-model="personaje.nivel" required>
+                                    <select class="form-control" name="nivel" id="nivel" v-model="personaje.nivel" required>
                                         <option value="Nivel 1">Nivel 1</option>
                                         <option value="Nivel 2">Nivel 2</option>
                                         <option value="Nivel 3">Nivel 3</option>

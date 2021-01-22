@@ -15,6 +15,12 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 ?>
 
 <div class="container-fluid">
+
+    <div>
+        <button class="btn btn-outline-dark" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i> Volver
+        </button>
+    </div>
     <div id="app">
         <h1 style="text-align: center;"> Módulo del Jugador</h1>
         <br>

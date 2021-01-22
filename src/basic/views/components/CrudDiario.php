@@ -168,7 +168,13 @@
                         console.log(response.data);
                         self.getModels()
                         self.activemodel = {};
-                        alert('Diario Actualizado');
+                        Swal.fire({
+                            icon: 'success',
+                            title:'Diario Actualizado',
+                          
+                        })
+
+                        
                     })
                     .catch(function(error) {
                         // var errors = error.response.data;
