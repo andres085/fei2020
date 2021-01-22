@@ -89,7 +89,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                             confirmButtonText: 'Volver',
                         }).then((result) => {
                             if (result.isConfirmed) {
-                                window.location.href = '/master/creadorcampania';
+                                window.location.href = '/master/campania';
                                 }
                             })
 

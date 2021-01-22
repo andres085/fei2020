@@ -7,7 +7,7 @@ use yii\rest\ActiveController;
 /**
  * Default controller for the `apiv1` module
  */
-class ObjetoController extends ActiveController
+class ArmaduraController extends ActiveController
 {
-    public $modelClass = 'app\modules\apiv1\models\Objeto';
+    public $modelClass = 'app\modules\apiv1\models\Armadura';
 }
