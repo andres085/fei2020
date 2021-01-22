@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "armadura".
  *
- * @property int $id_armadura
+ * @property int $id
  * @property string $nombre
  * @property string $categoria
  * @property int $ac
@@ -45,7 +45,7 @@ class Armadura extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_armadura' => 'Id Armadura',
+            'id' => 'ID',
             'nombre' => 'Nombre',
             'categoria' => 'Categoria',
             'ac' => 'Ac',
@@ -55,5 +55,14 @@ class Armadura extends \yii\db\ActiveRecord
             'precio' => 'Precio',
             'peso' => 'Peso',
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return ArmaduraQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new ArmaduraQuery(get_called_class());
     }
 }

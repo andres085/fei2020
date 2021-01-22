@@ -12,14 +12,15 @@ class m210119_152910_crear_tabla_equipo extends Migration
      */
     public function safeUp()
     {
+        $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_spanish_ci';
         $this->createTable('equipo', [
-            'id_equipo' => $this->primaryKey(),
+            'id' => $this->primaryKey(),
             'nombre' => $this->string()->notNull(),
             'descripcion' => $this->string()->notNull(),
             'categoria' => $this->string()->notNull(),
             'precio' => $this->string()->notNull(),
             'peso' => $this->string()->notNull(),
-        ]);
+        ], $tableOptions);
 
     }
 

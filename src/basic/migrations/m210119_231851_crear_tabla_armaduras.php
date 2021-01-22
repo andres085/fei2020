@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Class m210119_151353_crear_tabla_armaduras
  */
-class m210119_151353_crear_tabla_armaduras extends Migration
+class m210119_231851_crear_tabla_armaduras extends Migration
 {
     /**
      * {@inheritdoc}
@@ -13,7 +13,7 @@ class m210119_151353_crear_tabla_armaduras extends Migration
     public function safeUp()
     {
         $this->createTable('armadura', [
-            'id_armadura' => $this->primaryKey(),
+            'id' => $this->primaryKey(),
             'nombre' => $this->string()->notNull(),
             'categoria' => $this->string()->notNull(),
             'ac' => $this->integer()->notNull(),

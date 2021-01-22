@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "arma".
  *
- * @property int $id_arma
+ * @property int $id
  * @property string $nombre
  * @property string $categoria
  * @property string $daño
@@ -38,7 +38,7 @@ class Arma extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'categoria', 'daño', 'tipo_daño', 'mod_daño_ataque', 'precio', 'peso'], 'required'],
-            [['nombre', 'categoria', 'daño', 'tipo_daño', 'mod_daño_ataque',  'alcance', 'prop1', 'prop2', 'prop3', 'prop4', 'precio', 'peso'], 'string', 'max' => 255],
+            [['nombre', 'categoria', 'daño', 'tipo_daño', 'mod_daño_ataque', 'alcance', 'prop1', 'prop2', 'prop3', 'prop4', 'precio', 'peso'], 'string', 'max' => 255],
         ];
     }
 
@@ -48,12 +48,12 @@ class Arma extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_arma' => 'Id Arma',
+            'id' => 'ID',
             'nombre' => 'Nombre',
             'categoria' => 'Categoria',
             'daño' => 'Daño',
             'tipo_daño' => 'Tipo Daño',
-            'mod_daño_ataque' => 'Mod Daño',
+            'mod_daño_ataque' => 'Mod Daño Ataque',
             'alcance' => 'Alcance',
             'prop1' => 'Prop1',
             'prop2' => 'Prop2',
@@ -62,5 +62,14 @@ class Arma extends \yii\db\ActiveRecord
             'precio' => 'Precio',
             'peso' => 'Peso',
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return ArmaQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new ArmaQuery(get_called_class());
     }
 }
