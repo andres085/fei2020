@@ -206,7 +206,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                     // handle success
                                     console.log(response.data);
                                     self.getPersonajes()
-
+                                    self.showPersonaje = false;
                                     })
                                     .catch(function(error) {
                                     // handle error

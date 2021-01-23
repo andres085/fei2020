@@ -163,19 +163,40 @@
                 }
             },
             deleteModel: function(id) {
-                var self = this;
-                axios.delete('/apiv1/'+self.modelname+'/'+id,{})
-                    .then(function(response) {
-                        // handle success
-                        self.getModels();
-                    })
-                    .catch(function(error) {
-                        // handle error
-                        console.log(error);
-                    })
-                    .then(function() {
-                        // always executed
-                    });
+
+                Swal.fire({
+                type: 'warning',
+                title: 'Borrar Entrada?',
+                text: "¡El borrado es irreversible!",
+                
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Borrar',
+                cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                    'Eliminado!',
+                    'Registro con id '+id+' eliminado.',
+                    'success'
+                    );
+
+                    var self = this;
+                    axios.delete('/apiv1/'+self.modelname+'/'+id,{})
+                        .then(function(response) {
+                            // handle success
+                            self.getModels();
+                        })
+                        .catch(function(error) {
+                            // handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            // always executed
+                        });
+                    }
+                })
             },
             editModel: function(key) {
                 this.activemodel = Object.assign({}, this.models[key]);
@@ -190,7 +211,11 @@
                         console.log(response.data);
                         self.getModels()
                         self.activemodel = {};
-                        alert('Diario Actualizado');
+                        Swal.fire(
+                            'Diario Actualizado!',
+                            'Volver!',
+                            'success'
+                        )
                     })
                     .catch(function(error) {
                         // var errors = error.response.data;

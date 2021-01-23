@@ -113,23 +113,49 @@ var app = new Vue({
                     });
             },
             deleteCampaña: function(id){
-                var self = this;
-                if(confirm("Seguro que desea borrar esta Campaña?")){
-                    axios.delete('/apiv1/campania/' + id)
-                        .then(function(response) {
-                            // handle success
-                            console.log(response.data);
-                            self.getCampañas()
-                            alert("Objeto borrado con exito")
-                        })
-                        .catch(function(error) {
-                            // handle error
-                            console.log(error);
-                        })
-                        .then(function() {
-                            // always executed
-                        });
+
+                for(let i = 0; i<this.campañas.length; i++){
+                    if(this.campañas[i].id == id){
+                        var campañaBorrado = this.campañas[i].nombre;
+                        console.log(this.campañas.nombre);
+                    }
                 }
+                Swal.fire({
+                    type: 'warning',
+                    title: 'Deseas borrar la campaña '+campañaBorrado+'?',
+                    text: "¡Tendras que volverla a crear!",
+                        
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Sí, Borrala!',
+                    cancelButtonText: 'No, mejor no'
+                    }).then((result) => {
+                        if (result.value) {
+                                Swal.fire(
+                                'Eliminada!',
+                                'Campaña Borrada!',
+                                'success'
+                                );
+
+                            var self = this;
+                        
+                            axios.delete('/apiv1/campania/' + id)
+                                .then(function(response) {
+                                    // handle success
+                                    console.log(response.data);
+                                    self.getCampañas()
+                                    self.showCampaña = false;
+                                })
+                                .catch(function(error) {
+                                    // handle error
+                                    console.log(error);
+                                })
+                                .then(function() {
+                                    // always executed
+                                });
+                        }
+                    })
             },
             updateCampaña: function(id){
                 window.location.href = '/master/creadorcampania?id='+id;
