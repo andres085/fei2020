@@ -13,7 +13,7 @@ git clone https://github.com/andres085/fei2020.git
 cd fei2020
 
 3- En la carpeta del proyecto ejecutar el siguiente comando.
-docker-compose up
+docker-compose up-d
 
 4- En la carpeta del proyecto ejecutar el comando. bin/first-start.sh
 
