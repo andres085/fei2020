@@ -2,10 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\Diariocampania;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
-class SelectorController extends \yii\web\Controller
+class MasterController extends \yii\web\Controller
 {
     public function behaviors()
     {
@@ -34,5 +35,23 @@ class SelectorController extends \yii\web\Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+    public function actionCampania()
+    {
+        return $this->render('campania');
+    }
+
+    public function actionCreadorcampania()
+    {
+        return $this->render('creadorcampania');
+    }
+
+    public function actionHojacampania()
+    {
+        $model = new Diariocampania();
+        return $this->render('hojacampania', [
+            'model' => $model,
+        ]);
     }
 }

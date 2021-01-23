@@ -3,9 +3,9 @@
 namespace app\models;
 
 /**
- * This is the ActiveQuery class for [[Atributo]].
+ * This is the ActiveQuery class for [[Diario]].
  *
- * @see Atributo
+ * @see Diario
  */
 class DiarioQuery extends \yii\db\ActiveQuery
 {
@@ -16,7 +16,7 @@ class DiarioQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return Atributo[]|array
+     * @return Diario[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class DiarioQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return Atributo|array|null
+     * @return Diario|array|null
      */
     public function one($db = null)
     {

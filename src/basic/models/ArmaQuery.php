@@ -5,7 +5,7 @@ namespace app\models;
 /**
  * This is the ActiveQuery class for [[Arma]].
  *
- * @see Personaje
+ * @see Arma
  */
 class ArmaQuery extends \yii\db\ActiveQuery
 {

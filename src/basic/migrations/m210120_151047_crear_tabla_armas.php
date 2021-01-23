@@ -13,7 +13,7 @@ class m210120_151047_crear_tabla_armas extends Migration
     public function safeUp()
     {
         $this->createTable('arma', [
-            'id_arma' => $this->primaryKey(),
+            'id' => $this->primaryKey(),
             'nombre' => $this->string()->notNull(),
             'categoria' => $this->string()->notNull(),
             'daño' => $this->string()->notNull(),

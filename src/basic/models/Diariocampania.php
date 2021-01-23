@@ -5,23 +5,23 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "diario".
+ * This is the model class for table "diariocampania".
  *
  * @property int $id
- * @property int $id_personaje
+ * @property int|null $id_campania
  * @property string|null $fecha_hora
  * @property string|null $info
  *
- * @property Personaje $personaje
+ * @property Campania $campania
  */
-class Diario extends \yii\db\ActiveRecord
+class Diariocampania extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'diario';
+        return 'diariocampania';
     }
 
     /**
@@ -30,10 +30,10 @@ class Diario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_personaje'], 'integer'],
+            [['id_campania'], 'integer'],
             [['fecha_hora'], 'safe'],
             [['info'], 'string'],
-            [['id_personaje'], 'exist', 'skipOnError' => true, 'targetClass' => Personaje::className(), 'targetAttribute' => ['id_personaje' => 'id']],
+            [['id_campania'], 'exist', 'skipOnError' => true, 'targetClass' => Campania::className(), 'targetAttribute' => ['id_campania' => 'id']],
         ];
     }
 
@@ -44,31 +44,31 @@ class Diario extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_personaje' => 'Id Personaje',
+            'id_campania' => 'Id Campania',
             'fecha_hora' => 'Fecha Hora',
             'info' => 'Info',
         ];
     }
 
     /**
-     * Gets query for [[Personaje]].
+     * Gets query for [[Campania]].
      *
-     * @return \yii\db\ActiveQuery|PersonajeQuery
+     * @return \yii\db\ActiveQuery|CampaniaQuery
      */
-    public function getPersonaje()
+    public function getCampania()
     {
-        return $this->hasOne(Personaje::className(), ['id' => 'id_personaje']);
+        return $this->hasOne(Campania::className(), ['id' => 'id_campania']);
     }
 
     /**
      * {@inheritdoc}
-     * @return DiarioQuery the active query used by this AR class.
+     * @return DiariocampaniaQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new DiarioQuery(get_called_class());
+        return new DiariocampaniaQuery(get_called_class());
     }
-    
+
     public function afterFind()
     {
         $this->fecha_hora = Yii::$app->formatter->asDatetime($this->fecha_hora, 'dd/MM/yyyy - HH:mm');

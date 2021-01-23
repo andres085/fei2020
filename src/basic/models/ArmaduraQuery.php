@@ -5,7 +5,7 @@ namespace app\models;
 /**
  * This is the ActiveQuery class for [[Armadura]].
  *
- * @see Personaje
+ * @see Armadura
  */
 class ArmaduraQuery extends \yii\db\ActiveQuery
 {
@@ -31,4 +31,6 @@ class ArmaduraQuery extends \yii\db\ActiveQuery
     {
         return parent::one($db);
     }
+
 }
+

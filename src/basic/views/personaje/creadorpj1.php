@@ -14,13 +14,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 <div class="site-personaje">
     <div class="container-fluid" id="app">
 
-    <div>
-        <button class="btn btn-outline-dark" onclick="window.history.back()">
-            <i class="fas fa-arrow-left"></i> Volver
-        </button>
-    </div>
-
-    <br>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
+            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
+            <li class="breadcrumb-item active"><a href="/personaje/modulopj">Modulo Personaje</a></li>
+            <li class="breadcrumb-item active" aria-current="/personaje/creadorpj1">Creador Personaje</li>
+        </ol>
+    </nav>
 
         <div class="row">
 
@@ -396,10 +397,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             this.getTrasfondo();
             this.getIdpj();
             this.getPersonaje();
-            //this.getPjactualizable();
-        },
-        beforeUpdate(){
-            
         },
         methods: {
             fuerzaRandom: function() {

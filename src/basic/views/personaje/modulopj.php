@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Modulo de Jugador';
-$this->params['breadcrumbs'][] = $this->title;
 
 $this->registerCssFile("//unpkg.com/bootstrap/dist/css/bootstrap.min.css", ['position' => $this::POS_HEAD]);
 $this->registerCssFile("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css", ['position' => $this::POS_HEAD]);
@@ -16,11 +15,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
 <div class="container-fluid">
 
-    <div>
-        <button class="btn btn-outline-dark" onclick="window.history.back()">
-            <i class="fas fa-arrow-left"></i> Volver
-        </button>
-    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
+            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
+            <li class="breadcrumb-item active" aria-current="/personaje/modulopj">Modulo Personaje</li>
+        </ol>
+    </nav>
+
     <div id="app">
         <h1 style="text-align: center;"> Módulo del Jugador</h1>
         <br>
@@ -182,23 +184,47 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     });
             },
             deletePersonaje: function(id){
-                var self = this;
-                if(confirm("Seguro que desea borrar este personaje?")){
-                    axios.delete('/apiv1/personaje/' + id)
-                        .then(function(response) {
-                            // handle success
-                            console.log(response.data);
-                            self.getPersonajes()
-                            alert("Objeto borrado con exito")
+
+                    if(this.personaje.id){
+                        var pjBorrado = this.personaje.nombre;
+                        console.log(this.personaje.nombre);
+                    }
+
+                    Swal.fire({
+                        type: 'warning',
+                        title: 'Deseas borrar a '+pjBorrado+'?',
+                        text: "¡Tendras que volverlo a crear!",
+                        
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Sí, Borralo!',
+                        cancelButtonText: 'No, mejor no'
+                        }).then((result) => {
+                            if (result.value) {
+                                Swal.fire(
+                                'Eliminado!',
+                                'Personaje Borrado!',
+                                'success'
+                                );
+
+                                var self = this;
+                                axios.delete('/apiv1/personaje/' + id)
+                                    .then(function(response) {
+                                    // handle success
+                                    console.log(response.data);
+                                    self.getPersonajes()
+                                    self.showPersonaje = false;
+                                    })
+                                    .catch(function(error) {
+                                    // handle error
+                                    console.log(error);
+                                    })
+                                    .then(function() {
+                                    // always executed
+                                    });
+                            }
                         })
-                        .catch(function(error) {
-                            // handle error
-                            console.log(error);
-                        })
-                        .then(function() {
-                            // always executed
-                        });
-                }
             },
             updatePersonaje: function(id){
                 window.location.href = '/personaje/creadorpj1?id_personaje='+id;

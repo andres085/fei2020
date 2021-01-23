@@ -7,6 +7,6 @@ class Equipo extends \app\models\Equipo
 {
     public function fields()
     {
-        return ['id_equipo', 'nombre', 'descripcion', 'categoria', 'precio', 'peso'];
+        return ['id', 'nombre', 'descripcion', 'categoria', 'precio', 'peso'];
     }
 }

@@ -3,11 +3,11 @@
 namespace app\models;
 
 /**
- * This is the ActiveQuery class for [[PersonajeObjeto]].
+ * This is the ActiveQuery class for [[Campania]].
  *
- * @see PersonajeObjeto
+ * @see Campania
  */
-class PersonajeObjetoQuery extends \yii\db\ActiveQuery
+class CampaniaQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class PersonajeObjetoQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return PersonajeObjeto[]|array
+     * @return Campania[]|array
      */
     public function all($db = null)
     {
@@ -25,7 +25,7 @@ class PersonajeObjetoQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return PersonajeObjeto|array|null
+     * @return Campania|array|null
      */
     public function one($db = null)
     {

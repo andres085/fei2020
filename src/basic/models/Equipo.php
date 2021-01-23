@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "equipo".
  *
- * @property int $id_equipo
+ * @property int $id
  * @property string $nombre
  * @property string $descripcion
  * @property string $categoria
@@ -31,8 +31,7 @@ class Equipo extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'descripcion', 'categoria', 'precio', 'peso'], 'required'],
-            [['descripcion'], 'string'],
-            [['nombre', 'categoria', 'precio', 'peso'], 'string', 'max' => 255],
+            [['nombre', 'descripcion', 'categoria', 'precio', 'peso'], 'string', 'max' => 255],
         ];
     }
 
@@ -42,12 +41,21 @@ class Equipo extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_equipo' => 'Id Equipo',
+            'id' => 'ID',
             'nombre' => 'Nombre',
             'descripcion' => 'Descripcion',
             'categoria' => 'Categoria',
             'precio' => 'Precio',
             'peso' => 'Peso',
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return EquipoQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new EquipoQuery(get_called_class());
     }
 }

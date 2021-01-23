@@ -106,13 +106,12 @@ use app\assets\AppAsset;
             'options' => ['class' => 'navbar-nav texto-secundario'],
             'items' => [
                 ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'Jugador', 'url' => ['/personaje/modulopj']],
-                ['label' => 'Equipo', 'url' => ['/personaje/equipo']],
+                !Yii::$app->user->isGuest ? (['label' => 'Jugador', 'url' => ['/site/selector']]):'',
                 Yii::$app->user->isGuest ? (['label' => 'Registro', 'url' => ['/usuario/create']]) : '',
                 Yii::$app->user->isGuest ? (['label' => 'Login', 'url' => ['/site/login']]) : ('<li>'
                     . Html::beginForm(['/site/logout'], 'post')
                     . Html::submitButton(
-                        '<i style="font-size:larger;" class="fas fa-sign-out-alt"></i>',
+                        '<i style="font-size:larger;" class="fas fa-sign-out-alt">'. Yii::$app->user->identity->username .'</i>',
                         ['class' => 'btn']
                     )
                     . Html::endForm()

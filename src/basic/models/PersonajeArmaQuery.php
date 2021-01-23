@@ -3,11 +3,11 @@
 namespace app\models;
 
 /**
- * This is the ActiveQuery class for [[Equipo]].
+ * This is the ActiveQuery class for [[PersonajeArma]].
  *
- * @see Equipo
+ * @see PersonajeArma
  */
-class EquipoQuery extends \yii\db\ActiveQuery
+class PersonajeArmaQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -16,7 +16,7 @@ class EquipoQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return Equipo[]|array
+     * @return PersonajeArma[]|array
      */
     public function all($db = null)
     {
@@ -25,12 +25,10 @@ class EquipoQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return Equipo|array|null
+     * @return PersonajeArma|array|null
      */
     public function one($db = null)
     {
         return parent::one($db);
     }
-
 }
-

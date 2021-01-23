@@ -1,7 +1,7 @@
 <script type="text/x-template" id="crud-template">
     <div class="container">
         <div class="text-center">
-            <h1>Diario del Personaje</h1>
+            <h1>Diario</h1>
         </div>
         <!-- Button trigger modal -->
         <b-modal
@@ -83,11 +83,13 @@
                 type: Array,
             },
             id_personaje: Number,
+            id_campania: Number,
         },
         mounted() {
             this.getModels();
         },
         watch: {
+            
             currentPage: function() {
                 this.getModels();
             },
@@ -125,7 +127,26 @@
             getModels: function() {
                 var self = this;
                 self.errors = {};
-                axios.get('/apiv1/'+self.modelname+'?page='+self.currentPage+'&per-page=10',{params:self.filter})
+                if(this.model.hasOwnProperty('id_campania')){
+                    console.log("Diario Campania");
+                    axios.get('/apiv1/'+self.modelname+'?id_campania='+self.id_campania+'&?page='+self.currentPage+'&per-page=10',{params:self.filter})
+                        .then(function(response) {
+                            self.pagination.total = response.headers['x-pagination-total-count'];
+                            self.pagination.totalPages = response.headers['x-pagination-page-count'];
+                            self.pagination.perPage = response.headers['x-pagination-per-page'];
+                            self.models = response.data;
+                        })
+                        .catch(function(error) {
+                            // handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            // always executed
+                        });
+                }
+                else if(this.model.hasOwnProperty('id_personaje')){
+                    console.log("Diario Personaje");
+                    axios.get('/apiv1/'+self.modelname+'?id_personaje='+self.id_personaje+'&?page='+self.currentPage+'&per-page=10',{params:self.filter})
                     .then(function(response) {
                         self.pagination.total = response.headers['x-pagination-total-count'];
                         self.pagination.totalPages = response.headers['x-pagination-page-count'];
@@ -139,21 +160,43 @@
                     .then(function() {
                         // always executed
                     });
+                }
             },
             deleteModel: function(id) {
-                var self = this;
-                axios.delete('/apiv1/'+self.modelname+'/'+id,{})
-                    .then(function(response) {
-                        // handle success
-                        self.getModels();
-                    })
-                    .catch(function(error) {
-                        // handle error
-                        console.log(error);
-                    })
-                    .then(function() {
-                        // always executed
-                    });
+
+                Swal.fire({
+                type: 'warning',
+                title: 'Borrar Entrada?',
+                text: "¡El borrado es irreversible!",
+                
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Borrar',
+                cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                    'Eliminado!',
+                    'Registro con id '+id+' eliminado.',
+                    'success'
+                    );
+
+                    var self = this;
+                    axios.delete('/apiv1/'+self.modelname+'/'+id,{})
+                        .then(function(response) {
+                            // handle success
+                            self.getModels();
+                        })
+                        .catch(function(error) {
+                            // handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            // always executed
+                        });
+                    }
+                })
             },
             editModel: function(key) {
                 this.activemodel = Object.assign({}, this.models[key]);
@@ -168,13 +211,13 @@
                         console.log(response.data);
                         self.getModels()
                         self.activemodel = {};
-                        Swal.fire({
-                            icon: 'success',
-                            title:'Diario Actualizado',
-                          
-                        })
 
-                        
+                        Swal.fire(
+                            'Diario Actualizado!',
+                            'Volver!',
+                            'success'
+                        )
+
                     })
                     .catch(function(error) {
                         // var errors = error.response.data;
@@ -211,6 +254,9 @@
             addId: function() {
                 if (this.model.hasOwnProperty('id_personaje')) {
                     this.activemodel.id_personaje = this.$props.id_personaje;
+                }
+                else if(this.model.hasOwnProperty('id_campania')){
+                    this.activemodel.id_campania = this.$props.id_campania;
                 }
             },
             getDate: function() {
