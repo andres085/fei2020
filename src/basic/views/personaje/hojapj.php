@@ -665,7 +665,11 @@ var app = new Vue ({
                             .then(function(response) {
                                 // handle success
                                 console.log(response.data);
-                                alert('Equipo Agregado');
+                                 Swal.fire({
+                                    icon: 'success',
+                                    title: 'Objeto Agregado',
+                                    confirmButtonText: 'Volver',
+                                 });
                                 self.equipoSeleccionado = "";
                                 self.getPersonaje();
                             })
@@ -687,7 +691,11 @@ var app = new Vue ({
                             .then(function(response) {
                                 // handle success
                                 console.log(response.data);
-                                alert('Arma Agregada');
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Arma Agregada',
+                                    confirmButtonText: 'Volver',
+                                 });
                                 self.armaSeleccionado = "";
                                 self.getPersonaje();
                             })
@@ -709,8 +717,12 @@ var app = new Vue ({
                             .then(function(response) {
                                 // handle success
                                 console.log(response.data);
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Armadura Agregada',
+                                    confirmButtonText: 'Volver',
+                                 });
                                 self.armaduraSeleccionado = "";
-                                alert('Armadura Agregada');
                                 self.getPersonaje();
                             })
                             .catch(function(error) {
