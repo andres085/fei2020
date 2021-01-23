@@ -22,7 +22,7 @@ Para migrar los datos base de la pagina
 
 1- Acceder al contenedor con el comando. docker-compose exec app bash
 
-2- Una vez dentro ejecutar. mysql -u ${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE} < /fei2020.sql
+2- Una vez dentro ejecutar. mysql -u ${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE} -h${DB_HOST} < /fei2020.sql
 
 
 Para acceder a la web
