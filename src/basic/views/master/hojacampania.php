@@ -235,7 +235,11 @@ var app = new Vue ({
                     .then(function(response) {
                         // handle success
                         console.log(response.data);
-                        alert("Personaje Agregado");
+                        Swal.fire(
+                            'Personaje Agregado!',
+                            'Volver!',
+                            'success'
+                        )
                         self.idSelect = "";
                         self.getPjcampania();
                     })
@@ -256,23 +260,45 @@ var app = new Vue ({
                     this.pjModal = personaje;
                 },
                 quitarPj:function(id){
-                    var self = this;
-                    axios.patch('/apiv1/personaje/' + id, {
-                    id_campania: null })
-                    .then(function(response) {
-                        // handle success
-                        console.log(response.data);
-                        alert("Personaje Quitado");
-                        self.pjCampania = response.data;
-                        self.getPjcampania();
+
+                    Swal.fire({
+                    type: 'warning',
+                    title: 'Quitar Personaje?',
+                    text: "¡Tendras que volver a agregarlo!",
+                    
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Borrar',
+                    cancelButtonText: 'Cancelar'
+                    }).then((result) => {
+                        if (result.value) {
+                            Swal.fire(
+                            'Eliminado!',
+                            'Personaje quitado!',
+                            'success'
+                            );
+
+
+                            var self = this;
+                            axios.patch('/apiv1/personaje/' + id, {
+                            id_campania: null })
+                            .then(function(response) {
+                                // handle success
+                                console.log(response.data);
+                                self.pjCampania = response.data;
+                                self.getPjcampania();
+                                self.showPj = false;
+                            })
+                            .catch(function(error) {
+                                // handle error
+                                console.log(error.response.data);
+                            })
+                            .then(function() {
+                                // always executed
+                            });
+                        }
                     })
-                    .catch(function(error) {
-                        // handle error
-                        console.log(error.response.data);
-                    })
-                    .then(function() {
-                        // always executed
-                    });
                 }
             }
     })
