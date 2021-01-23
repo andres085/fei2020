@@ -358,14 +358,16 @@ echo $this->render('/components/CrudDiario');
                                 <td>{{equipo.categoria}}</td>
                                 <td>{{equipo.valor}}</td>
                                 <td>{{equipo.peso}}</td>
-                                <td><button v-on:click="quitarEquipo(id)" type="button" class="btn btn-danger">Quitar</button></td>
+                                <td><b-button v-b-modal.modal-3 type="button" type="button" class="btn btn-success" user="'equipo'" @click="sendEquipo(equipo)">Ver</b-button></td>
+                                <td><button @click="quitarEquipo(equipo.id)" type="button" class="btn btn-danger">Quitar</button></td>
                             </tr>
                             
                         </tbody>
 
-                    </table><br>
+                    </table>
+                </div><br>
 
-                    
+                <div>   
                     <table class="table table-responisve table-hover table-sm">
                         <h1>Armas</h1>
                         <thead>
@@ -384,12 +386,15 @@ echo $this->render('/components/CrudDiario');
                                 <td>{{arma.categoria}}</td>
                                 <td>{{arma.valor}}</td>
                                 <td>{{arma.peso}}</td>
-                                <td><button v-on:click="quitarArma(arma.id)" type="button" class="btn btn-danger">Quitar</button></td>
+                                <td><b-button v-b-modal.modal-3 type="button" type="button" class="btn btn-success" user="'arma'" @click="sendEquipo(arma)">Ver</b-button></td>
+                                <td><button @click="quitarArma(arma.id)" type="button" class="btn btn-danger">Quitar</button></td>
                             </tr>
 
                         </tbody>
-                    </table><br>
+                    </table>
+                </div><br>
 
+                <div>
                     <table class="table table-responisve table-hover table-sm">
                         <h1>Armaduras</h1>
                         <thead>
@@ -408,7 +413,8 @@ echo $this->render('/components/CrudDiario');
                                 <td>{{armadura.categoria}}</td>
                                 <td>{{armadura.valor}}</td>
                                 <td>{{armadura.peso}}</td>
-                                <td><button v-on:click="quitarArmadura(armadura.id)" type="button" class="btn btn-danger">Quitar</button></td>
+                                <td><b-button v-b-modal.modal-3 type="button" type="button" class="btn btn-success" user="'armadura'" @click="sendEquipo(armadura)">Ver</b-button></td>
+                                <td><button @click="quitarArmadura(armadura.id)" type="button" class="btn btn-danger">Quitar</button></td>
                             </tr>
 
                         </tbody>
@@ -469,7 +475,25 @@ echo $this->render('/components/CrudDiario');
                             </b-button>
                     </template>
 
-                </b-modal>  
+                </b-modal>
+                <!-- Modal detalle objetos -->
+                <b-modal id="modal-3" title="Detalle Objeto" v-model="showModalObj">
+
+                    <div>
+                        
+                        <h3>{{equipo.nombre}}</h3>
+
+                        <h3>{{equipo.categoria}}</h3>
+
+                        <h3>{{equipo.precio}}</h3>
+
+                        <h3>{{equipo.peso}}</h3>
+
+                        <h3 v-if="equipo.bonif_des">{{equipo.bonif_des}}</h3>
+                    
+                    </div>
+
+                </b-modal>
             </div>
 
             <!-- DIARIO -->
@@ -503,7 +527,9 @@ var app = new Vue ({
                     equipos:[],
                     armas:[],
                     armaduras:[],
+                    equipo:{},
                     showModal: false,
+                    showModalObj: false,
                     equipoSeleccionado:"",
                     armaSeleccionado:"",
                     armaduraSeleccionado:"",
@@ -660,9 +686,9 @@ var app = new Vue ({
                     }
                 },
                 quitarEquipo: function(equipo_id) {
-                    console.log(id);
+                    
                     var self = this;
-                    axios.delete('/apiv1/personajeoequipo/' + self.personaje.id + ',' +equipo_id )
+                    axios.delete('/apiv1/personajeequipo/' + self.personaje.id + ',' +equipo_id )
                     .then(function(response) {
                         // handle success
                         console.log(response.data);
@@ -677,8 +703,8 @@ var app = new Vue ({
                         // always executed
                     });
                 },
-                quitarArma: function(id) {
-                    console.log(id);
+                quitarArma: function(arma_id) {
+                   
                     var self = this;
                     axios.delete('/apiv1/personajearma/' + self.personaje.id + ',' +arma_id )
                     .then(function(response) {
@@ -695,8 +721,8 @@ var app = new Vue ({
                         // always executed
                     });
                 },
-                quitarArmadura: function(id) {
-                    console.log(id);
+                quitarArmadura: function(armadura_id) {
+                    
                     var self = this;
                     axios.delete('/apiv1/personajearmadura/' + self.personaje.id + ',' +armadura_id )
                     .then(function(response) {
@@ -712,6 +738,9 @@ var app = new Vue ({
                     .then(function() {
                         // always executed
                     });
+                },
+                sendEquipo: function(equipo){
+                    this.equipo = equipo;
                 },
                 checkModif:function(){
                     let f = this.personaje.fuerza;
