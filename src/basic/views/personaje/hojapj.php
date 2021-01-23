@@ -329,7 +329,7 @@ echo $this->render('/components/CrudDiario');
                 <div class="my-4" style="text-align: center;">
                     <h1>Tus Objetos</h1>
                 </div>
-
+                
                 <b-button v-b-modal.modal-2 type="button" class="btn btn-block btn-success" user="" @click=""><h5>Agregar un objeto a tu inventario</h5>
 
                 </b-button>
@@ -340,11 +340,11 @@ echo $this->render('/components/CrudDiario');
                 <div>
                     <table class="table table-responisve table-hover table-sm">
                         
+                        <h1>Equipos</h1>
                         <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Tipo</th>
-                                <th>Descripcion</th>
+                                <th>Categoria</th>
                                 <th>Valor</th>
                                 <th>Peso</th>
                                 <th>Editar</th>
@@ -353,15 +353,64 @@ echo $this->render('/components/CrudDiario');
 
                         <tbody>
 
-                            <tr class="clickable-row" data-toggle="modal" data-target="#modalEditarObj" style="cursor: pointer;" v-for="(objeto, key) in personaje.objetos" :key="objeto.id">
-                                <td>{{objeto.nombre}}</td>
-                                <td>{{objeto.tipo_obj}}</td>
-                                <td>{{objeto.descripcion}}</td>
-                                <td>{{objeto.valor}}</td>
-                                <td>{{objeto.peso}}</td>
-                                <td><button v-on:click="quitarObj(objeto.id)" type="button" class="btn btn-danger">Quitar</button></td>
+                            <tr class="clickable-row" data-toggle="modal" data-target="#modalEditarObj" style="cursor: pointer;" v-for="(equipo, key) in personaje.equipos" :key="equipo.id">
+                                <td>{{equipo.nombre}}</td>
+                                <td>{{equipo.categoria}}</td>
+                                <td>{{equipo.valor}}</td>
+                                <td>{{equipo.peso}}</td>
+                                <td><button v-on:click="quitarEquipo(id)" type="button" class="btn btn-danger">Quitar</button></td>
                             </tr>
-            
+                            
+                        </tbody>
+
+                    </table><br>
+
+                    
+                    <table class="table table-responisve table-hover table-sm">
+                        <h1>Armas</h1>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Categoria</th>
+                                <th>Valor</th>
+                                <th>Peso</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="clickable-row" data-toggle="modal" data-target="#modalEditarObj" style="cursor: pointer;" v-for="(arma, key) in personaje.armas" :key="arma.id">
+                                <td>{{arma.nombre}}</td>
+                                <td>{{arma.categoria}}</td>
+                                <td>{{arma.valor}}</td>
+                                <td>{{arma.peso}}</td>
+                                <td><button v-on:click="quitarArma(arma.id)" type="button" class="btn btn-danger">Quitar</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table><br>
+
+                    <table class="table table-responisve table-hover table-sm">
+                        <h1>Armaduras</h1>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Categoria</th>
+                                <th>Valor</th>
+                                <th>Peso</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="clickable-row" data-toggle="modal" data-target="#modalEditarObj" style="cursor: pointer;" v-for="(armadura, key) in personaje.armaduras" :key="armadura.id">
+                                <td>{{armadura.nombre}}</td>
+                                <td>{{armadura.categoria}}</td>
+                                <td>{{armadura.valor}}</td>
+                                <td>{{armadura.peso}}</td>
+                                <td><button v-on:click="quitarArmadura(armadura.id)" type="button" class="btn btn-danger">Quitar</button></td>
+                            </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -371,31 +420,44 @@ echo $this->render('/components/CrudDiario');
 
                     <form action="">
                         <div>
-                            <select class="form-control" v-model="objetoSeleccionado" @change="guardarId()">
+                            <select class="form-control" v-model="equipoSeleccionado">
                                 <option value="">Seleccione un Objeto</option>
-                                <option v-for="(objeto, index) in objetos" :key="index" :value="objeto">{{objeto.nombre}}</option>
+                                <option v-for="(equipo, index) in equipos" :key="index" :value="equipo">{{equipo.nombre}}</option>
+                            </select>
+                        </div><br>
+
+                        <div>
+                            <select class="form-control" v-model="armaSeleccionado">
+                                <option value="">Seleccione un Arma</option>
+                                <option v-for="(arma, index) in armas" :key="index" :value="arma">{{arma.nombre}}</option>
+                            </select>
+                        </div><br>
+
+                         <div>
+                            <select class="form-control" v-model="armaduraSeleccionado">
+                                <option value="">Seleccione un Armadura</option>
+                                <option v-for="(armadura, index) in armaduras" :key="index" :value="armadura">{{armadura.nombre}}</option>
                             </select>
                         </div><br>
                             
-                        <div>
-                            <label for="nombreObj"><b>Nombre: {{objetoSeleccionado.nombre}}</b></label>   
+                        <div id="equipo">
+
+                            <h3>{{equipoSeleccionado.nombre}}</h3><br>
+                              
                         </div>
 
-                        <div>
-                            <label for="descripcion"><b>Descripción: {{objetoSeleccionado.descripcion}}</b></label>
+                        <div id="arma">
+
+                            <h3>{{armaSeleccionado.nombre}}</h3><br>
+                            
                         </div>
 
-                        <div>
-                            <label for="valor"><b>Valor: {{objetoSeleccionado.valor}}</b></label>
+                        <div id="armadura">
+
+                            <h3>{{armaduraSeleccionado.nombre}}</h3><br>
+                            
                         </div>
 
-                            <div>
-                                <label for="peso"><b>Peso: {{objetoSeleccionado.peso}}</b></label>
-                            </div>
-
-                            <div>
-                                
-                            </div>
                     </form>
 
                     <template #modal-footer="{ ok, cancel, hide }">
@@ -438,9 +500,13 @@ var app = new Vue ({
                 return {
                     personaje: {
                     },
-                    objetos:[],
+                    equipos:[],
+                    armas:[],
+                    armaduras:[],
                     showModal: false,
-                    objetoSeleccionado:{},
+                    equipoSeleccionado:"",
+                    armaSeleccionado:"",
+                    armaduraSeleccionado:"",
                     model: <?= json_encode($model->getAttributes()) ?>,
                     modelname: <?= json_encode($model::tableName()) ?>,
                     modfue:"",
@@ -454,7 +520,9 @@ var app = new Vue ({
             mounted() {
                     this.getId();
                     this.getPersonaje();
-                    this.getObjetos();
+                    this.getEquipos();
+                    this.getArmas();
+                    this.getArmaduras();
                 },
             methods: {
                 getPersonaje: function() {
@@ -472,11 +540,39 @@ var app = new Vue ({
                             //always executed
                         });
                     },
-                getObjetos: function() {
+                getEquipos: function() {
                     var self = this;
-                    axios.get('/apiv1/objeto')
+                    axios.get('/apiv1/equipo')
                         .then(function(response) {
-                            self.objetos = response.data;
+                            self.equipos = response.data;
+                        })
+                        .catch(function(error) {
+                            //handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            //always executed
+                        });
+                },
+                getArmas: function() {
+                    var self = this;
+                    axios.get('/apiv1/arma')
+                        .then(function(response) {
+                            self.armas = response.data;
+                        })
+                        .catch(function(error) {
+                            //handle error
+                            console.log(error);
+                        })
+                        .then(function() {
+                            //always executed
+                        });
+                },
+                getArmaduras: function() {
+                    var self = this;
+                    axios.get('/apiv1/armadura')
+                        .then(function(response) {
+                            self.armaduras = response.data;
                         })
                         .catch(function(error) {
                             //handle error
@@ -491,37 +587,122 @@ var app = new Vue ({
                     let id = url.substring(url.lastIndexOf('=') + 1);
                     this.id_personaje = Number(id);
                 },
-                guardarId: function() {
-                    console.log(value);
-                },
                 agregarObj: function() {
                     var self = this;
-                    var idjoin = {
-                                personaje_id: this.personaje.id,
-                                objeto_id: this.objetoSeleccionado.id
-                            };
-                    axios.post('/apiv1/personajeobjeto', idjoin)
-                        .then(function(response) {
-                            // handle success
-                            console.log(response.data);
-                            alert('Objeto Agregado');
-                            self.getPersonaje();
-                        })
-                        .catch(function(error) {
-                            // handle error
-                            console.log(error);
-                        })
-                        .then(function() {
-                            // always executed
-                        });
+                    if(this.equipoSeleccionado){
+                        console.log("Equipo");
+                        var idjoin1 = {
+                            personaje_id: this.personaje.id,
+                            equipo_id: this.equipoSeleccionado.id
+                        }
+                        axios.post('/apiv1/personajeequipo', idjoin1)
+                            .then(function(response) {
+                                // handle success
+                                console.log(response.data);
+                                alert('Equipo Agregado');
+                                self.equipoSeleccionado = "";
+                                self.getPersonaje();
+                            })
+                            .catch(function(error) {
+                                // handle error
+                                console.log(error);
+                            })
+                            .then(function() {
+                                // always executed
+                            });
+                    }
+                    if(this.armaSeleccionado){
+                        console.log("Arma");
+                        var idjoin2 = {
+                            personaje_id: this.personaje.id,
+                            arma_id: this.armaSeleccionado.id
+                        }
+                        axios.post('/apiv1/personajearma', idjoin2)
+                            .then(function(response) {
+                                // handle success
+                                console.log(response.data);
+                                alert('Arma Agregada');
+                                self.armaSeleccionado = "";
+                                self.getPersonaje();
+                            })
+                            .catch(function(error) {
+                                // handle error
+                                console.log(error);
+                            })
+                            .then(function() {
+                                // always executed
+                            });
+                    }
+                    if(this.armaduraSeleccionado){
+                        console.log("Armadura");
+                        var idjoin3 = {
+                            personaje_id: this.personaje.id,
+                            armadura_id: this.armaduraSeleccionado.id
+                        }
+                        axios.post('/apiv1/personajearmadura', idjoin3)
+                            .then(function(response) {
+                                // handle success
+                                console.log(response.data);
+                                self.armaduraSeleccionado = "";
+                                alert('Armadura Agregada');
+                                self.getPersonaje();
+                            })
+                            .catch(function(error) {
+                                // handle error
+                                console.log(error);
+                            })
+                            .then(function() {
+                                // always executed
+                            });
+                    }
+                    else{
+                        console.log("Seleccione un Equipo");
+                    }
                 },
-                quitarObj: function(objeto_id) {
+                quitarEquipo: function(equipo_id) {
+                    console.log(id);
                     var self = this;
-                    axios.delete('/apiv1/personajeobjeto/' + self.personaje.id + ',' +objeto_id )
+                    axios.delete('/apiv1/personajeoequipo/' + self.personaje.id + ',' +equipo_id )
                     .then(function(response) {
                         // handle success
                         console.log(response.data);
                         alert("Objeto borrado con exito");
+                        self.getPersonaje();
+                    })
+                    .catch(function(error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .then(function() {
+                        // always executed
+                    });
+                },
+                quitarArma: function(id) {
+                    console.log(id);
+                    var self = this;
+                    axios.delete('/apiv1/personajearma/' + self.personaje.id + ',' +arma_id )
+                    .then(function(response) {
+                        // handle success
+                        console.log(response.data);
+                        alert("Arma borrado con exito");
+                        self.getPersonaje();
+                    })
+                    .catch(function(error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .then(function() {
+                        // always executed
+                    });
+                },
+                quitarArmadura: function(id) {
+                    console.log(id);
+                    var self = this;
+                    axios.delete('/apiv1/personajearmadura/' + self.personaje.id + ',' +armadura_id )
+                    .then(function(response) {
+                        // handle success
+                        console.log(response.data);
+                        alert("Armadura borrado con exito");
                         self.getPersonaje();
                     })
                     .catch(function(error) {
