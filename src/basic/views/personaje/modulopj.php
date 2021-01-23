@@ -22,6 +22,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             <li class="breadcrumb-item active" aria-current="/personaje/modulopj">Modulo Personaje</li>
         </ol>
     </nav>
+
     <div id="app">
         <h1 style="text-align: center;"> Módulo del Jugador</h1>
         <br>

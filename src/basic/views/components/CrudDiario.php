@@ -211,11 +211,13 @@
                         console.log(response.data);
                         self.getModels()
                         self.activemodel = {};
+
                         Swal.fire(
                             'Diario Actualizado!',
                             'Volver!',
                             'success'
                         )
+
                     })
                     .catch(function(error) {
                         // var errors = error.response.data;
