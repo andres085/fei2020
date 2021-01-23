@@ -1,1 +1,24 @@
 # fei2020
+
+Bienvenidos al Gestor de Personajes y Campaña de Dungeon and Dragons realizado por Martinez Andrés y Fidel Entraigas
+
+En este sistema el usuario podra crear una cuenta, adonde podra crear y gestionar, los personajes con sus distintas caracteristicas, asi tambien como su equipamiento y su diario. Del mismo modo podran crear sus propias campañas, vincular personajes y mantener un diario de campaña.
+
+Instalación:
+
+1- Clonar el proyecto desde el repositorio con el comando.
+git clone https://github.com/andres085/fei2020.git
+
+2- Ir a la carpeta del proyecto con el comando.
+cd fei2020
+
+3- En la carpeta del proyecto ejecutar el siguiente comando.
+docker-compose up
+
+4- En la carpeta del proyecto ejecutar el comando. bin/first-start.sh
+
+Para acceder a la web
+
+Ingresar en el navegador. http://localhost:8000/
+
+Para acceder a phpmyadmin. http://localhost:8001/
