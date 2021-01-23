@@ -16,7 +16,7 @@ class m210119_152910_crear_tabla_equipo extends Migration
         $this->createTable('equipo', [
             'id' => $this->primaryKey(),
             'nombre' => $this->string()->notNull(),
-            'descripcion' => $this->string()->notNull(),
+            'descripcion' => $this->string(500)->notNull(),
             'categoria' => $this->string()->notNull(),
             'precio' => $this->string()->notNull(),
             'peso' => $this->string()->notNull(),
