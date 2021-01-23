@@ -480,17 +480,48 @@ echo $this->render('/components/CrudDiario');
                 <b-modal id="modal-3" title="Detalle Objeto" v-model="showModalObj">
 
                     <div>
+
+                    <!-- Datos Basicos -->
                         
-                        <h3>{{equipo.nombre}}</h3>
+                        <h5><b>Nombre: </b>{{equipo.nombre}}</h5>
 
-                        <h3>{{equipo.categoria}}</h3>
+                        <h5><b>Categoria: </b>{{equipo.categoria}}</h5>
 
-                        <h3>{{equipo.precio}}</h3>
+                        <h5><b>Valor: </b>{{equipo.precio}}</h5>
 
-                        <h3>{{equipo.peso}}</h3>
-
-                        <h3 v-if="equipo.bonif_des">{{equipo.bonif_des}}</h3>
+                        <h5><b>Peso: </b>{{equipo.peso}}</h5>
                     
+                    <!-- Datos SI ES Equipo -->
+
+                        <h5 v-if="equipo.descripcion"><b>Descripción: </b>{{equipo.descripcion}}</h5>
+
+                    <!-- Datos SI ES Arma -->
+
+                        <h5 v-if="equipo.daño"><b>Daño: </b>{{equipo.daño}}</h5>
+
+                        <h5 v-if="equipo.tipo_daño"><b>Tipo de Daño: </b>{{equipo.tipo_daño}}</h5>
+
+                        <h5 v-if="equipo.mod_daño_ataque"><b>Modificador Daño/Ataque: </b>{{equipo.mod_daño_ataque}}</h5>
+
+                        <h5 v-if="equipo.alcance"><b>Alcance: </b>{{equipo.alcance}}</h5>
+
+                        <h5 v-if="equipo.prop1"><b>Propiedad 1:</b>{{equipo.prop1}}</h5>
+
+                        <h5 v-if="equipo.prop2"><b>Propiedad 2: </b>{{equipo.prop2}}</h5>
+
+                        <h5 v-if="equipo.prop3"><b>Propiedad 3: </b>{{equipo.prop3}}</h5>
+
+                    <!-- Datos SI ES Armadura -->
+
+                        <h5 v-if="equipo.ac"><b>Armadura Clase: </b>{{equipo.ac}}</h5>
+
+                        <h5 v-if="equipo.bonif_des"><b>Bonificación Destreza: </b>{{equipo.bonif_des}}</h5>
+
+                        <h5 v-if="equipo.penalizacion"><b>Penalización: </b>{{equipo.penalizacion}}</h5>
+
+                        <h5 v-if="equipo.fuerza"><b>Fuerza: </b>{{equipo.fuerza}}</h5>
+
+
                     </div>
 
                 </b-modal>
@@ -686,58 +717,137 @@ var app = new Vue ({
                     }
                 },
                 quitarEquipo: function(equipo_id) {
+
+                    for(let i=0; i < this.equipos.length; i++){
+                        if(this.equipos[i].id == equipo_id){
+
+                            var equipoBorrado = this.equipos[i].nombre;
+                            console.log(equipoBorrado);
+                        }
+                    }
+
+                    Swal.fire({
+                    type: 'warning',
+                    title: 'Deseas quitar '+equipoBorrado+'?',
+                    text: "¡Tendras que volverlo a equipar!",
                     
-                    var self = this;
-                    axios.delete('/apiv1/personajeequipo/' + self.personaje.id + ',' +equipo_id )
-                    .then(function(response) {
-                        // handle success
-                        console.log(response.data);
-                        alert("Objeto borrado con exito");
-                        self.getPersonaje();
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Sí, quitarlo!',
+                    cancelButtonText: 'No, mejor no'
+                    }).then((result) => {
+                            if (result.value) {
+                            Swal.fire(
+                            'Eliminado!',
+                            'Equipo quitado!',
+                            'success'
+                            );
+
+                        var self = this;
+                            axios.delete('/apiv1/personajeequipo/' + self.personaje.id + ',' +equipo_id )
+                            .then(function(response) {
+                                // handle success
+                                console.log(response.data);
+                                self.getPersonaje();
+                            })
+                            .catch(function(error) {
+                                // handle error
+                                console.log(error);
+                            })
+                            .then(function() {
+                                // always executed
+                            });
+                        }
                     })
-                    .catch(function(error) {
-                        // handle error
-                        console.log(error);
-                    })
-                    .then(function() {
-                        // always executed
-                    });
                 },
                 quitarArma: function(arma_id) {
+
+                    for(let i=0; i < this.armas.length; i++){
+                        if(this.armas[i].id == arma_id){
+                            var equipoBorrado = this.armas[i].nombre;
+                            console.log(equipoBorrado);
+                        }
+                    }
+
+                    Swal.fire({
+                    type: 'warning',
+                    title: 'Deseas quitar '+equipoBorrado+'?',
+                    text: "¡Tendras que volverlo a equipar!",
+                    
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Sí, quitarlo!',
+                    cancelButtonText: 'No, mejor no'
+                    }).then((result) => {
+                            if (result.value) {
+                            Swal.fire(
+                            'Eliminado!',
+                            'Equipo quitado!',
+                            'success'
+                            );
                    
-                    var self = this;
-                    axios.delete('/apiv1/personajearma/' + self.personaje.id + ',' +arma_id )
-                    .then(function(response) {
-                        // handle success
-                        console.log(response.data);
-                        alert("Arma borrado con exito");
-                        self.getPersonaje();
+                            var self = this;
+                            axios.delete('/apiv1/personajearma/' + self.personaje.id + ',' +arma_id )
+                            .then(function(response) {
+                                // handle success
+                                console.log(response.data);
+                                self.getPersonaje();
+                            })
+                            .catch(function(error) {
+                                // handle error
+                                console.log(error);
+                            })
+                            .then(function() {
+                                // always executed
+                            });
+                        }
                     })
-                    .catch(function(error) {
-                        // handle error
-                        console.log(error);
-                    })
-                    .then(function() {
-                        // always executed
-                    });
                 },
                 quitarArmadura: function(armadura_id) {
+
+                    for(let i=0; i < this.armaduras.length; i++){
+                        if(this.armaduras[i].id == armadura_id){
+                            var equipoBorrado = this.armaduras[i].nombre;
+                            console.log(equipoBorrado);
+                        }
+                    }
+
+                    Swal.fire({
+                    type: 'warning',
+                    title: 'Deseas quitar '+equipoBorrado+'?',
+                    text: "¡Tendras que volverlo a equipar!",
                     
-                    var self = this;
-                    axios.delete('/apiv1/personajearmadura/' + self.personaje.id + ',' +armadura_id )
-                    .then(function(response) {
-                        // handle success
-                        console.log(response.data);
-                        alert("Armadura borrado con exito");
-                        self.getPersonaje();
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Sí, quitarlo!',
+                    cancelButtonText: 'No, mejor no'
+                    }).then((result) => {
+                            if (result.value) {
+                            Swal.fire(
+                            'Eliminado!',
+                            'Equipo quitado!',
+                            'success'
+                            );
+                    
+                            var self = this;
+                            axios.delete('/apiv1/personajearmadura/' + self.personaje.id + ',' +armadura_id )
+                            .then(function(response) {
+                                // handle success
+                                console.log(response.data);
+                                self.getPersonaje();
+                            })
+                            .catch(function(error) {
+                                // handle error
+                                console.log(error);
+                            })
+                            .then(function() {
+                                // always executed
+                            });
+                        }
                     })
-                    .catch(function(error) {
-                        // handle error
-                        console.log(error);
-                    })
-                    .then(function() {
-                        // always executed
-                    });
                 },
                 sendEquipo: function(equipo){
                     this.equipo = equipo;
