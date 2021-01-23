@@ -17,6 +17,12 @@ docker-compose up
 
 4- En la carpeta del proyecto ejecutar el comando. bin/first-start.sh
 
+5- Acceder al contenedor con el comando. docker-compose exec app bash
+
+6- Una vez dentro ejecutar. mysql -u ${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE} < /fei2020.sql
+
+Para migrar los datos base de la pagina.
+
 Para acceder a la web
 
 Ingresar en el navegador. http://localhost:8000/
