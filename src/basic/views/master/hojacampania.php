@@ -17,6 +17,15 @@ echo $this->render('/components/CrudDiario');
 
 <div style="height: 120vh;" class="container-fluid" id="app">
 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
+            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
+            <li class="breadcrumb-item active"><a href="/master/campania">Modulo Campaña</a></li>
+            <li class="breadcrumb-item active" aria-current="/master/hojacampania">Hoja Campaña</li>
+        </ol>
+    </nav>
+
    <!-- MODAL DEL PJ -->
         <b-modal id="modal-2" title="Personaje" v-model="showPj">
             

@@ -1,9 +1,59 @@
-<div class="site-index">
-    <div>
-        <h3>Como que vas a jugar?</h3>
-    </div>
-    
-    <a href="/personaje/modulopj">Jugador</a>||
-    <a href="/master/campania">Master</a>
+<?php
+$this->title = 'Modo de Juego';
 
+
+?>
+<div class="container-fluid">
+
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="/site/selector">Selector</li>
+    </ol>
+    </nav>
+
+        <div class="row" style="height: 40vh;">
+
+            <div class="col-md-12" style="text-align: center;">
+
+                <br><br>
+                <p>
+                    <h1>Bienvenido</h1>
+                    <h3>Hoy voy a ser:</h3>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-2">
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="container">
+                    <button type="button" class="btn btn-outline-dark btn-block botones" onclick="window.location.href='/personaje/modulopj'">
+                        JUGADOR
+                    </button>
+                    <br>
+                    <button type="button" class="btn btn-outline-dark btn-block botones" onclick="window.location.href='/master/campania'">
+                            DUNGEON MASTER
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+            </div>
+
+        </div>
+
+        <div class="row h-20">
+
+            <div class="col-md-12">
+            </div>
+
+        </div>
 </div>
