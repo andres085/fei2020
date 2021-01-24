@@ -3,6 +3,7 @@
 use yii\web\View;
 
 $this->title = 'Modulo de Master';
+$this->params['breadcrumbs'][] = $this->title;
 
 //$userId = Yii::$app->user->identity->id;
 
@@ -17,22 +18,13 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
 <div id="app">
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
-            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
-            <li class="breadcrumb-item active"><a href="/master/campania">Modulo Campaña</a></li>
-            <li class="breadcrumb-item active" aria-current="/master/creadorcampania">Creador Campaña</li>
-        </ol>
-    </nav>
-
     <h3>Ingresa los datos de la Campaña</h3>
 
         <div class="row">
 
             <div class="col-md-9">
                 <h1>Nombre</h1>
-                     <input type="text" v-model="campania.nombre" id="nombre" name="nombre">
+                     <input class="form-control" type="text" v-model="campania.nombre" id="nombre" name="nombre">
                     <br>
                     <span class="text-danger" v-if="errors.nombre" >{{errors.nombre}}</span>
             </div>
@@ -42,7 +34,9 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
             <div class="col-md-9">
                 <h1>Detalles</h1>
-                     <input type="text" v-model="campania.detalles" id="detalles" name="detalles">
+                     
+                     <textarea class="form-control" v-model="campania.detalles" name="detalles" id="detalles" cols="30" rows="8"></textarea>
+
                     <br>
                     <span class="text-danger" v-if="errors.nombre" >{{errors.detalles}}</span>
             </div>
@@ -153,7 +147,16 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     .then(function(response) {
                         // handle success
                         console.log(response.data);
-                        alert("Campaña Actualizada");
+                        
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Campaña Actualizada',
+                            confirmButtonText: 'Volver',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = '/master/campania';
+                                }
+                            })
                     })
                     .catch(function(error) {
                         // handle error

@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Modulo de Master';
+$this->params['breadcrumbs'][] = $this->title;
 
 $this->registerCssFile("//unpkg.com/bootstrap/dist/css/bootstrap.min.css", ['position' => $this::POS_HEAD]);
 $this->registerCssFile("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css", ['position' => $this::POS_HEAD]);
@@ -16,13 +17,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 <div class="container-fluid">
     <div id="app">
     
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
-            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
-            <li class="breadcrumb-item active" aria-current="/master/campania">Modulo Campaña</li>
-        </ol>
-    </nav>
 
         <h1 style="text-align: center;"> Módulo del Master - Campaña</h1>
         <br>

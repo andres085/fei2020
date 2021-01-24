@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Hoja de Campaña';
+$this->params['breadcrumbs'][] = $this->title;
 
 $this->registerCssFile("//unpkg.com/bootstrap/dist/css/bootstrap.min.css", ['position' => $this::POS_HEAD]);
 $this->registerCssFile("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css", ['position' => $this::POS_HEAD]);
@@ -16,15 +17,6 @@ echo $this->render('/components/CrudDiario');
 ?>
 
 <div style="height: 120vh;" class="container-fluid" id="app">
-
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
-            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
-            <li class="breadcrumb-item active"><a href="/master/campania">Modulo Campaña</a></li>
-            <li class="breadcrumb-item active" aria-current="/master/hojacampania">Hoja Campaña</li>
-        </ol>
-    </nav>
 
    <!-- MODAL DEL PJ -->
         <b-modal id="modal-2" title="Personaje" v-model="showPj">
@@ -117,11 +109,13 @@ echo $this->render('/components/CrudDiario');
 
         <div class="col" style="text-align:center">
 
-        <h3>Hoja Campaña</h3><br>
+        <h1>Hoja Campaña</h1>
+        
+        <br>
 
-        <h3>Nombre de la Campaña: {{campania.nombre}}</h3><br>
+        <h3>{{campania.nombre}}</h3><br>
 
-        <h3>Detalles de la Campaña: {{campania.detalles}}</h3>
+        <h3>Detalles: {{campania.detalles}}</h3>
         
         </div>
 
