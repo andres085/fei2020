@@ -1,42 +1,56 @@
-<div class="site-index">
+<?php
 
-    <div class="jumbotron">
-        <h1>Herramienta D&D</h1>
+use yii\helpers\Html;
 
-        <p class="lead">Registrate para poder utilizar todas sus funciones</p>
+use yii\widgets\ActiveForm;
 
-    </div>
+use yii\helpers\Url;
 
-    <div class="body-content">
+?>
+
+<div class="container-fluid">
+
+    <div class="site-index">
+
+        <div>
+        
+            <h1 class="text-center">Bienvenido a la</h1>
+
+            <div class="d-flex justify-content-center">
+                <?= Html::img('@web/images/imagotipo.png', ['alt' => 'My logo']) ?>        
+            </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+        
+        <div class="mb-3">
+        
+            <h2 class="text-center">Como vas a jugar hoy?</h2>
+
+        </div>
+        
 
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Registrate e Ingresa</h2>
+        
+            <div class="col-md-6">
+            
+                <button class="btn btn-outline-dark btn-block"> <h3>Jugador</h3> </button>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
             </div>
-            <div class="col-lg-4">
-                <h2>Elige como vas a jugar</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Gestiona tus recursos</h2>
+            <div class="col-md-6">
+            
+                <button class="btn btn-outline-dark btn-block"> <h3>Dungeon Master</h3> </button>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
             </div>
 
         </div>
-
+    
+    
     </div>
+
 </div>
+
 
