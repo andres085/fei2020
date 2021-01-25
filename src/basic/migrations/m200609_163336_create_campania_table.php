@@ -33,7 +33,7 @@ class m200609_163336_create_campania_table extends Migration
             'id_usuario',
             'usuario',
             'id',
-            'SET NULL'
+            'CASCADE'
         );
     }
 

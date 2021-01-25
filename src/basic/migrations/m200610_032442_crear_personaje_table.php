@@ -61,7 +61,7 @@ class m200610_032442_crear_personaje_table extends Migration
             'id_campania',
             'campania',
             'id',
-            'CASCADE'
+            'SET NULL'
         );
     }
 
