@@ -47,14 +47,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                             <div class="row my-3">
 
                                 <div class="col-md-9">
-                                    <h1>Nombre</h1>
+                                    <h1>Nombre <sup style="color: red;">*</sup></h1>
                                     <input type="text" v-model="personaje.nombre" id="nombre" name="nombre">
                                     <br>
                                     <span class="text-danger" v-if="errors.nombre" >{{errors.nombre}}</span>
                                 </div>
 
                                 <div class="col-md-3">
-                                    <h1>Nivel</h1>
+                                    <h1>Nivel <sup style="color: red;">*</sup></h1>
                                     <select class="form-control" name="nivel" id="nivel" v-model="personaje.nivel" required>
                                         <option value="Nivel 1">Nivel 1</option>
                                         <option value="Nivel 2">Nivel 2</option>
@@ -80,12 +80,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 </div>
                             </div>
 
+                            
+                            <br>
                             <hr>
 
 
                             <div class="radio-custom my-3">
 
-                                <h1>Raza</h1>
+                                <h1>Raza <sup style="color: red;">*</sup></h1>
 
                                 <input type="radio" id="draco" value="Dracónido" v-model="personaje.raza">
                                 <label for="draco">Dracónido</label>
@@ -122,7 +124,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                             <div class="radio-custom my-3">
 
-                                <h1>Clase</h1>
+                                <h1>Clase <sup style="color: red;">*</sup></h1>
 
                                 <input type="radio" id="barbaro" value="Barbaro" v-model="personaje.clase">
                                 <label for="barbaro">Barbaro</label>
@@ -164,7 +166,10 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                             </div>
 
-                            <h1>Atributos</h1>
+                            <br>
+                            <hr>
+
+                            <h1>Atributos <sup style="color: red;">*</sup></h1>
                             <div class="row my-3">
 
 
@@ -227,7 +232,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                             <div class="my-3">
                                 <!-- ###################################################################### -->
-                                <h1>Trasfondo</h1>
+                                <h1>Trasfondo <sup style="color: red;">*</sup></h1>
 
                                 <select class="form-control">
                                     <option value="">Seleccione un elemento</option>
@@ -244,13 +249,15 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <p>{{trasfondoSelect.descripcion}}</p>
 
                                 <h4 v-if="trasfondoSelect.comp_habilidades1">
-                                    Competencias de Habilidades: {{trasfondoSelect.comp_habilidades1}}, {{trasfondoSelect.comp_habilidades2}}
+                                    <b>Competencias de Habilidades:</b> {{trasfondoSelect.comp_habilidades1}}, {{trasfondoSelect.comp_habilidades2}}
                                 </h4>     
 
                                 <h4 v-if="trasfondoSelect.comp_equipo1 || trasfondoSelect.comp_equipo2">
-                                    Competencias de Equipo: {{trasfondoSelect.comp_equipo1}}  {{trasfondoSelect.comp_equipo2}}
+                                    <b>Competencias de Equipo:</b> {{trasfondoSelect.comp_equipo1}}  {{trasfondoSelect.comp_equipo2}}
                                 </h4>
                             </div>
+
+                            <br>
 
                             <div class="accordion" id="accordionTrasfondo">
                                 <div class="card">
@@ -271,6 +278,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 
                             </div>
                             <!-- ###################################################################### -->
+                            <br>
                             <hr>
 
                             <h1>Información del Personaje</h1>
