@@ -12,12 +12,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 <div class="site-equipo">
     <div class="container-fluid" id="app">
 
-    <div>
-        <button class="btn btn-outline-dark" onclick="window.history.back()">
-            <i class="fas fa-arrow-left"></i> Volver
-        </button>
-    </div>
-
         <div class="table-responsive">
         
             <table class="table table-hover table-striped">

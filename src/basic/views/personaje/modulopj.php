@@ -129,7 +129,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
             <div class="col-md-12">
 
-                <button class="btn btn-block btn-outline-dark" onclick="window.location.href='creadorpj1'">
+                <button class="btn btn-pj btn-block btn-outline-dark" onclick="window.location.href='creadorpj1'">
                     <h2><i class="fas fa-plus"></i><br> Agregar Personaje</h2>
                 </button>
 
@@ -141,7 +141,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div class="container-fluid" style="max-height:450px ;overflow-y: auto;" v-if="usuarios.personajes!=null" v-for="(personaje, key) in usuarios.personajes" :key="personaje.id">
 
-                        <b-button v-b-modal.modal-1 type="button" class="btn btn-pjs btn-dark" user="'personaje'" @click="sendInfo(personaje)"><h4>{{personaje.nombre}}</h4>
+                        <b-button v-b-modal.modal-1 type="button" style="width: 90%; " class="btn btn-pj btn-dark m-3 p-3" user="'personaje'" @click="sendInfo(personaje)"><h4>{{personaje.nombre}}</h4>
                             <h5> {{personaje.raza}} - {{personaje.clase}} - {{personaje.nivel}}</h5>
                         </b-button>
 
