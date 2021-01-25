@@ -1,7 +1,3 @@
----
-
-
----
 
 <h1 id="pagina-para-gestión-de-recursos-de-d--d">Pagina para gestión de recursos de D &amp; D</h1>
 <p>Bienvenidos al Gestor de Personajes y Campaña de Dungeon and Dragons realizado por Martinez Andrés y Fidel Entraigas</p>
