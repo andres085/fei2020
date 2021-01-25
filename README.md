@@ -3,7 +3,6 @@
 
 ---
 
-<p>!(<a href="https://ibb.co/sVhZvGW">https://ibb.co/sVhZvGW</a>)</p>
 <h1 id="pagina-para-gestión-de-recursos-de-d--d">Pagina para gestión de recursos de D &amp; D</h1>
 <p>Bienvenidos al Gestor de Personajes y Campaña de Dungeon and Dragons realizado por Martinez Andrés y Fidel Entraigas</p>
 <p>En este sistema el usuario podrá armar una cuenta, para así poder crear y gestionar sus personajes con sus distintas características, así también como su equipamiento y su diario. Del mismo modo se podrán crear sus propias campañas, vincular personajes y mantener un diario de campaña.</p>
