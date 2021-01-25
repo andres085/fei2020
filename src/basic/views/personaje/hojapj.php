@@ -18,15 +18,6 @@ echo $this->render('/components/CrudDiario');
 
 <div style="height: 120vh;" class="container-fluid" id="app">
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
-            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
-            <li class="breadcrumb-item active"><a href="/personaje/modulopj">Modulo Personaje</a></li>
-            <li class="breadcrumb-item active" aria-current="/personaje/hojapj">Hoja Personaje</li>
-        </ol>
-    </nav>
-
         <ul class="nav nav-tabs nav-fill" id="pills-tab" role="tablist">
 
             <li class="nav-item">
