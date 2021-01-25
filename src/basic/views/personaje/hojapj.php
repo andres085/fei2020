@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Hoja de Personaje';
+$this->params['breadcrumbs'][] = $this->title;
 
 $this->registerCssFile("//unpkg.com/bootstrap/dist/css/bootstrap.min.css", ['position' => $this::POS_HEAD]);
 $this->registerCssFile("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css", ['position' => $this::POS_HEAD]);
