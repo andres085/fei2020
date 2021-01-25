@@ -51,6 +51,12 @@ use app\assets\AppAsset;
             font-family: 'Caveat Brush', cursive;
             font-size: x-large;
         }        
+        .btn-pjs {
+            width: 90%;
+            margin: 25px;
+            padding: 40px;
+        }
+
         .radio-custom input[type="radio"] {
             display: none;
         }
@@ -58,18 +64,15 @@ use app\assets\AppAsset;
         .radio-custom label {
             display: inline-block;
             text-align: center;
-            background-color: #780623;
+            background-color: #ddd;
             padding: 4px 11px;
+            font-family: Arial;
             font-size: 16px;
             cursor: pointer;
-            color: white;
-
-            border-radius: 3px;
         }
 
         .radio-custom input[type="radio"]:checked+label {
-            background-color: #70053D;
-            border: 2px solid #212529;
+            background-color: #bbb;
         }
 
         .input-stats-modalpj {
@@ -83,29 +86,6 @@ use app\assets\AppAsset;
             width: 75px;
             height: auto;
             text-align: center;
-        }
-
-        .btn-pj:hover{
-            color: #fff;
-            background-color: #780623;
-            border-color: #780623;
-        }
-
-        
-        .nav-link {
-            color: #212529;
-        }
-
-        .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-            color: #fff;
-            background-color: #70053D;
-            border: 2px solid #212529;
-        }
-
-        .nav-link:hover {
-            color: #fff;
-            background-color: #780623;
-            border-color: #780623;
         }
     </style>
 </head>

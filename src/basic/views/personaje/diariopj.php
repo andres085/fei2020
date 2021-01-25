@@ -18,6 +18,11 @@ echo $this->render('/components/CrudDiario');
 ?>
 <div id="app">
 
+    <div>
+        <button class="btn btn-outline-dark" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i> Volver
+        </button>
+    </div>
     <diario v-bind:model="model" v-bind:modelname="modelname" v-bind:fields="['fecha_hora', 'info']" :id_personaje='id_personaje'>
     </diario>
 </div>

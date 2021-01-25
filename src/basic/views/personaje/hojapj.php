@@ -18,6 +18,13 @@ echo $this->render('/components/CrudDiario');
 
 <div style="height: 120vh;" class="container-fluid" id="app">
 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
+            <li class="breadcrumb-item active"><a href="/personaje/modulopj">Modulo Personaje</a></li>
+            <li class="breadcrumb-item active" aria-current="/personaje/hojapj">Hoja Personaje</li>
+        </ol>
+    </nav>
 
         <ul class="nav nav-tabs nav-fill" id="pills-tab" role="tablist">
 
@@ -50,7 +57,7 @@ echo $this->render('/components/CrudDiario');
 
                 <!-- RAZA -->
                 <div class="d-flex my-3">
-                    <button class="btn btn-block  btn-pj btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-raza" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-raza" aria-expanded="false" aria-controls="collapseExample">
                     <h3>{{personaje.raza}}</h3>
                     </button>
 
@@ -69,7 +76,7 @@ echo $this->render('/components/CrudDiario');
 
                 <!-- CLASE -->
                 <div class="d-flex my-3">
-                    <button class="btn btn-block btn-pj btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-clase" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-clase" aria-expanded="false" aria-controls="collapseExample">
                     <h3>{{personaje.clase}}</h3>
                     </button>
 
