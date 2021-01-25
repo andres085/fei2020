@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Hoja de Personaje';
-$this->params['breadcrumbs'][] = $this->title;
+
 
 $this->registerCssFile("//unpkg.com/bootstrap/dist/css/bootstrap.min.css", ['position' => $this::POS_HEAD]);
 $this->registerCssFile("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css", ['position' => $this::POS_HEAD]);
@@ -57,7 +57,7 @@ echo $this->render('/components/CrudDiario');
 
                 <!-- RAZA -->
                 <div class="d-flex my-3">
-                    <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-raza" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-pj btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-raza" aria-expanded="false" aria-controls="collapseExample">
                     <h3>{{personaje.raza}}</h3>
                     </button>
 
@@ -76,7 +76,7 @@ echo $this->render('/components/CrudDiario');
 
                 <!-- CLASE -->
                 <div class="d-flex my-3">
-                    <button class="btn btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-clase" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-pj btn-block btn-outline-dark" type="button" data-toggle="collapse" data-target="#collapse-clase" aria-expanded="false" aria-controls="collapseExample">
                     <h3>{{personaje.clase}}</h3>
                     </button>
 

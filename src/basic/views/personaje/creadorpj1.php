@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Modulo de Jugador';
-$this->params['breadcrumbs'][] = $this->title;
+
 
 //$userId = Yii::$app->user->identity->id;
 
@@ -172,7 +172,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <div class="col-md-4 d-block" style="text-align:center">
                                     <h4>Fuerza</h4>
                                     <input v-model="personaje.fuerza" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                    <button type="button" @click="fuerzaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <button type="button" @click="fuerzaRandom()" class="btn btn-pj btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                                     <span class="text-danger" v-if="errors.fuerza" >{{errors.fuerza}}</span>
                                 </div>
                                 
@@ -180,7 +180,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <div class="col-md-4 d-block" style="text-align:center">
                                     <h4>Destreza</h4>
                                     <input v-model="personaje.destreza" type="number" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                    <button type="button" @click="destrezaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <button type="button" @click="destrezaRandom()" class="btn btn-pj btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                                     <span class="text-danger" v-if="errors.destreza" >{{errors.destreza}}</span>
                                 </div>
 
@@ -188,7 +188,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <div class="col-md-4 d-block" style="text-align:center">
                                     <h4>Constitución</h4>
                                     <input v-model="personaje.constitucion" type="number" id="con" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                    <button type="button" @click="constitucionRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <button type="button" @click="constitucionRandom()" class="btn btn-pj btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                                     <span class="text-danger" v-if="errors.constitucion" >{{errors.constitucion}}</span>
                                 </div>
 
@@ -199,14 +199,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <div class="col-md-4 d-block" style="text-align:center">
                                     <h4>Inteligencia</h4>
                                     <input v-model="personaje.inteligencia" type="number" id="int" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                    <button type="button" @click="inteligenciaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <button type="button" @click="inteligenciaRandom()" class="btn btn-pj btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                                     <span class="text-danger" v-if="errors.inteligencia" >{{errors.inteligencia}}</span>
                                 </div>
 
                                 <div class="col-md-4 d-block" style="text-align:center">
                                     <h4>Sabiduria</h4>
                                     <input v-model="personaje.sabiduria" type="number" id="sab" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                    <button type="button" @click="sabiduriaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <button type="button" @click="sabiduriaRandom()" class="btn btn-pj btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                                     <span class="text-danger" v-if="errors.sabiduria" >{{errors.sabiduria}}</span>
                                 </div>
 
@@ -214,7 +214,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <div class="col-md-4 d-block" style="text-align:center">
                                     <h4>Carisma</h4>
                                     <input v-model="personaje.carisma" type="number" id="car" min="3" max="18" class="form-control" style="text-align:center; font-size:larger;">
-                                    <button type="button" @click="carismaRandom()" class="btn btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
+                                    <button type="button" @click="carismaRandom()" class="btn btn-pj btn-outline-dark w-100"> <i class="fas fa-dice"></i></button>
                                     <span class="text-danger" v-if="errors.carisma" >{{errors.carisma}}</span>
                                 </div>
                     

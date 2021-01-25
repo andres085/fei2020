@@ -3,7 +3,7 @@
 use yii\web\View;
 
 $this->title = 'Objetos';
-$this->params['breadcrumbs'][] = $this->title;
+
 
 $this->registerJsFile('https://cdn.jsdelivr.net/npm/vue/dist/vue.js', ['position' => View::POS_HEAD]);
 $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['position' => View::POS_HEAD]);

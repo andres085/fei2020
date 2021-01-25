@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Modulo de Jugador';
-$this->params['breadcrumbs'][] = $this->title;
+
 
 $this->registerCssFile("//unpkg.com/bootstrap/dist/css/bootstrap.min.css", ['position' => $this::POS_HEAD]);
 $this->registerCssFile("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css", ['position' => $this::POS_HEAD]);
@@ -17,6 +17,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 <div class="container-fluid">
 
     <div id="app">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
+            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
+            <li class="breadcrumb-item active" aria-current="/personaje/modulopj">Modulo Personaje</li>
+        </ol>
+    </nav>
         <h1 style="text-align: center;"> Módulo del Jugador</h1>
         <br>
 
@@ -122,7 +130,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
             <div class="col-md-12">
 
-                <button class="btn btn-block btn-outline-dark" onclick="window.location.href='creadorpj1'">
+                <button class="btn btn-pj btn-block btn-outline-dark" onclick="window.location.href='creadorpj1'">
                     <h2><i class="fas fa-plus"></i><br> Agregar Personaje</h2>
                 </button>
 
@@ -134,7 +142,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div class="container-fluid" style="max-height:450px ;overflow-y: auto;" v-if="usuarios.personajes!=null" v-for="(personaje, key) in usuarios.personajes" :key="personaje.id">
 
-                        <b-button v-b-modal.modal-1 type="button" class="btn btn-pjs btn-dark" user="'personaje'" @click="sendInfo(personaje)"><h4>{{personaje.nombre}}</h4>
+                        <b-button v-b-modal.modal-1 style="width: 90%;" type="button" class="btn btn-pj btn-dark m-3 p-3" user="'personaje'" @click="sendInfo(personaje)"><h4>{{personaje.nombre}}</h4>
                             <h5> {{personaje.raza}} - {{personaje.clase}} - {{personaje.nivel}}</h5>
                         </b-button>
 

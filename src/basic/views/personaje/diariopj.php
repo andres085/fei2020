@@ -3,7 +3,7 @@
 use yii\web\View;
 
 $this->title = 'Modulo de Jugador';
-$this->params['breadcrumbs'][] = $this->title;
+
 
 //$userId = Yii::$app->user->identity->id;
 
