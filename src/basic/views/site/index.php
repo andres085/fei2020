@@ -6,6 +6,8 @@ use yii\widgets\ActiveForm;
 
 use yii\helpers\Url;
 
+$this->title = 'Taverna del Dragón Rojo - Herramienta para D&D 5E';
+
 ?>
 
 <div class="container-fluid">
@@ -48,7 +50,7 @@ use yii\helpers\Url;
 
                 <div class="col-md-6">
                 
-                    <button class="btn btn-outline-dark btn-block" onclick="window.location.href='/master/campania'"> <h3>Dungeon Master</h3> </button>
+                    <button class="btn btn-dm btn-outline-dark btn-block" onclick="window.location.href='/master/campania'"> <h3>Dungeon Master</h3> </button>
 
                 </div>
 

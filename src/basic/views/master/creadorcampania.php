@@ -21,7 +21,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
-            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
             <li class="breadcrumb-item active"><a href="/master/campania">Modulo Campaña</a></li>
             <li class="breadcrumb-item active" aria-current="/master/creadorcampania">Creador Campaña</li>
         </ol>
@@ -29,10 +28,12 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
     <h3>Ingresa los datos de la Campaña</h3>
 
+    <br>
+
         <div class="row">
 
             <div class="col-md-9">
-                <h1>Nombre</h1>
+                <h1>Nombre <sup style="color: red;">*</sup></h1>
                      <input class="form-control" type="text" v-model="campania.nombre" id="nombre" name="nombre">
                     <br>
                     <span class="text-danger" v-if="errors.nombre" >{{errors.nombre}}</span>
@@ -42,7 +43,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
         <div class="row my-3">
 
             <div class="col-md-9">
-                <h1>Detalles</h1>
+                <h1>Detalles <sup style="color: red;">*</sup></h1>
                      
                      <textarea class="form-control" v-model="campania.detalles" name="detalles" id="detalles" cols="30" rows="8"></textarea>
 

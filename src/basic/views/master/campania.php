@@ -20,7 +20,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
-            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
             <li class="breadcrumb-item active" aria-current="/master/campania">Modulo Campaña</li>
         </ol>
     </nav>
@@ -68,7 +67,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
             <div class="col-md-12">
 
-                <button class="btn btn-block btn-outline-dark" onclick="window.location.href='creadorcampania'">
+                <button class="btn btn-dm btn-block btn-outline-dark" onclick="window.location.href='creadorcampania'">
                     <h2><i class="fas fa-plus"></i><br> Agregar Campaña</h2>
                 </button>
 
@@ -80,7 +79,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                     <div class="container-fluid" style="max-height:450px ;overflow-y: auto;" v-if="campañas != null" v-for="(campaña, key) in campañas" :key="campaña.id">
 
-                        <b-button v-b-modal.modal-1 type="button" class="btn btn-pjs btn-dark" user="'campaña'" @click="sendInfo(campaña)"><h4>{{campaña.nombre}}</h4>
+                        <b-button v-b-modal.modal-1 style="width: 90%;" type="button" class="btn btn-dm btn-dark m-3 p-3" user="'campaña'" @click="sendInfo(campaña)"><h4>{{campaña.nombre}}</h4>
                             {{campaña.detalles}}
                         </b-button>
 

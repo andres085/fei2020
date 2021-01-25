@@ -91,6 +91,12 @@ use app\assets\AppAsset;
             border-color: #780623;
         }
 
+        .btn-dm:hover{
+            color: #fff;
+            background-color: #184D00;
+            border-color: #184D00;
+        }
+
         
         .nav-link {
             color: #212529;
