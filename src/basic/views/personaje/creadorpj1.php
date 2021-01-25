@@ -229,7 +229,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                 <!-- ###################################################################### -->
                                 <h1>Trasfondo</h1>
 
-                                <select class="form-control" v-model="trasfondoSelect">
+                                <select class="form-control">
                                     <option value="">Seleccione un elemento</option>
                                     <option v-on:click="guardarId(trasfondo.id)" v-for="trasfondo in trasfondos" :selected="personaje.id_trasfondo == trasfondo.id" >{{trasfondo.nombre}}</>
                                 </select>
@@ -237,20 +237,18 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                             </div>
 
-                            <div>
+                            <div v-if="trasfondoSelect">
 
-                                <h3>{Nombre Trasfondo}</h3>
+                                <h3>{{trasfondoSelect.nombre}}</h3>
 
-                                <p>{descripcion}</p>
+                                <p>{{trasfondoSelect.descripcion}}</p>
 
+                                <h4 v-if="trasfondoSelect.comp_habilidades1">
+                                    Competencias de Habilidades: {{trasfondoSelect.comp_habilidades1}}, {{trasfondoSelect.comp_habilidades2}}
+                                </h4>     
 
-                                <h4>
-                                    Competencias de Habilidades: {competencias}
-                                </h4>
-
-
-                                <h4>
-                                    Competencias de Equipo: {competencias}
+                                <h4 v-if="trasfondoSelect.comp_equipo1 || trasfondoSelect.comp_equipo2">
+                                    Competencias de Equipo: {{trasfondoSelect.comp_equipo1}}  {{trasfondoSelect.comp_equipo2}}
                                 </h4>
                             </div>
 
@@ -259,14 +257,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                                     <div class="card-header" id="headingOne">
                                     <h2 class="mb-0">
                                         <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
-                                        <h4>Rasgo: {nombre rasgo}</h4>
+                                        <h4>Rasgo: {{trasfondoSelect.nombre_rasgo}}</h4>
                                         </button>
                                     </h2>
                                     </div>
 
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionTrasfondo">
                                     <div class="card-body">
-                                        {descripcion rasgo}
+                                        {{trasfondoSelect.rasgo}}
                                     </div>
                                     </div>
                                 </div>
@@ -335,7 +333,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                         <hr>
 
                         <div><b>Trasfondo:</b></div>
-                        <div>{{trasfondoSelect}}</div>
+                        <div v-if="trasfondoSelect">{{trasfondoSelect.nombre}}</div>
                         
                         <br>
 
@@ -390,7 +388,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 id_personaje:"",
                 isNewRecord: true,
                 personajes:{},
-                trasfondoSelect:""
+                trasfondoSelect:{}
             }
         },
         mounted() {
@@ -489,6 +487,11 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
             },
             guardarId: function(id) {
                 this.personaje.id_trasfondo = id;
+                for(let i = 0; i<this.trasfondos.length; i++){
+                    if(this.trasfondos[i].id == id){
+                        this.trasfondoSelect = this.trasfondos[i];
+                    }
+                }
             },
             normalizeErrors: function(errors) {
                 var allErrors = {};
