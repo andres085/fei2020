@@ -2,7 +2,7 @@
 
 Bienvenidos al Gestor de Personajes y Campaña de Dungeon and Dragons realizado por Martinez Andrés y Fidel Entraigas
 
-En este sistema el usuario podra crear una cuenta, adonde podra crear y gestionar, los personajes con sus distintas caracteristicas, asi tambien como su equipamiento y su diario. Del mismo modo podran crear sus propias campañas, vincular personajes y mantener un diario de campaña.
+En este sistema el usuario podra armar una cuenta, adonde podra crear y gestionar, los personajes con sus distintas caracteristicas, asi tambien como su equipamiento y su diario. Del mismo modo podran crear sus propias campañas, vincular personajes y mantener un diario de campaña.
 
 Instalación:
 
