@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Modulo de Jugador';
-$this->params['breadcrumbs'][] = $this->title;
 
 $this->registerCssFile("//unpkg.com/bootstrap/dist/css/bootstrap.min.css", ['position' => $this::POS_HEAD]);
 $this->registerCssFile("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css", ['position' => $this::POS_HEAD]);
@@ -15,6 +14,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 ?>
 
 <div class="container-fluid">
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="/personaje/modulopj">Modulo Personaje</li>
+        </ol>
+    </nav>
 
     <div id="app">
         <h1 style="text-align: center;"> Módulo del Jugador</h1>

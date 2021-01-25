@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Hoja de Personaje';
-$this->params['breadcrumbs'][] = $this->title;
 
 $this->registerCssFile("//unpkg.com/bootstrap/dist/css/bootstrap.min.css", ['position' => $this::POS_HEAD]);
 $this->registerCssFile("//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css", ['position' => $this::POS_HEAD]);
@@ -17,6 +16,14 @@ echo $this->render('/components/CrudDiario');
 ?>
 
 <div style="height: 120vh;" class="container-fluid" id="app">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
+            <li class="breadcrumb-item active"><a href="/personaje/modulopj">Modulo Personaje</a></li>
+            <li class="breadcrumb-item active" aria-current="/personaje/hojapj">Hoja Personaje</li>
+        </ol>
+    </nav>
 
         <ul class="nav nav-tabs nav-fill" id="pills-tab" role="tablist">
 

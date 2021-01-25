@@ -3,7 +3,6 @@
 use yii\web\View;
 
 $this->title = 'Modulo de Master';
-$this->params['breadcrumbs'][] = $this->title;
 
 //$userId = Yii::$app->user->identity->id;
 
@@ -16,7 +15,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
 ?>
 
-<div id="app">
+<div class="container-fluid" id="app">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
+            <li class="breadcrumb-item active"><a href="/master/campania">Modulo Campaña</a></li>
+            <li class="breadcrumb-item active" aria-current="/master/creadorcampania">Creador Campaña</li>
+        </ol>
+    </nav>
 
     <h3>Ingresa los datos de la Campaña</h3>
 

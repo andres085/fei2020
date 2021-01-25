@@ -4,7 +4,6 @@ use yii\helpers\Html;
 use yii\web\View;
 
 $this->title = 'Modulo de Jugador';
-$this->params['breadcrumbs'][] = $this->title;
 
 //$userId = Yii::$app->user->identity->id;
 
@@ -13,6 +12,14 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 ?>
 <div class="site-personaje">
     <div class="container-fluid" id="app">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
+            <li class="breadcrumb-item active"><a href="/personaje/modulopj">Modulo Personaje</a></li>
+            <li class="breadcrumb-item active" aria-current="/personaje/creadorpj1">Creador Personaje</li>
+        </ol>
+    </nav>
 
 
         <div class="row">

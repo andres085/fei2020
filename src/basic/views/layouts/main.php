@@ -105,8 +105,7 @@ use app\assets\AppAsset;
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav texto-secundario'],
             'items' => [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                !Yii::$app->user->isGuest ? (['label' => 'Jugador', 'url' => ['/site/selector']]):'',
+                ['label' => 'Inicio', 'url' => ['/site/index']],
                 Yii::$app->user->isGuest ? (['label' => 'Registro', 'url' => ['/usuario/create']]) : '',
                 Yii::$app->user->isGuest ? (['label' => 'Login', 'url' => ['/site/login']]) : ('<li>'
                     . Html::beginForm(['/site/logout'], 'post')
