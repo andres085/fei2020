@@ -42,7 +42,7 @@ use yii\helpers\Url;
             
                 <div class="col-md-6">
                 
-                    <button class="btn btn-outline-dark btn-block" onclick="window.location.href='/personaje/modulopj'"> <h3>Jugador</h3> </button>
+                    <button class="btn btn-pj btn-outline-dark btn-block" onclick="window.location.href='/personaje/modulopj'"> <h3>Jugador</h3> </button>
 
                 </div>
 
