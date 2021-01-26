@@ -21,7 +21,6 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
-            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
             <li class="breadcrumb-item active" aria-current="/personaje/modulopj">Modulo Personaje</li>
         </ol>
     </nav>

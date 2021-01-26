@@ -21,7 +21,6 @@ echo $this->render('/components/CrudDiario');
 <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/site/index">Inicio</a></li>
-            <li class="breadcrumb-item active"><a href="/site/selector">Selector</a></li>
             <li class="breadcrumb-item active"><a href="/master/campania">Modulo Campaña</a></li>
             <li class="breadcrumb-item active" aria-current="/master/hojacampania">Hoja Campaña</li>
         </ol>

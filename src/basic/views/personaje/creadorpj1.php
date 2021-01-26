@@ -236,7 +236,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
 
                                 <select class="form-control">
                                     <option value="">Seleccione un elemento</option>
-                                    <option v-on:click="guardarId(trasfondo.id)" v-for="trasfondo in trasfondos" :selected="personaje.id_trasfondo == trasfondo.id" >{{trasfondo.nombre}}</>
+                                    <option v-model="trasfondoSelect" v-on:click="guardarId(trasfondo.id)" v-for="trasfondo in trasfondos" :selected="personaje.id_trasfondo == trasfondo.id" >{{trasfondo.nombre}}</>
                                 </select>
                                 <span class="text-danger" v-if="errors.id_trasfondo" >{{errors.id_trasfondo}}</span>
 
@@ -427,6 +427,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                 return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
             },
             addPersonaje: function() {
+               
                 var self = this;
                 axios.post('/apiv1/personaje', self.personaje)
                     .then(function(response) {
@@ -518,7 +519,7 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     console.log("Existe");
                     let key = this.personajes.findIndex(x => x.id ===this.id_personaje);
                     this.personaje = Object.assign({}, this.personajes[key]);
-                    this.trasfondoSelect = this.personaje.trasfondo.nombre;
+                    this.trasfondoSelect = this.personaje.trasfondo;
                     this.personaje.id = this.id_personaje;
                     this.isNewRecord = false;
                 }
@@ -546,7 +547,11 @@ $this->registerJsFile("https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js", ['
                     .then(function(response) {
                         // handle success
                         console.log(response.data);
-                        alert("Personaje Actualizado");
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Personaje Actualizado!',
+                            confirmButtonText: 'Volver',
+                        })
                     })
                     .catch(function(error) {
                         // handle error
