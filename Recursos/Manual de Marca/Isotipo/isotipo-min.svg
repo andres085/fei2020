@@ -14,7 +14,7 @@
    id="svg8"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="isotipo-min.svg"
-   inkscape:export-filename="/home/fidel/Escritorio/HerramientaD&amp;D/fei2020/Recursos/Manual de Marca/isotipo.png"
+   inkscape:export-filename="/home/fidel/Escritorio/TDG/fei2020/Recursos/Manual de Marca/Isotipo/isotipo-min.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -27,14 +27,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.9930928"
-     inkscape:cx="-151.8428"
-     inkscape:cy="1.4315323"
+     inkscape:cx="-78.338947"
+     inkscape:cy="-29.174168"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="994"
+     inkscape:window-height="988"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
