@@ -35,9 +35,8 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th v-for="field in modelfields">{{field}}</th>
-                <th></th>
-                <th></th>
+                <th>Fecha y Hora</th>
+                <th>Info</th>
             </tr>
             <tr>
                 <td></td>
@@ -84,6 +83,9 @@
             },
             id_personaje: Number,
             id_campania: Number,
+            labels: {
+                type: Array,
+            }
         },
         mounted() {
             this.getModels();
@@ -241,6 +243,11 @@
                         self.modalShow = false;
                         self.getModels();
                         self.activemodel = {};
+                        Swal.fire(
+                            'Diario Actualizado!',
+                            'Volver!',
+                            'success'
+                        )
                     })
                     .catch(function(error) {
                         // handle error
