@@ -30,6 +30,7 @@ class Diario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['info'], 'required', 'message' => "Campo requerido"],
             [['id_personaje'], 'integer'],
             [['fecha_hora'], 'safe'],
             [['info'], 'string'],
